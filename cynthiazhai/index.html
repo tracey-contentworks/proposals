@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Proposal for @cynthiazhai - Tracey Contentworks</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f1ec;
+    --ink: #1a1a2e;
+    --hero: #2c4a6e;
+    --soft: #e8e3db;
+    --highlight: #b48c64;
+    --hero-light: #edf1f6;
+    --muted: #6b7280;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ─── HEADER ─── */
+  .site-header {
+    padding: 40px 0 32px;
+    border-bottom: 1px solid var(--soft);
+  }
+
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .header-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 100px 0 80px;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 28px;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 9vw, 88px);
+    font-weight: 300;
+    color: var(--hero);
+    line-height: 1.0;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    max-width: 540px;
+    margin: 0 auto 48px;
+    line-height: 1.5;
+  }
+
+  .hero-meta {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--highlight);
+    margin: 48px auto 0;
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--soft);
+  }
+
+  section:last-of-type {
+    border-bottom: none;
+  }
+
+  .section-number {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 400;
+    color: var(--hero);
+    line-height: 1.15;
+    margin-bottom: 40px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--highlight);
+  }
+
+  /* ─── SEEN SECTION ─── */
+  .seen-body p {
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .seen-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  blockquote {
+    border-left: 2px solid var(--highlight);
+    padding: 16px 0 16px 28px;
+    margin: 36px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--hero);
+    line-height: 1.55;
+  }
+
+  blockquote cite {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  /* ─── HERO IMAGE ─── */
+  .aesthetic-image {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    margin: 48px 0;
+    object-fit: cover;
+    max-height: 420px;
+    filter: saturate(0.85);
+  }
+
+  /* ─── OBSERVATION CARDS ─── */
+  .observations-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .obs-card {
+    background: white;
+    border: 1px solid var(--soft);
+    border-radius: 6px;
+    padding: 36px 40px;
+    position: relative;
+  }
+
+  .obs-card::before {
+    content: attr(data-num);
+    position: absolute;
+    top: 36px;
+    right: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--soft);
+    line-height: 1;
+  }
+
+  .obs-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 12px;
+  }
+
+  .obs-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.3;
+    max-width: 80%;
+  }
+
+  .obs-body {
+    font-size: 15.5px;
+    color: #3d3d52;
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .obs-evidence {
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--soft);
+    padding-top: 14px;
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  /* ─── SERVICES ─── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  .service-card {
+    background: var(--hero-light);
+    border: 1px solid #d0dae6;
+    border-radius: 6px;
+    padding: 32px 28px;
+  }
+
+  .service-card.featured {
+    background: var(--hero);
+    border-color: var(--hero);
+    color: white;
+    grid-column: 1 / -1;
+  }
+
+  .service-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 12px;
+  }
+
+  .service-card.featured .service-tag {
+    color: #a8c0d8;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--hero);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .service-card.featured .service-name {
+    color: white;
+    font-size: 26px;
+  }
+
+  .service-list {
+    list-style: none;
+    font-size: 14.5px;
+    color: #3d4a5c;
+    line-height: 1.8;
+  }
+
+  .service-card.featured .service-list {
+    color: #c5d8e8;
+  }
+
+  .service-list li::before {
+    content: "- ";
+    color: var(--highlight);
+  }
+
+  .service-card.featured .service-list li::before {
+    color: #7fa8c8;
+  }
+
+  .service-price {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    border-top: 1px solid rgba(44,74,110,0.12);
+    padding-top: 14px;
+  }
+
+  .service-card.featured .service-price {
+    color: #7fa8c8;
+    border-top-color: rgba(255,255,255,0.15);
+  }
+
+  /* ─── SAMPLE ─── */
+  .sample-wrapper {
+    background: white;
+    border: 1px solid var(--soft);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .sample-header {
+    background: var(--hero);
+    color: white;
+    padding: 24px 36px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .sample-slides {
+    padding: 0;
+  }
+
+  .slide {
+    padding: 32px 36px;
+    border-bottom: 1px solid var(--soft);
+    position: relative;
+  }
+
+  .slide:last-child {
+    border-bottom: none;
+  }
+
+  .slide-num {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin-bottom: 12px;
+  }
+
+  .slide-copy {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--ink);
+    white-space: pre-line;
+  }
+
+  .slide-copy strong {
+    font-weight: 600;
+  }
+
+  .sample-caption {
+    background: var(--soft);
+    padding: 28px 36px;
+  }
+
+  .sample-caption-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .sample-caption-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: var(--ink);
+    white-space: pre-line;
+  }
+
+  .sample-note {
+    background: #faf8f5;
+    border: 1px solid var(--soft);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+    font-style: italic;
+  }
+
+  /* ─── POSITIONING ─── */
+  .positioning-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .positioning-list li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .pos-bullet {
+    width: 32px;
+    height: 32px;
+    background: var(--hero);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pos-bullet::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--highlight);
+    border-radius: 50%;
+  }
+
+  .pos-text {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+
+  .pos-text strong {
+    font-weight: 600;
+    display: block;
+    color: var(--hero);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    text-align: center;
+    padding: 100px 0;
+    background: var(--hero);
+    margin: 0 -32px;
+    padding-left: 32px;
+    padding-right: 32px;
+    color: white;
+  }
+
+  .cta-section .section-number {
+    color: #7fa8c8;
+  }
+
+  .cta-section .section-title {
+    color: white;
+  }
+
+  .cta-lead {
+    font-size: 18px;
+    color: #c5d8e8;
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--highlight);
+    color: white;
+    text-decoration: none;
+    padding: 18px 48px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+
+  .cta-button:hover {
+    opacity: 0.88;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    border-top: 1px solid var(--soft);
+  }
+
+  footer .student-handle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--hero);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  footer .footer-note {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 12px;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 0 20px; }
+    .site-header .container { flex-direction: column; gap: 8px; text-align: center; }
+    .obs-card::before { display: none; }
+    .obs-title { max-width: 100%; }
+    .cta-section { margin: 0 -20px; padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header class="site-header">
+  <div class="container">
+    <span class="header-label">A proposal prepared for</span>
+    <span class="header-date">April 18, 2026</span>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">For the voice that deserves to be heard</p>
+    <h1 class="hero-name">@cynthiazhai</h1>
+    <p class="hero-tagline">A proposal for a voice that has already changed lives - and is ready to reach more of them.</p>
+    <p class="hero-meta">Prepared by @tracey.contentworks</p>
+    <div class="hero-divider"></div>
+  </div>
+</div>
+
+<!-- ─── SECTION 1: I SEE YOU ─── -->
+<section>
+  <div class="container">
+    <p class="section-number">01 / 07 &nbsp;&nbsp; The Part Where I Tell You What I Actually Noticed</p>
+    <h2 class="section-title">You have spent 16 years<br>helping others be heard.<br><em>And yet.</em></h2>
+
+    <div class="seen-body">
+
+      <img src="aesthetic/top2.jpg" alt="Cynthia Zhai - Voice as Energy event" class="aesthetic-image">
+
+      <p>There is something quietly striking about your account, Cynthia. You have 3,716 posts. That is not inconsistency. That is 16 years of showing up, of converting lived experience into something useful for professionals who feel invisible despite working harder than anyone in the room.</p>
+
+      <p>What I noticed first is that your origin story - the one about feeling talked over, about being bullied by a boss into silence, about English being your second language - is the most powerful thing you own. Not your credentials. Not "CSP" or "TEDx." The story of a woman who had every reason to stay quiet and chose instead to spend a decade and a half teaching others how not to.</p>
+
+      <blockquote>
+        "We teach what we needed to learn the most."
+        <cite>- @cynthiazhai, from your most recent Reel</cite>
+      </blockquote>
+
+      <p>That line stopped me. It is not a quote you borrowed. It is your entire biography in nine words. And yet it appears once, in a post that received seven likes. Because the problem is not the depth of what you have to say. The problem is that the people who most need to hear it are not finding you yet.</p>
+
+      <p>I also noticed something more specific: you have built a brand around "quiet power" - a deliberate alternative to the rah-rah coaching world. Your clients describe you as grounded, calm, the opposite of forced. That positioning is rare and real. But right now, your Instagram does not quite show it. What I see is a feed that is working very hard to be helpful, and occasionally showing flashes of the more interesting, more personal Cynthia - and those are the posts that actually land.</p>
+
+      <blockquote>
+        "I attract those who resonate with me. My story, my personality, my experience, my teaching style, and what I stand for. A rose never competes with a lily."
+        <cite>- @cynthiazhai (<a href="https://www.instagram.com/p/DVfpefOibvC/" style="color: var(--highlight); text-decoration: none;">post, Mar 2026</a>)</cite>
+      </blockquote>
+
+      <p>The rose-and-lily post got six likes. But it is the truest thing on your account. What I want to do is make your Instagram feel as true as that post - consistently, every week, not just on the days when you write from the deepest part of your experience.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 2: 3 OBSERVATIONS ─── -->
+<section>
+  <div class="container">
+    <p class="section-number">02 / 07 &nbsp;&nbsp; What I Found When I Ran the Numbers</p>
+    <h2 class="section-title">Three things I noticed<br>that are worth naming.</h2>
+
+    <div class="observations-grid">
+
+      <div class="obs-card" data-num="1">
+        <p class="obs-label">Observation One</p>
+        <h3 class="obs-title">Your Reels get 2x the engagement of your images - but half your content is still static.</h3>
+        <p class="obs-body">Across 100 posts analyzed, your Reels average 8.0 likes per post versus 3.7 for single images. That is not a small gap. It is the difference between content that reaches and content that stays in place. And yet 50 of your last 100 posts were static images - the format that performs worst for your account specifically.</p>
+        <p class="obs-evidence">Data: 31 Reels (avg 8.0L, 98.7 views) vs 50 Images (avg 3.7L) - from 100-post audit, April 2026. Your Reels have reach potential; your images largely do not.</p>
+      </div>
+
+      <div class="obs-card" data-num="2">
+        <p class="obs-label">Observation Two</p>
+        <h3 class="obs-title">The same myth has been written five times in the last six months. The audience has stopped seeing it.</h3>
+        <p class="obs-body">The "loud does not equal powerful" angle is your most familiar territory - and it appears in at least five separate posts with nearly identical structure, logic, and bullet points. This is not laziness; it is a topic you genuinely believe in. But when a cold reader sees the same insight framed the same way repeatedly, the algorithm learns to show it to fewer people, and the existing audience learns to scroll past.</p>
+        <p class="obs-evidence">Posts reviewed: DVfpefOibvC, DWF0j0nCZsQ, DWIQetYjVOP, DWDJSm-Cfjs, DWaSB0qEe1w - all published within 12 weeks, all covering the same core myth. The opportunity is not to stop believing it - it is to say it differently.</p>
+      </div>
+
+      <div class="obs-card" data-num="3">
+        <p class="obs-label">Observation Three</p>
+        <h3 class="obs-title">Your biggest differentiator - coaching in a language that is not your first - is almost invisible on your feed.</h3>
+        <p class="obs-body">You once wrote: "English is my 2nd language, yet I've made a great living speaking and coaching primarily in English." That single fact is worth more than any credential. For the enormous audience of non-native English speakers in Asia who want to be heard in professional environments, you are not just a voice coach - you are living proof. But in the last 100 posts, this angle appeared in maybe one or two sentences. It deserves its own series.</p>
+        <p class="obs-evidence">Post DVfpefOibvC (Mar 2026, 6L) briefly mentions this. Your top engagement post by a significant margin was a Chinese New Year Reel (45L, 878 views) - the one moment your Asian identity visibly entered the feed. The audience is there; the content is not meeting them.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 3: SERVICES ─── -->
+<section>
+  <div class="container">
+    <p class="section-number">03 / 07 &nbsp;&nbsp; What We Could Build Together</p>
+    <h2 class="section-title">Four things I can<br>take off your plate.</h2>
+
+    <!-- STUDENT: thay giá cụ thể vào placeholder [Investment: contact for rates] -->
+    <div class="services-grid">
+
+      <div class="service-card featured">
+        <p class="service-tag">Most Urgent</p>
+        <h3 class="service-name">Instagram Conversion Funnel + Bio Link Page</h3>
+        <ul class="service-list">
+          <li>A dedicated landing page (linked from bio) that clearly presents your three offers: 1:1 coaching, online masterclasses, and the book</li>
+          <li>Each content pillar on your feed leads naturally toward one of these entry points - no more "reach out to me" as the only CTA</li>
+          <li>Keyword-triggered DM responses so interested followers get the right information instantly without you having to reply manually to every inquiry</li>
+        </ul>
+        <p class="service-price">[Investment: contact for rates]</p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-tag">Strategy</p>
+        <h3 class="service-name">Content Strategy + Calendar</h3>
+        <ul class="service-list">
+          <li>Monthly content pillar planning based on your offers and calendar</li>
+          <li>ESL + leadership angle development as a recurring series</li>
+          <li>Hashtag refresh and testing rotation</li>
+          <li>Repurposing system: one idea, four formats</li>
+        </ul>
+        <p class="service-price">[Investment: contact for rates]</p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-tag">Execution</p>
+        <h3 class="service-name">Carousel + Caption Writing</h3>
+        <ul class="service-list">
+          <li>4-8 carousel scripts per month, written in your voice</li>
+          <li>Each carousel goes through a voice-match check before delivery</li>
+          <li>No templates. No "7 tips" formats unless that is what the data says works for you.</li>
+        </ul>
+        <p class="service-price">[Investment: contact for rates]</p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-tag">Execution</p>
+        <h3 class="service-name">Reels Scripts + Story Frames</h3>
+        <ul class="service-list">
+          <li>Reels scripts written around your speaking voice - calm, grounded, teaching-mode</li>
+          <li>Story frames that drive traffic toward your webinars and book</li>
+          <li>Format shift: moving your strongest insights from static images into short-form video</li>
+        </ul>
+        <p class="service-price">[Investment: contact for rates]</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTION 4: SAMPLE ─── -->
+<section>
+  <div class="container">
+    <p class="section-number">04 / 07 &nbsp;&nbsp; So You Can See It, Not Just Read About It</p>
+    <h2 class="section-title">A sample I wrote<br>in your voice.</h2>
+
+    <p style="margin-bottom: 32px; color: var(--muted); font-size: 15px; line-height: 1.75;">This is a carousel script for an angle that your data says is underused - the ESL professional who refused to let language be a ceiling. It has not appeared in your recent content. It should. Below is what it would look like, written the way you write.</p>
+
+    <div class="sample-wrapper">
+      <div class="sample-header">
+        Sample Carousel Script - "The Thing I Was Told Would Hold Me Back"
+      </div>
+
+      <div class="sample-slides">
+
+        <div class="slide">
+          <p class="slide-num">Slide 01 - Hook</p>
+          <div class="slide-copy">When I first started as a voice coach, someone told me my English would limit my career.
+
+English, after all, was not my first language.
+
+I thought about that comment for a long time.</div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-num">Slide 02</p>
+          <div class="slide-copy">At 6 years old, I failed an entrance exam because my sister left the room and I panicked.
+
+At 17, I had never imagined I would one day coach others on how to speak.
+
+At the start of my career, I sat in meetings feeling unheard. Not because of my ideas. Because my voice did not yet carry the weight of my conviction.</div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-num">Slide 03</p>
+          <div class="slide-copy">What changed was not my English.
+
+What changed was my voice.
+
+When I learned to breathe properly, to speak from my body rather than from my throat, to let resonance do the work that volume cannot -
+
+the language became secondary.
+
+Presence is not a mother tongue.</div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-num">Slide 04</p>
+          <div class="slide-copy">Today, many of my clients are non-native English speakers.
+
+Leaders from Singapore, Malaysia, India, China, working in environments where English is expected - and where a voice that sounds uncertain can cost you the room.
+
+They do not come to me to improve their grammar.
+
+They come to me because they want their voice to carry the same weight as their ideas.
+
+That gap - between what you know and how you land - is exactly what voice coaching closes.</div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-num">Slide 05</p>
+          <div class="slide-copy"><strong>The truth that took me 16 years to fully understand:</strong>
+
+The professionals who command rooms are not always the most articulate.
+
+They are not always the most senior.
+
+They are the ones whose voice arrives in the room before they finish their sentence.
+
+That quality is trainable.
+
+I know. Because I trained it in myself first.</div>
+        </div>
+
+        <div class="slide">
+          <p class="slide-num">Slide 06 - Close</p>
+          <div class="slide-copy">If you are a non-native English speaker working in a professional environment -
+
+and you have ever felt that the barrier was the language when it was actually the voice -
+
+you are not alone.
+
+And it is not a permanent condition.
+
+<strong>Your voice is an instrument. It can be developed.</strong>
+
+I have spent 16 years proving that.
+
+Starting with my own.
+
+--
+
+What is the one moment you realized your voice was not matching the quality of your ideas?
+
+Share below.</div>
+        </div>
+
+      </div>
+
+      <div class="sample-caption">
+        <p class="sample-caption-label">Caption</p>
+        <div class="sample-caption-text">Someone once told me my English would hold me back.
+
+For a while, I believed them.
+
+Then I developed my voice - and realized the problem was never the language.
+
+It was never having been taught to speak from the body, not the throat.
+
+If you are a professional working in English as a second (or third) language and you have ever felt your ideas were better than how they landed -
+
+this post is for you.
+
+And so is everything I share here.
+
+#VoiceCoach #ExecutivePresence #ESLProfessionals #LeadershipCommunication #SpeakWithConfidence #AsianProfessionals #VoiceMastery #PublicSpeaking</div>
+      </div>
+    </div>
+
+    <div class="sample-note">
+      This sample was written after reading 15+ of your captions in full. The opening move mirrors your existing confession archetype. The structure follows how you teach - from personal experience outward, not from theory inward. The ESL angle is taken directly from your March post about "English as my second language" - extended into a full piece. If we work together, every piece goes through a voice-match check before it reaches you.
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 5: POSITIONING ─── -->
+<section>
+  <div class="container">
+    <p class="section-number">05 / 07 &nbsp;&nbsp; Why This Is Different</p>
+    <h2 class="section-title">What I do<br>that agencies do not.</h2>
+
+    <ul class="positioning-list">
+      <li>
+        <div class="pos-bullet"></div>
+        <div class="pos-text">
+          <strong>I read before I pitch.</strong>
+          This proposal is based on 100 posts analyzed, your engagement data, and 15+ full captions read in sequence. Not a template applied to your handle. The sample above was written specifically for you - from an angle your data identified, in a voice matched to your fingerprint.
+        </div>
+      </li>
+      <li>
+        <div class="pos-bullet"></div>
+        <div class="pos-text">
+          <strong>I work in voice, not format.</strong>
+          Most social media managers optimize for consistency. I optimize for sounding like you. The difference is that when I write, your followers should not notice a change - they should simply notice your content getting better.
+        </div>
+      </li>
+      <li>
+        <div class="pos-bullet"></div>
+        <div class="pos-text">
+          <strong>I connect content to conversion.</strong>
+          Your posting frequency is already strong. What is missing is a system that moves a follower from "I like this post" toward "I want to work with her." That system - funnel, bio link, DM triggers - is part of what I build.
+        </div>
+      </li>
+      <li>
+        <div class="pos-bullet"></div>
+        <div class="pos-text">
+          <strong>No templates. No recycled strategies.</strong>
+          You have spent 16 years teaching that a rose does not compete with a lily. I apply the same logic to your content: what works for another coach will not automatically work for you. Every recommendation in this proposal comes from your data, your voice, and your specific audience.
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- ─── SECTION 6: CTA ─── -->
+<section style="padding: 0; border: none;">
+  <div class="cta-section">
+    <p class="section-number">06 / 07 &nbsp;&nbsp; When You Are Ready</p>
+    <h2 class="section-title" style="color:white; margin-bottom: 24px;">The next step<br>is a simple one.</h2>
+    <p class="cta-lead">If any part of this landed for you - send me a message on Instagram. No pressure, no agenda. Just a conversation to see if there is a fit.</p>
+    <a href="https://www.instagram.com/tracey.contentworks/" class="cta-button" target="_blank">Message @tracey.contentworks</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <span class="student-handle">@tracey.contentworks</span>
+    <span>Social Media Management - April 18, 2026</span>
+    <p class="footer-note">This proposal was written specifically for @cynthiazhai. Not a template.</p>
+  </div>
+</footer>
+
+</body>
+</html>
