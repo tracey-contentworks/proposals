@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal — @susan.hongming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f7f2ec;
+    --bg2:       #ede5d8;
+    --ink:       #2b2318;
+    --ink-soft:  #6b5c4a;
+    --hero:      #5a8a6c;
+    --hero-pale: #e5eeea;
+    --soft:      #e8ddd0;
+    --highlight: #9b6b48;
+    --highlight-pale: #f3e9e0;
+    --white:     #fdfaf6;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ── HERO ─────────────────────────────────────── */
+  .hero {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--soft);
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-bottom: 32px;
+  }
+
+  .hero-handle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 9vw, 72px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  .hero-handle span {
+    color: var(--hero);
+  }
+
+  .hero-tagline {
+    font-size: 19px;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-image {
+    margin-top: 48px;
+    border-radius: 4px;
+    overflow: hidden;
+    max-height: 320px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: saturate(0.85);
+  }
+
+  /* ── SECTIONS ─────────────────────────────────── */
+  .section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--soft);
+  }
+
+  .section:last-of-type { border-bottom: none; }
+
+  .section-number {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--hero);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    color: var(--ink);
+  }
+
+  .section-body p {
+    margin-bottom: 20px;
+    color: var(--ink);
+    font-size: 17px;
+  }
+
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* ── BLOCKQUOTE ───────────────────────────────── */
+  blockquote {
+    margin: 32px 0;
+    padding: 24px 28px;
+    background: var(--hero-pale);
+    border-left: 3px solid var(--hero);
+    border-radius: 0 4px 4px 0;
+  }
+
+  blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin-bottom: 8px !important;
+  }
+
+  blockquote cite {
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  /* ── OBSERVATION CARDS ────────────────────────── */
+  .obs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  .obs-card {
+    background: var(--white);
+    border: 1px solid var(--soft);
+    border-radius: 6px;
+    padding: 28px 32px;
+    position: relative;
+  }
+
+  .obs-num {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .obs-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .obs-body {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+
+  .obs-opportunity {
+    font-size: 14px;
+    color: var(--hero);
+    font-weight: 500;
+    padding-top: 14px;
+    border-top: 1px solid var(--soft);
+  }
+
+  .obs-opportunity::before {
+    content: "Co hoi: ";
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 11px;
+  }
+
+  /* ── SERVICE CARDS ────────────────────────────── */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--soft);
+    border-radius: 6px;
+    padding: 28px 28px 32px;
+    transition: border-color 0.2s;
+  }
+
+  .service-card:hover {
+    border-color: var(--hero);
+  }
+
+  .service-card.featured {
+    background: var(--hero-pale);
+    border-color: var(--hero);
+  }
+
+  .service-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .service-list {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .service-list li {
+    font-size: 15px;
+    color: var(--ink-soft);
+    padding: 6px 0;
+    padding-left: 16px;
+    position: relative;
+    border-bottom: 1px solid var(--soft);
+    line-height: 1.55;
+  }
+
+  .service-list li:last-child { border-bottom: none; }
+
+  .service-list li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: var(--hero);
+  }
+
+  .service-price {
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SAMPLE CONTENT ───────────────────────────── */
+  .sample-wrapper {
+    background: var(--ink);
+    border-radius: 8px;
+    padding: 40px;
+    margin-top: 12px;
+    position: relative;
+  }
+
+  .sample-phone-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+  }
+
+  .sample-slide {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 28px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .sample-slide:last-of-type { margin-bottom: 0; }
+
+  .slide-num {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+
+  .slide-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink);
+    white-space: pre-line;
+  }
+
+  .slide-text strong {
+    font-weight: 600;
+    color: var(--hero);
+  }
+
+  .caption-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-top: 16px;
+  }
+
+  .caption-box p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.75;
+    white-space: pre-line;
+  }
+
+  .sample-note {
+    margin-top: 28px;
+    padding: 20px 24px;
+    background: rgba(90,138,108,0.15);
+    border-left: 2px solid var(--hero);
+    border-radius: 0 4px 4px 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* ── WHY DIFFERENT ────────────────────────────── */
+  .why-list {
+    list-style: none;
+    display: grid;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  .why-list li {
+    padding: 20px 24px;
+    background: var(--white);
+    border: 1px solid var(--soft);
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.6;
+    padding-left: 28px;
+    position: relative;
+  }
+
+  .why-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--hero);
+    border-radius: 3px 0 0 3px;
+  }
+
+  .why-list strong {
+    display: block;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .why-list span {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ── CTA ──────────────────────────────────────── */
+  .cta-section {
+    text-align: center;
+    padding: 80px 0;
+  }
+
+  .cta-section .section-number { justify-content: center; display: block; }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  .cta-sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 440px;
+    margin: 0 auto 36px;
+    line-height: 1.65;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--white);
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 3px;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .cta-btn:hover {
+    background: var(--hero);
+    transform: translateY(-1px);
+  }
+
+  /* ── FOOTER ───────────────────────────────────── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.4);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  footer a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+  }
+
+  footer strong {
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* ── DIVIDER ──────────────────────────────────── */
+  .thin-rule {
+    border: none;
+    border-top: 1px solid var(--soft);
+    margin: 0;
+  }
+
+  /* ── IMAGE STRIP ──────────────────────────────── */
+  .img-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 36px 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .img-strip img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.8);
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────── */
+  @media (max-width: 600px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 56px 0 40px; }
+    .section { padding: 52px 0; }
+    .service-grid { grid-template-columns: 1fr; }
+    .sample-wrapper { padding: 24px 20px; }
+    .img-strip { grid-template-columns: repeat(2, 1fr); }
+    .img-strip img:last-child { display: none; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════ -->
+<div class="container">
+  <section class="hero">
+    <p class="hero-label">Proposal danh rieng &mdash; 18 thang 4, 2026</p>
+
+    <h1 class="hero-handle">
+      Hongming <span>fan hong ming</span><br>Susan.
+    </h1>
+
+    <p class="hero-tagline">
+      Mot de xuat cho nguoi da biet rang khong gi la ngau nhien &mdash; va da den luc Instagram cung phan anh dieu do.
+    </p>
+
+    <div class="hero-meta">
+      <span>Viet boi @tracey.contentworks</span>
+      <span>&mdash;</span>
+      <span>Sau khi doc 100 bai, 15+ caption day du</span>
+    </div>
+
+    <div class="hero-image">
+      <img src="aesthetic/top3.jpg" alt="@susan.hongming" loading="lazy">
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     01 - I SEE YOU
+════════════════════════════════════════════════ -->
+<div class="container">
+  <section class="section">
+    <p class="section-number">01 / 06</p>
+    <h2 class="section-title">Em da thay chi.</h2>
+
+    <div class="section-body">
+      <p>
+        Khong phai phan overview thong thuong. Em doc caption cua chi - nhung bai dai nhat, nhung bai chi viet khi dang cam xuc that su - va em nhan ra: chi dang mang theo rat nhieu thu trong long, nhung Instagram cua chi chua ke het duoc.
+      </p>
+
+      <blockquote>
+        <p>"Minh da tung khong de y den dieu nay. Nhung khi bat dau chua lanh va hoc cach ket noi voi chinh minh, minh nhan ra: moi con so deu co y nghia. Khong gi la ngau nhien."</p>
+        <cite>Chi susan.hongming &mdash; <a href="https://www.instagram.com/p/DLBbUwLzsLp/" style="color:inherit">instagram.com/p/DLBbUwLzsLp</a></cite>
+      </blockquote>
+
+      <p>
+        Day khong phai chi ang "wellness coach" hay "Iching practitioner" theo nghia thong thuong. Chi la nguoi da trai qua mot cuoc chuyen hoa that su - tu viec khong biet minh co tai nang gi, den ngay dau tien dung truoc mot lop Kinh Dich va cam thay "day la minh". Va tu do, chi khong chi hoc - chi bat dau huong dan nguoi khac tim ra mat ma cua chinh ho.
+      </p>
+
+      <p>
+        Em doc bai chi viet ve chuyen di Can Gio - chuyen di chi lam huong dan vien lan dau tien cho CLB Dinh Duong, moi ban nuoc ngoai cung tham gia - va thay mot cau rat quan trong: <em>"minh tung tin can nguoi co nghiep vu, chuyen mon, kinh nghiem du lich moi lam duoc. Nhung bang su dan dat, tinh yeu thuong va mong muon duoc cong hien - minh da lam duoc."</em> Do chinh la dieu chi dang chung minh moi ngay - va la thu ma Instagram cua chi can the hien ro hon.
+      </p>
+
+      <div class="img-strip">
+        <img src="aesthetic/top1.jpg" alt="">
+        <img src="aesthetic/top2.jpg" alt="">
+        <img src="aesthetic/top4.jpg" alt="">
+      </div>
+
+      <p>
+        Chi la nguoi Viet Nam dang dua tri tue co Trung Hoa ra the gioi - bang tieng Viet, bang tieng Anh, bang chinh cuoc doi minh. Khong co ai khac tren Instagram Viet dang lam dieu nay theo cach nay. Day la dieu em muon giup chi ke lai - ro rang hon, de nhieu nguoi tim thay chi hon.
+      </p>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     02 - 3 OBSERVATIONS
+════════════════════════════════════════════════ -->
+<div class="container">
+  <section class="section">
+    <p class="section-number">02 / 06</p>
+    <h2 class="section-title">3 dieu em quan sat thay.</h2>
+
+    <div class="obs-grid">
+
+      <div class="obs-card">
+        <p class="obs-num">Quan sat 01</p>
+        <h3 class="obs-title">Carousel moi la format thuc su cua chi - nhung chi dang dau tu chieu nguoc lai.</h3>
+        <p class="obs-body">
+          Data khong noi doi: carousel trung binh 13,3 likes va 0,79 comments moi bai. Reels chi dat 6,1 likes va 0,25 comments. Nhung trong 100 bai em phan tich, chi dang dang Reels nhieu gap doi carousel (57 vs 29 bai). Chi dang bo nhieu cong suc nhat vao format kem hieu qua nhat voi account cua minh.
+        </p>
+        <p class="obs-opportunity">Neu chuyen sang carousel-first, engagement se tang gap doi ma khong can them mot follower nao.</p>
+      </div>
+
+      <div class="obs-card">
+        <p class="obs-num">Quan sat 02</p>
+        <h3 class="obs-title">Nhung Reels hay nhat cua chi dang bi lang phi vi khong co caption.</h3>
+        <p class="obs-body">
+          5 bai duoi cung trong 100 bai: tat ca la Reels, tat ca chi co hashtag, khong co caption. Trong khi bai Reels co nhieu comments nhat (19 likes, 5 comments &mdash; <a href="https://www.instagram.com/p/DVgRExBAcdT/" style="color:var(--highlight)">DVgRExBAcdT</a>) thi nguoi xem co ly do de o lai vi no co noi dung that su. Reels khong caption = Instagram hieu la chi khong muon truyen tai gi ca.
+        </p>
+        <p class="obs-opportunity">Them 2-3 cau hook + gia tri + CTA vao moi Reels co the tang views len 50-80 thay vi 11-30.</p>
+      </div>
+
+      <div class="obs-card">
+        <p class="obs-num">Quan sat 03</p>
+        <h3 class="obs-title">Chi dang ban 3 thu cung luc - va audience khong biet chi la ai.</h3>
+        <p class="obs-body">
+          Shuyi / Life Decoding, Herbalife, Flex45 - ba offer hoan toan khac nhau xuat hien xen ke nhau. Khong co van de gi voi viec co nhieu nguon thu nhap, nhung tren Instagram, khi mot nguoi moi tim den trang cua chi, ho khong the tra loi duoc cau hoi: "Chi Susan chuyen ve cai gi?" Trong khi do, offer doc dao nhat - mat ma ngay sinh / Kinh Dich - lai la offer chi noi it nhat theo format co chieu sau.
+        </p>
+        <p class="obs-opportunity">Dat Life Decoding la primary positioning. Herbalife + Flex45 la secondary - van co mat nhung khong chiem spotlight chua dang.</p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     03 - SERVICES
+════════════════════════════════════════════════ -->
+<div class="container">
+  <section class="section">
+    <p class="section-number">03 / 06</p>
+    <h2 class="section-title">Day la nhung gi em co the lam cung chi.</h2>
+
+    <!-- STUDENT: thay gia cu the vao placeholder [Dau tu: lien he] -->
+
+    <div class="service-grid">
+
+      <div class="service-card featured">
+        <p class="service-label">Uu tien hang dau</p>
+        <h3 class="service-name">Instagram Landing Page</h3>
+        <ul class="service-list">
+          <li>Trang bio link rieng the hien dung identity "mat ma ngay sinh + wellness + hanh trinh cua Susan"</li>
+          <li>3 cong vao ro rang: Life Decoding trial form, Wellness coaching, Shuyi workshop dang ky</li>
+          <li>Thiet ke theo palette va giong van cua chi - khong template chung</li>
+          <li>Mobile-first, load nhanh, co the tu sua noi dung</li>
+        </ul>
+        <p class="service-price">Dau tu: <strong>[lien he]</strong></p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-label">Nen tang chien luoc</p>
+        <h3 class="service-name">Content Strategy</h3>
+        <ul class="service-list">
+          <li>Dinh vi lai ro "chi la ai tren Instagram" - chon 1 primary offer de thuong hieu ro</li>
+          <li>Xay 3-4 tru noi dung ro rang + lich dang bai theo tuan</li>
+          <li>Hashtag strategy moi thay cho bo hashtag lap lai hien tai</li>
+          <li>Roadmap 30 ngay dau de bat dau thay ket qua</li>
+        </ul>
+        <p class="service-price">Dau tu: <strong>[lien he]</strong></p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-label">Thuc thi noi dung</p>
+        <h3 class="service-name">Carousel + Post</h3>
+        <ul class="service-list">
+          <li>4-8 carousel moi thang viet theo giong van cua chi - khong doc ra la "AI viet"</li>
+          <li>Series "Mat ma con so [N]" - khai thac chuyen sau ve Kinh Dich bang noi dung song ngu</li>
+          <li>Caption co hook - gia tri - CTA ro rang cho moi bai</li>
+          <li>Comment trigger strategy de tang tuong tac va dan vao DM</li>
+        </ul>
+        <p class="service-price">Dau tu: <strong>[lien he]</strong></p>
+      </div>
+
+      <div class="service-card">
+        <p class="service-label">Thuc thi noi dung</p>
+        <h3 class="service-name">Story + Reels</h3>
+        <ul class="service-list">
+          <li>Script Reels co hook 3 giay dau - khong con Reels "hashtag-only" nua</li>
+          <li>Story frame hang tuan: moi nguoi theo doi biet chi dang lam gi va vi sao</li>
+          <li>Chuyen tiep tu Reel/Story vao DM tu nhien, khong sales-y</li>
+          <li>Lich chuan: Thu Tu + Thu Nam 21h (giờ cao diem cua chi)</li>
+        </ul>
+        <p class="service-price">Dau tu: <strong>[lien he]</strong></p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     04 - SAMPLE CONTENT
+════════════════════════════════════════════════ -->
+<div class="container">
+  <section class="section">
+    <p class="section-number">04 / 06</p>
+    <h2 class="section-title">Em da viet thu mot bai cho chi.</h2>
+
+    <p style="color:var(--ink-soft); margin-bottom:32px;">
+      Day la carousel script cho series "Mat ma con so" - mot angle chi da cham den nhung chua khai thac het. Em viet theo nhip cau, cach mo bai, va tu quen cua chi.
+    </p>
+
+    <div class="sample-wrapper">
+      <p class="sample-phone-label">Carousel script &mdash; 6 slides &mdash; song ngu Viet / Anh</p>
+
+      <div class="sample-slide">
+        <p class="slide-num">Slide 01 &mdash; Hook</p>
+        <p class="slide-text">
+<strong>Ban co bao gio de y rang...</strong>
+
+Co nhung nguoi sinh ra da gioi quan ly tien bac.
+Co nguoi lai rat kho giu tien du kiem duoc nhieu.
+
+Khong phai do may man.
+Khong phai do nguoi nay hon nguoi kia.
+
+Do con so bi thieu trong ngay sinh cua ho.
+        </p>
+      </div>
+
+      <div class="sample-slide">
+        <p class="slide-num">Slide 02 &mdash; Context</p>
+        <p class="slide-text">
+Trong Kinh Dich, moi nguoi sinh ra deu mang theo mot bo so tu ngay thang nam sinh.
+
+Nhung khong phai so nao cung co mat.
+
+Con so bi thieu - theo Kinh Dich - la nang luong ban chua du manh trong cuoc doi nay.
+Khong phai diem yeu. La hanh trinh ban duoc sinh ra de hoc.
+
+<em>Nothing is random.</em>
+        </p>
+      </div>
+
+      <div class="sample-slide">
+        <p class="slide-num">Slide 03 &mdash; Example: So 1</p>
+        <p class="slide-text">
+<strong>Thieu so 1</strong>
+
+Nang luong can dam &amp; tu chu.
+
+Ban co the rat gioi ho tro nguoi khac, nhung thuong kho dua ra quyet dinh cho ban than.
+Hay de nguoi khac dan dau roi theo sau.
+
+Hanh trinh cua ban: hoc tin vao truc giac cua chinh minh.
+        </p>
+      </div>
+
+      <div class="sample-slide">
+        <p class="slide-num">Slide 04 &mdash; Example: So 4</p>
+        <p class="slide-text">
+<strong>Thieu so 4</strong>
+
+Nang luong thuc te &amp; xay dung.
+
+Ban co nhieu y tuong, nhung hay quen chuyen thanh hanh dong cu the.
+Hay thay doi chiec nha trong au tuong nhung chua biet bat dau tu dau.
+
+Hanh trinh cua ban: hoc xay tung buoc nho - kien nhan khong co nghia la thu dong.
+        </p>
+      </div>
+
+      <div class="sample-slide">
+        <p class="slide-num">Slide 05 &mdash; CTA</p>
+        <p class="slide-text">
+Ban muon biet con so nao bi thieu trong ngay sinh cua minh?
+
+De lai ngay / thang sinh o phan binh luan.
+Minh se gui cho ban mot goi y nho de bat dau giai ma.
+
+Because your birthday is not random.
+        </p>
+      </div>
+
+      <div class="sample-slide">
+        <p class="slide-num">Slide 06 &mdash; Closing slide (chu, toi gian)</p>
+        <p class="slide-text">
+<strong>Moi nguoi sinh ra deu mang theo mot mat ma.</strong>
+
+Hieu minh som mot chut,
+la bot di rat nhieu au lo.
+
+&mdash; susan.hongming
+        </p>
+      </div>
+
+      <div class="caption-box">
+        <p>Ban co bao gio nghi rang tai sao co nguoi rat gioi giu tien, co nguoi lai khong?
+
+Trong Kinh Dich, dieu nay lien quan den con so bi thieu trong ngay sinh cua ban.
+
+Khong phai diem yeu. La hanh trinh ban duoc sinh ra de hoc.
+
+De lai ngay / thang sinh o phan binh luan &mdash; minh se gui ban mot goi y nho de bat dau giai ma.
+
+Because your birthday is not random.
+
+#fanhongming #范闳茗 #moderniching #wealthandwisdom #ancientwisdom #loveandgratitude #positivevibes</p>
+      </div>
+
+      <p class="sample-note">
+        Em viet sample nay sau khi doc 15+ bai day du cua chi. Em co y mirror cach chi viet - nhip cau ngan, chuyen ngon ngu tu nhien, mo bai bang cau hoi quan sat, ket bang comment trigger. Neu minh lam viec cung nhau, moi tuan chi se co 4-8 sample nhu nay, moi bai deu di qua bo check nay truoc khi gui chi.
+      </p>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     05 - WHY DIFFERENT
+════════════════════════════════════════════════ -->
+<div class="container">
+  <section class="section">
+    <p class="section-number">05 / 06</p>
+    <h2 class="section-title">Vi sao em khac.</h2>
+
+    <ul class="why-list">
+      <li>
+        <strong>Em doc truoc khi pitch.</strong>
+        <span>Khong co agency nao doc 100 bai cua chi truoc khi gui proposal. Em doc ca nhung bai it likes nhat de hieu pattern. Day khong phai template.</span>
+      </li>
+      <li>
+        <strong>Em hieu giong van, khong chi format.</strong>
+        <span>Sample content o tren khong phai em viet theo style cua em. Em viet theo nhip cau, tu quen, cach mo va dong bai cua chinh chi. Neu thay khac, em viet lai.</span>
+      </li>
+      <li>
+        <strong>Em noi ve con so that, khong chi "chien luoc" chung chung.</strong>
+        <span>Carousel cua chi dat 13,3 likes, Reels chi dat 6,1. Day la con so that tu 100 bai. Moi de xuat em dua ra deu co data cu the dang sau.</span>
+      </li>
+      <li>
+        <strong>Em khong viet "grow your audience" hay "elevate your brand".</strong>
+        <span>Nhung cau nhu vay khong co nghia gi. Em chi noi nhung dieu co the lam duoc - va chi minh rong rang mong doi gi truoc khi bat dau.</span>
+      </li>
+    </ul>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     06 - CTA
+════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <p class="section-number">06 / 06</p>
+    <h2 class="cta-title">Buoc tiep theo<br>rat don gian.</h2>
+    <p class="cta-sub">
+      Neu chi thay de xuat nay hop ly, chi nhan tin cho em tren Instagram. Khong call, khong form, khong ap luc.
+    </p>
+    <a href="https://www.instagram.com/tracey.contentworks/" class="cta-btn" target="_blank">
+      Nhan tin cho em tren Instagram
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <p><strong>@tracey.contentworks</strong></p>
+    <p>De xuat nay duoc viet rieng cho <a href="https://www.instagram.com/susan.hongming/">@susan.hongming</a>. Khong template.</p>
+    <p style="margin-top:8px;">Thang 4, 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
