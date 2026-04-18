@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Proposal for @rubyphamvn</title>
+  <title>Đề xuất cho @rubyphamvn</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -34,7 +34,7 @@
       padding: 0 32px;
     }
 
-    /* ---- HERO ---- */
+    /* HERO */
     .hero {
       padding: 80px 0 64px;
       border-bottom: 1px solid var(--divider);
@@ -60,9 +60,7 @@
       margin-bottom: 20px;
     }
 
-    .hero-name span {
-      color: var(--hero);
-    }
+    .hero-name span { color: var(--hero); }
 
     .hero-tagline {
       font-family: 'Cormorant Garant', serif;
@@ -70,21 +68,20 @@
       font-style: italic;
       font-weight: 300;
       color: var(--muted);
-      line-height: 1.5;
-      max-width: 520px;
+      line-height: 1.55;
+      max-width: 540px;
       margin-bottom: 40px;
     }
 
     .hero-meta {
       display: flex;
-      gap: 32px;
+      gap: 28px;
       align-items: center;
       flex-wrap: wrap;
     }
 
     .hero-meta-item {
       font-size: 12px;
-      font-weight: 400;
       color: var(--muted);
       letter-spacing: 0.05em;
     }
@@ -95,20 +92,16 @@
       background: var(--divider);
     }
 
-    /* ---- SECTION FRAMEWORK ---- */
+    /* SECTIONS */
     section {
       padding: 72px 0;
       border-bottom: 1px solid var(--divider);
     }
 
-    section:last-of-type {
-      border-bottom: none;
-    }
-
     .section-number {
       font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--highlight);
       margin-bottom: 12px;
@@ -116,7 +109,7 @@
 
     .section-title {
       font-family: 'Cormorant Garant', serif;
-      font-size: clamp(28px, 5vw, 40px);
+      font-size: clamp(28px, 5vw, 42px);
       font-weight: 300;
       line-height: 1.2;
       color: var(--ink);
@@ -125,20 +118,16 @@
 
     .body-text {
       font-size: 16px;
-      line-height: 1.75;
+      line-height: 1.8;
       color: var(--ink);
       max-width: 640px;
     }
 
-    .body-text + .body-text {
-      margin-top: 20px;
-    }
-
-    /* ---- I SEE YOU ---- */
+    /* I SEE YOU */
     .see-you-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 20px;
       margin-top: 40px;
     }
 
@@ -146,6 +135,7 @@
       border-radius: 4px;
       overflow: hidden;
       grid-row: span 2;
+      height: 340px;
     }
 
     .see-you-image img {
@@ -159,8 +149,11 @@
     .see-you-quote {
       background: var(--soft);
       border-left: 3px solid var(--hero);
-      padding: 24px 28px;
+      padding: 24px 26px;
       border-radius: 0 4px 4px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .see-you-quote blockquote {
@@ -168,7 +161,7 @@
       font-size: 19px;
       font-style: italic;
       font-weight: 300;
-      line-height: 1.5;
+      line-height: 1.55;
       color: var(--ink);
       margin-bottom: 10px;
     }
@@ -176,8 +169,7 @@
     .see-you-quote cite {
       font-size: 11px;
       color: var(--muted);
-      letter-spacing: 0.08em;
-      text-decoration: none;
+      letter-spacing: 0.07em;
       font-style: normal;
     }
 
@@ -186,10 +178,10 @@
       text-decoration: none;
     }
 
-    /* ---- OBSERVATIONS ---- */
+    /* OBSERVATIONS */
     .observations-grid {
       display: grid;
-      gap: 24px;
+      gap: 20px;
       margin-top: 8px;
     }
 
@@ -202,22 +194,22 @@
 
     .obs-number {
       font-family: 'Cormorant Garant', serif;
-      font-size: 48px;
+      font-size: 52px;
       font-weight: 300;
       color: var(--divider);
       line-height: 1;
       position: absolute;
-      top: 24px;
-      right: 28px;
+      top: 22px;
+      right: 26px;
     }
 
     .obs-label {
       font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--highlight);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .obs-card h3 {
@@ -227,13 +219,14 @@
       color: var(--ink);
       margin-bottom: 14px;
       line-height: 1.3;
+      max-width: 85%;
     }
 
     .obs-card p {
       font-size: 15px;
       color: var(--ink);
-      line-height: 1.7;
-      opacity: 0.85;
+      line-height: 1.75;
+      opacity: 0.88;
     }
 
     .obs-evidence {
@@ -256,9 +249,10 @@
       font-size: 14px;
       color: var(--muted);
       font-style: italic;
+      line-height: 1.7;
     }
 
-    /* ---- SERVICES ---- */
+    /* SERVICES */
     .services-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -268,13 +262,8 @@
 
     .service-card {
       border: 1px solid var(--divider);
-      padding: 28px 28px 24px;
+      padding: 28px 26px 24px;
       border-radius: 4px;
-      transition: border-color 0.2s;
-    }
-
-    .service-card:hover {
-      border-color: var(--hero);
     }
 
     .service-card.featured {
@@ -308,9 +297,8 @@
     .service-card ul li {
       font-size: 14px;
       color: var(--muted);
-      line-height: 1.6;
-      padding: 4px 0;
-      padding-left: 14px;
+      line-height: 1.65;
+      padding: 4px 0 4px 14px;
       position: relative;
     }
 
@@ -322,38 +310,37 @@
     }
 
     .service-price {
-      margin-top: 20px;
-      padding-top: 16px;
+      margin-top: 18px;
+      padding-top: 14px;
       border-top: 1px solid var(--divider);
       font-size: 13px;
       color: var(--muted);
       font-style: italic;
     }
 
-    /* ---- SAMPLE CONTENT ---- */
+    /* SAMPLE */
     .sample-wrapper {
       margin-top: 16px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      gap: 28px;
       align-items: start;
     }
 
     .sample-phone {
-      background: var(--ink);
+      background: #1a1410;
       border-radius: 12px;
       overflow: hidden;
-      padding: 0;
     }
 
     .sample-phone-img {
       width: 100%;
       display: block;
-      filter: saturate(0.95);
+      filter: saturate(0.92);
     }
 
     .sample-phone-caption {
-      padding: 20px 18px;
+      padding: 18px 16px 22px;
     }
 
     .sample-phone-handle {
@@ -366,8 +353,8 @@
 
     .sample-phone-text {
       font-size: 13px;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.65;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
       white-space: pre-line;
     }
 
@@ -377,7 +364,7 @@
       border-radius: 4px;
       font-size: 14px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.8;
       font-style: italic;
     }
 
@@ -385,29 +372,32 @@
       font-style: normal;
       color: var(--ink);
       font-weight: 500;
+      display: block;
+      margin-bottom: 14px;
+      font-size: 15px;
     }
 
-    /* ---- WHY DIFFERENT ---- */
+    /* WHY DIFFERENT */
     .diff-list {
-      margin-top: 8px;
       display: grid;
-      gap: 20px;
+      gap: 24px;
+      margin-top: 8px;
     }
 
     .diff-item {
       display: grid;
-      grid-template-columns: 40px 1fr;
+      grid-template-columns: 44px 1fr;
       gap: 16px;
       align-items: start;
     }
 
     .diff-num {
       font-family: 'Cormorant Garant', serif;
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 300;
       color: var(--divider);
       line-height: 1;
-      padding-top: 2px;
+      padding-top: 3px;
     }
 
     .diff-text h4 {
@@ -420,10 +410,10 @@
     .diff-text p {
       font-size: 14px;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
-    /* ---- CTA ---- */
+    /* CTA */
     .cta-section {
       text-align: center;
       padding: 88px 0 80px;
@@ -436,36 +426,34 @@
     }
 
     .cta-sub {
-      font-size: 17px;
+      font-family: 'Cormorant Garant', serif;
+      font-size: 18px;
       color: var(--muted);
-      line-height: 1.6;
-      max-width: 420px;
+      line-height: 1.65;
+      max-width: 400px;
       margin: 0 auto 40px;
       font-style: italic;
-      font-family: 'Cormorant Garant', serif;
     }
 
     .cta-btn {
       display: inline-block;
       background: var(--hero);
       color: #faf5ef;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 16px 40px;
+      padding: 16px 44px;
       border-radius: 2px;
       transition: background 0.2s;
     }
 
-    .cta-btn:hover {
-      background: var(--ink);
-    }
+    .cta-btn:hover { background: var(--ink); }
 
-    /* ---- FOOTER ---- */
+    /* FOOTER */
     .footer {
-      padding: 40px 0;
+      padding: 36px 0;
       border-top: 1px solid var(--divider);
       display: flex;
       justify-content: space-between;
@@ -486,267 +474,274 @@
       letter-spacing: 0.03em;
     }
 
-    /* ---- RESPONSIVE ---- */
     @media (max-width: 600px) {
       .container { padding: 0 20px; }
       .see-you-grid { grid-template-columns: 1fr; }
       .see-you-image { grid-row: auto; height: 240px; }
       .services-grid { grid-template-columns: 1fr; }
       .sample-wrapper { grid-template-columns: 1fr; }
-      .hero-meta { gap: 14px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ======= HERO ======= -->
+<!-- HERO -->
 <div class="container">
   <div class="hero">
-    <p class="hero-label">A proposal, written for one person</p>
-    <h1 class="hero-name">For <span>Ruby Pham</span></h1>
-    <p class="hero-tagline">A brand built on lived experience, generational wisdom, and the quiet discipline of choosing yourself every day.</p>
+    <p class="hero-label">Mot de xuat -- Viet rieng cho mot nguoi</p>
+    <h1 class="hero-name">Dành cho <span>Ruby Pham</span></h1>
+    <p class="hero-tagline">Một brand được xây từ trải nghiệm thật, trí tuệ của nhiều thế hệ, và sự chọn lựa nhỏ bé mỗi ngày để sống đẹp hơn.</p>
     <div class="hero-meta">
-      <span class="hero-meta-item">From @tracey.contentworks</span>
+      <span class="hero-meta-item">Từ @tracey.contentworks</span>
       <div class="hero-meta-divider"></div>
-      <span class="hero-meta-item">April 18, 2026</span>
+      <span class="hero-meta-item">18 tháng 4, 2026</span>
       <div class="hero-meta-divider"></div>
       <span class="hero-meta-item">@rubyphamvn</span>
     </div>
   </div>
 </div>
 
-<!-- ======= I SEE YOU ======= -->
+<!-- I SEE YOU -->
 <div class="container">
   <section>
-    <p class="section-number">01 / 07 -- The I-See-You Section</p>
-    <h2 class="section-title">I read your content.<br>Not just the captions. The real ones.</h2>
+    <p class="section-number">01 / 07</p>
+    <h2 class="section-title">Em đã đọc content của chị.<br>Không phải lướt. Đọc thật sự.</h2>
 
     <p class="body-text">
-      You posted once that you survived your early years in Australia. You used the word "sinh ton" - survived. Not thrived, not succeeded. Survived. And somehow that word held more wisdom than a hundred polished captions from creators who never had to figure out a new country from scratch.
+      Chị có đăng một câu mà em không quên được: "Wellness không phải là hoàn hảo - mà là mỗi ngày chọn sống tốt hơn một chút." Đọc xong, em hiểu ngay chị không phải kiểu người đang "diễn" wellness. Chị đang sống nó - từ ly nước chanh mật ong buổi sáng, đến cách chị viết về phụ nữ tuổi 40 như đang nói chuyện với một người bạn thân, không phải đang dạy ai cả.
     </p>
     <p class="body-text" style="margin-top:20px;">
-      What I found when I read your account carefully is that your content has two layers. On the surface: warm water with lemon every morning, collagen tips, Asian skincare secrets. But underneath - there's a consistent philosophy you keep returning to. That real wellness isn't about perfection. That the most elegant women wear peace without saying a word. That the people who criticize you are the ones who are empty inside - not you.
+      Em cũng đọc được rằng chị đã có giai đoạn "sinh tồn" những năm đầu sang Úc. Chị dùng từ đó - sinh tồn, không phải thành công. Và em nghĩ chính cái khoảng thời gian đó - học cách xếp hàng kiên nhẫn, học cách tôn trọng không gian người khác, học cách thích nghi mà không mất đi mình - đã làm nên triết lý sống mà chị đang chia sẻ trên Instagram.
     </p>
     <p class="body-text" style="margin-top:20px;">
-      You wrote this once, and I saved it:
+      Hai câu này em lưu lại khi đọc content của chị:
     </p>
 
     <div class="see-you-grid" style="margin-top:32px;">
-      <div class="see-you-image" style="height:320px;">
+      <div class="see-you-image">
         <img src="aesthetic/top2.jpg" alt="Ruby Pham" />
       </div>
       <div class="see-you-quote">
-        <blockquote>"Wellness is not perfection. It's choosing to live better each day - for your body, your mind, and your life."</blockquote>
-        <cite><a href="https://www.instagram.com/p/DXGVQPrCa2f/" target="_blank">@rubyphamvn, April 2026</a></cite>
+        <blockquote>"Người hạnh phúc thật sự sẽ khích lệ bạn... Bởi vì họ có đủ. Đủ đầy bên trong nên không cần phải kéo ai xuống."</blockquote>
+        <cite><a href="https://www.instagram.com/p/DWc6NxeiUEp/" target="_blank">@rubyphamvn, tháng 3/2026</a></cite>
       </div>
       <div class="see-you-quote">
-        <blockquote>"Your body is your first business, run it well."</blockquote>
-        <cite><a href="https://www.instagram.com/p/DPSae3ZgYm1/" target="_blank">@rubyphamvn, Oct 2025</a></cite>
+        <blockquote>"Đẹp không phải để ai ngắm - mà để mình tự tin bước đi."</blockquote>
+        <cite><a href="https://www.instagram.com/p/DWgf18DifWS/" target="_blank">@rubyphamvn, tháng 3/2026</a></cite>
       </div>
     </div>
 
     <p class="body-text" style="margin-top:36px;">
-      You're not a wellness influencer performing a routine. You are a Vietnamese woman in her late 40s who has lived across two countries, survived the hard parts, and arrived at a way of living that is genuinely, quietly elegant. That story - the real one - is almost nowhere in your content. And it's the only story that could make you completely irreplaceable on Instagram.
+      Chị là phụ nữ Việt gần 50 tuổi, đang sống ở Úc, có câu chuyện di cư thật sự, có triết lý sống được tích lũy qua nhiều năm - và gần như toàn bộ điều đó chưa xuất hiện đúng nghĩa trong content. Đó là khoảng trống lớn nhất mà em nhìn thấy, và cũng là lợi thế cạnh tranh mà không ai có thể sao chép được của chị.
     </p>
   </section>
 </div>
 
-<!-- ======= 3 OBSERVATIONS ======= -->
+<!-- 3 OBSERVATIONS -->
 <div class="container">
   <section>
-    <p class="section-number">02 / 07 -- What I Found in the Data</p>
-    <h2 class="section-title">3 things I noticed<br>after auditing 100 posts.</h2>
+    <p class="section-number">02 / 07</p>
+    <h2 class="section-title">3 điều em nhìn thấy<br>sau khi audit 100 bài đăng.</h2>
 
     <div class="observations-grid">
+
       <div class="obs-card">
         <span class="obs-number">01</span>
-        <p class="obs-label">Your best post is a formula hiding in plain sight</p>
-        <h3>The generational angle works. You haven't made it a series.</h3>
-        <p>Your top post - "An Asian wellness secret we've been using for generations" - hit 795 views and 22 likes. That's 12x your average. The format: heritage claim + simple ritual + no explanation needed. You've used it once. Your entire positioning could live inside that angle.</p>
-        <span class="obs-evidence">795 views vs. avg 65 / 22 likes vs. avg 5.5</span>
-        <p class="obs-opportunity">Opportunity: a weekly series called something like "From my grandmother's kitchen" - one ancestral wellness ritual per Reel. This is content no one else in your niche is doing from a first-person lived perspective.</p>
+        <p class="obs-label">Bai hay nhat cua chi la mot cong thuc</p>
+        <h3>Bài viral nhất của chị có một angle rõ ràng - chị chưa biến nó thành series.</h3>
+        <p>Bài "An Asian wellness secret we've been using for generations" của chị đạt 795 lượt xem và 22 likes - cao gấp 12 lần trung bình. Format: bí quyết từ thế hệ trước, nghi thức đơn giản, không cần giải thích dài dòng. Chị dùng angle này một lần rồi bỏ. Trong khi đây là góc nhìn mà chị có lợi thế tuyệt đối so với bất kỳ creator wellness nào khác - vì chị thực sự sống nó.</p>
+        <span class="obs-evidence">795 views vs. trung bình 65 / 22 likes vs. trung bình 5.5</span>
+        <p class="obs-opportunity">Cơ hội: Một series mỗi tuần một Reel theo dạng "Bí quyết từ thế hệ trước" - mỗi bài một nguyên tắc wellness mà gia đình châu Á đã dùng nhiều thế kỷ, được kể bằng giọng của chính chị Ruby. Không ai trong niche của chị đang làm điều này từ góc độ người trong cuộc.</p>
       </div>
 
       <div class="obs-card">
         <span class="obs-number">02</span>
-        <p class="obs-label">Your profile has no door</p>
-        <h3>People find you, feel something, and then there's nowhere to go.</h3>
-        <p>You have no link in bio. No lead page. No place to capture someone who resonated with your content. Your email (Ruby@pbh.com.au) is in the bio but it's a work address - it signals "company" not "Ruby." Every view that lands on your profile either follows or disappears. There's no middle option.</p>
-        <span class="obs-evidence">0 link in bio / 0 email capture / 0 DM funnel</span>
-        <p class="obs-opportunity">A simple one-page wellness guide ("The 5 morning habits I've kept for 10 years") could turn profile visitors into an email list - and that list is yours even if Instagram goes away.</p>
+        <p class="obs-label">Profile cua chi khong co cua vao</p>
+        <h3>Người ta tìm thấy chị, cảm nhận được gì đó, rồi không biết đi đâu tiếp.</h3>
+        <p>Chị không có link trong bio. Không có trang thu thập thông tin. Không có nơi nào để người xem có thể tiếp tục kết nối ngoài việc bấm follow. Email Ruby@pbh.com.au trong bio là địa chỉ công ty - nó báo hiệu "tổ chức" hơn là "Ruby". Mỗi lượt xem ghé thăm profile của chị hoặc follow hoặc biến mất. Không có lựa chọn nào ở giữa.</p>
+        <span class="obs-evidence">0 link in bio / 0 trang thu email / 0 DM funnel</span>
+        <p class="obs-opportunity">Một trang wellness đơn giản - ví dụ "5 thói quen buổi sáng em giữ hơn 10 năm" - có thể biến người xem thành danh sách email của chị. Danh sách đó là của chị mãi mãi, dù Instagram thay đổi đến đâu.</p>
       </div>
 
       <div class="obs-card">
         <span class="obs-number">03</span>
-        <p class="obs-label">The Vietnamese captions pull deeper engagement</p>
-        <h3>When you write in Vietnamese, people actually respond. Not just like.</h3>
-        <p>Your English posts get more views on average. But when you write in Vietnamese - the long mindset pieces, the "khi ban hieu duoc dieu nay" posts - you get comments. Real ones. People quoting lines back to you. That's a different kind of audience: one that sees itself in you. You're not sure which language to lean into. The data suggests Vietnamese is where your community is forming.</p>
-        <span class="obs-evidence">VN posts avg 1.4 comments vs. EN posts avg 0.3 comments</span>
-        <p class="obs-opportunity">A Vietnamese-first strategy targeting phu nu Viet 40+ in Australia is a niche almost completely unclaimed. You are already that person. You just need to own it consistently.</p>
+        <p class="obs-label">Khi chi viet tieng Viet, nguoi ta phan hoi that su</p>
+        <h3>Bài tiếng Việt ít view hơn - nhưng nhận được comment thật, không phải chỉ like.</h3>
+        <p>Các bài tiếng Anh của chị reach xa hơn. Nhưng bài tiếng Việt - đặc biệt những bài mindset dài, những câu chị viết về "đủ đầy bên trong", về phụ nữ tuổi 40 - nhận comment nhiều hơn hẳn. Người ta quote câu của chị lại. Đó là dấu hiệu của cộng đồng đang hình thành, không phải chỉ là khán giả xem qua. Việc dao động giữa hai ngôn ngữ hiện tại khiến cả hai nhóm đó không cảm thấy được nói chuyện trực tiếp.</p>
+        <span class="obs-evidence">Bài VN trung bình 1.4 comments vs. bài tiếng Anh 0.3 comments</span>
+        <p class="obs-opportunity">Phụ nữ Việt 40+ tại Úc là một niche gần như chưa có ai phục vụ tốt. Chị không cần tìm niche đó - chị đã là người đó rồi. Chị chỉ cần chọn đúng ngôn ngữ và nói nhất quán hơn.</p>
       </div>
+
     </div>
   </section>
 </div>
 
-<!-- ======= SERVICES ======= -->
+<!-- SERVICES -->
 <div class="container">
   <section>
-    <p class="section-number">03 / 07 -- What I Can Do</p>
-    <h2 class="section-title">Four ways we can work<br>together.</h2>
+    <p class="section-number">03 / 07</p>
+    <h2 class="section-title">Bốn cách mình<br>có thể làm việc cùng nhau.</h2>
 
-    <!-- STUDENT: thay gia cu the vao placeholder [Dau tu: lien he] -->
+    <!-- STUDENT: thay gia cu the vao [Dau tu: lien he] -->
     <div class="services-grid">
+
       <div class="service-card featured">
-        <p class="service-tag">Start here</p>
-        <h3>Instagram Landing Page</h3>
+        <p class="service-tag">Bat dau o day</p>
+        <h3>Trang Landing Page Instagram</h3>
         <ul>
-          <li>A single beautiful page that lives at your bio link</li>
-          <li>Captures name + email for a free wellness resource (I help you write it)</li>
-          <li>Mirrors your visual identity - warm, editorial, distinctly Ruby</li>
-          <li>Turns profile visitors into people you can reach even if Instagram changes tomorrow</li>
+          <li>Một trang đẹp được đặt ở link bio của chị</li>
+          <li>Thu tên và email qua một tài liệu wellness miễn phí (em viết cùng chị)</li>
+          <li>Thiết kế theo tông màu của chị - ấm, tinh tế, ra dáng Ruby</li>
+          <li>Biến người xem thành người chị có thể tiếp tục kết nối, dù Instagram thay đổi</li>
         </ul>
-        <p class="service-price">[Investment: contact me]</p>
+        <p class="service-price">[Đầu tư: liên hệ]</p>
       </div>
 
       <div class="service-card">
-        <p class="service-tag">Foundation</p>
-        <h3>Content Strategy</h3>
+        <p class="service-tag">Nen tang</p>
+        <h3>Chiến lược nội dung</h3>
         <ul>
-          <li>Pillar framework built around your 3 strongest content angles</li>
-          <li>Monthly content calendar with topic, format, and posting day</li>
-          <li>Language + positioning guide (so your content always sounds like Ruby)</li>
-          <li>Hashtag system that actually reaches new audiences</li>
+          <li>Khung trụ nội dung xây trên 3 angle mạnh nhất của chị</li>
+          <li>Lịch đăng bài theo tháng với chủ đề, format và giờ đăng</li>
+          <li>Hướng dẫn giọng viết để mỗi bài luôn ra dáng Ruby, không phải template</li>
+          <li>Bộ hashtag chiến lược để tiếp cận đúng người</li>
         </ul>
-        <p class="service-price">[Investment: contact me]</p>
+        <p class="service-price">[Đầu tư: liên hệ]</p>
       </div>
 
       <div class="service-card">
-        <p class="service-tag">Execution</p>
-        <h3>Carousel + Static Post</h3>
+        <p class="service-tag">Thuc hien</p>
+        <h3>Carousel + Bài viết</h3>
         <ul>
-          <li>Carousel design with copy written in your voice</li>
-          <li>Static image posts with caption and hashtags</li>
-          <li>Each post reviewed against your voice fingerprint before delivery</li>
-          <li>4-8 posts per month depending on package</li>
+          <li>Thiết kế carousel với caption viết bằng giọng của chính chị</li>
+          <li>Bài ảnh đơn với caption và hashtag đầy đủ</li>
+          <li>Mỗi bài được check lại theo giọng của chị trước khi gửi</li>
+          <li>4-8 bài mỗi tháng tùy theo gói dịch vụ</li>
         </ul>
-        <p class="service-price">[Investment: contact me]</p>
+        <p class="service-price">[Đầu tư: liên hệ]</p>
       </div>
 
       <div class="service-card">
-        <p class="service-tag">Execution</p>
+        <p class="service-tag">Thuc hien</p>
         <h3>Reels Script + Story</h3>
         <ul>
-          <li>Reel script written around your strongest angles (generational, mindset, ritual)</li>
-          <li>Story frame templates in your aesthetic</li>
-          <li>Caption + hashtag written for each Reel</li>
-          <li>Guidance on delivery so it sounds like you, not a script</li>
+          <li>Script Reel viết theo angle mạnh nhất của chị (bí quyết thế hệ, mindset, nghi thức)</li>
+          <li>Story frame template theo tông màu của chị</li>
+          <li>Caption và hashtag cho từng Reel</li>
+          <li>Hướng dẫn cách đọc script để nghe như chính chị nói, không phải đọc bài</li>
         </ul>
-        <p class="service-price">[Investment: contact me]</p>
+        <p class="service-price">[Đầu tư: liên hệ]</p>
       </div>
+
     </div>
   </section>
 </div>
 
-<!-- ======= SAMPLE ======= -->
+<!-- SAMPLE CONTENT -->
 <div class="container">
   <section>
-    <p class="section-number">04 / 07 -- Voice Sample</p>
-    <h2 class="section-title">I wrote this for you.<br>See if it sounds like you.</h2>
+    <p class="section-number">04 / 07</p>
+    <h2 class="section-title">Em đã viết thử một bài.<br>Chị đọc xem có ra chị không.</h2>
 
     <p class="body-text" style="margin-bottom:36px;">
-      Before writing this, I read 20+ of your captions - not for the topics, but for how you write. The rhythm, the openings, the words you return to. Here is a Reel caption I wrote using your voice - your generational angle, your pace, your way of ending a thought.
+      Trước khi viết bài này, em đọc hơn 20 caption đầy đủ của chị - không phải để lấy chủ đề, mà để hiểu chị viết theo cách nào. Nhịp câu, cách mở bài, những từ chị hay dùng lại, cách chị kết thúc một suy nghĩ. Đây là caption Reel em viết theo giọng của chị - angle bí quyết thế hệ, tiếng Việt, theo nhịp câu chị hay dùng trong những bài mindset gần nhất.
     </p>
 
     <div class="sample-wrapper">
       <div class="sample-phone">
-        <img src="aesthetic/top1.jpg" alt="Wellness content sample" class="sample-phone-img" />
+        <img src="aesthetic/top1.jpg" alt="Sample content" class="sample-phone-img" />
         <div class="sample-phone-caption">
           <p class="sample-phone-handle">rubyphamvn</p>
-          <p class="sample-phone-text">Before retinol, there was this.
+          <p class="sample-phone-text">Ba đời nhà mình, chưa ai mua kem dưỡng da đắt tiền.
 
-My grandmother never had a skincare routine.
-She never counted calories.
-She never bought a vitamin.
+Nhưng mà bà mình vẫn đẹp.
+Da vẫn sáng.
+Tóc vẫn dày đến 70 tuổi.
 
-She just ate.
-Really well. Every day.
-And at 70 -- she had better skin than most women half her age.
+Hỏi bà bí quyết gì,
+bà chỉ cười: "Ăn ngon, ngủ đủ, không sợ hãn."
 
-I used to think it was genetics.
-Now I know it was habits.
+Không sợ hãn.
+Bà không có từ đó - nhưng ý bà là: đừng để nỗi lo của ngày mai ăn mất ngày hôm nay.
 
-Asian wellness runs deep.
-It's not in the bottle. It's in the bowl.
+Mình nghĩ lại nhiều thứ mình đang làm để "chăm sóc bản thân."
+Nhưng có lẽ những gì bà làm mới là wellness thật sự.
 
-#glowfromwithin #healthylifestyle #AsianWellness #rubyphamvn</p>
+Đơn giản đến mức mình quên mất nó có giá trị.
+
+Chị có ai trong nhà mình có bí quyết quen như vậy không?
+Chia sẻ cho mình biết với nha.
+
+#glowfromwithin #suckhoephunutre #rubyphamvn #wellnessforwomen</p>
         </div>
       </div>
 
       <div>
         <div class="sample-note">
-          <strong>A note on how I wrote this.</strong><br><br>
-          I wrote this sample after reading 20+ of your captions. I matched the opening move you use in your best-performing Reels - the contrast opener ("Most people drink coffee first... but this is better"). I used the short, punchy line rhythm you use in English. I kept "glow from within" because it's yours - 17 posts, it's the phrase you own. I used the "I used to think... now I know" arc that shows up in several of your mindset posts. No em dashes. No generic phrases. Four hashtags, like most of your posts.<br><br>
-          If we work together, every piece goes through this process before I send it to you. The goal is always: if someone read this without knowing the account, they would assume Ruby wrote it.
+          <strong>Em viết bài này như thế nào.</strong>
+          Chị hay mở bài bằng một câu tuyên bố nhỏ nhàng rồi dẫn vào chuyện lớn hơn - em giữ nguyên cấu trúc đó. Nhân từ chính của chị: "glow from within", sống đẹp, bí quyết đơn giản - em không thêm bất kỳ từ nào chị chưa từng dùng. Em dùng "mình/bạn" vì đây là cách chị viết trong các bài tiếng Việt thân mật. Bài kết bằng một câu hỏi mở để mời comment - vì đây là điều chị hay làm khi muốn tạo tương tác thật sự, không phải chỉ like lướt qua.
+
+          Nếu mình làm việc cùng nhau, mỗi tuần chị sẽ có 4-8 bài như thế này, mỗi bài đều qua bộ check này trước khi em gửi chị.
         </div>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ======= WHY DIFFERENT ======= -->
+<!-- WHY DIFFERENT -->
 <div class="container">
   <section>
-    <p class="section-number">05 / 07 -- Why I'm Different</p>
-    <h2 class="section-title">This is not a template.<br>None of this is.</h2>
+    <p class="section-number">05 / 07</p>
+    <h2 class="section-title">Đây không phải template.<br>Không có gì ở đây là template.</h2>
 
     <div class="diff-list">
       <div class="diff-item">
         <span class="diff-num">01</span>
         <div class="diff-text">
-          <h4>I read before I pitch.</h4>
-          <p>I audited 100 of your posts, ran the engagement numbers, read your longest captions, and identified your voice fingerprint before writing a single word of this proposal. Most agencies send the same deck to every client and change the name at the top.</p>
+          <h4>Em đọc trước khi pitch.</h4>
+          <p>Em audit 100 bài đăng của chị, tính engagement, đọc những caption dài nhất, và xác định giọng viết của chị trước khi viết bất kỳ dòng nào trong đề xuất này. Phần lớn agency gửi cùng một bài pitch cho mọi khách hàng, chỉ thay tên ở trên cùng.</p>
         </div>
       </div>
       <div class="diff-item">
         <span class="diff-num">02</span>
         <div class="diff-text">
-          <h4>I manage voice, not just format.</h4>
-          <p>Any designer can make a carousel look nice. My job is to make sure that when Ruby writes a caption and I write a caption, they sound like the same person. That requires a completely different kind of attention.</p>
+          <h4>Em quản lý giọng viết, không chỉ quản lý format.</h4>
+          <p>Bất kỳ ai cũng có thể thiết kế carousel đẹp. Việc của em là đảm bảo rằng khi chị viết một caption và em viết một caption, người đọc không phân biệt được cái nào là của ai. Điều đó cần một kiểu chú ý hoàn toàn khác.</p>
         </div>
       </div>
       <div class="diff-item">
         <span class="diff-num">03</span>
         <div class="diff-text">
-          <h4>I care about what comes after the like.</h4>
-          <p>Engagement is a starting point, not a destination. The landing page, the DM funnel, the email list - this is the infrastructure that turns an Instagram following into something that works for you over time, regardless of the algorithm.</p>
+          <h4>Em quan tâm đến điều xảy ra sau lượt like.</h4>
+          <p>Engagement chỉ là điểm bắt đầu. Landing page, DM funnel, danh sách email - đây là nền tảng biến Instagram following thành thứ gì đó thật sự hoạt động cho chị, dù thuật toán thay đổi thế nào.</p>
         </div>
       </div>
       <div class="diff-item">
         <span class="diff-num">04</span>
         <div class="diff-text">
-          <h4>I understand the niche you're actually in.</h4>
-          <p>Vietnamese women 40+ in Australia is an underserved audience with real search intent and genuine community. You are already that person. I can help you show up for them consistently and clearly.</p>
+          <h4>Em hiểu niche chị thực sự đang ở.</h4>
+          <p>Phụ nữ Việt 40+ tại Úc là một nhóm chưa có ai phục vụ tốt trên Instagram. Chị không cần tìm niche đó - chị đã là người đó rồi. Em chỉ cần giúp chị xuất hiện đúng và nhất quán hơn.</p>
         </div>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ======= CTA ======= -->
+<!-- CTA -->
 <div class="container">
   <section class="cta-section">
-    <p class="section-number" style="text-align:center; margin-bottom:16px;">06 / 07 -- Next Step</p>
-    <h2 class="section-title" style="text-align:center;">When you're ready,<br>send me a message.</h2>
-    <p class="cta-sub">No pressure, no pitch call. Just a conversation - whenever it feels right.</p>
-    <a href="https://www.instagram.com/tracey.contentworks/" target="_blank" class="cta-btn">DM me on Instagram</a>
+    <p class="section-number" style="text-align:center; margin-bottom:16px;">06 / 07</p>
+    <h2 class="section-title" style="text-align:center;">Khi nào chị sẵn sàng,<br>nhắn tin cho em một câu.</h2>
+    <p class="cta-sub">Không cần vội. Không cần hứa hẹn gì. Chỉ cần một cuộc trò chuyện nhỏ - bất cứ khi nào chị thấy hợp.</p>
+    <a href="https://www.instagram.com/tracey.contentworks/" target="_blank" class="cta-btn">Nhắn tin cho em</a>
   </section>
 </div>
 
-<!-- ======= FOOTER ======= -->
+<!-- FOOTER -->
 <div class="container">
   <footer class="footer">
     <span class="footer-sig">@tracey.contentworks</span>
-    <span class="footer-note">Written for @rubyphamvn -- April 18, 2026 -- Not a template.</span>
+    <span class="footer-note">Viết riêng cho @rubyphamvn -- 18/04/2026 -- Không template.</span>
   </footer>
 </div>
 
