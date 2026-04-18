@@ -34,20 +34,18 @@
       padding: 0 32px;
     }
 
-    /* HERO */
     .hero {
       padding: 80px 0 64px;
       border-bottom: 1px solid var(--divider);
     }
 
     .hero-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
       color: var(--muted);
       margin-bottom: 28px;
+      text-transform: uppercase;
     }
 
     .hero-name {
@@ -64,7 +62,7 @@
 
     .hero-tagline {
       font-family: 'Cormorant Garant', serif;
-      font-size: 22px;
+      font-size: 21px;
       font-style: italic;
       font-weight: 300;
       color: var(--muted);
@@ -83,7 +81,7 @@
     .hero-meta-item {
       font-size: 12px;
       color: var(--muted);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
     }
 
     .hero-meta-divider {
@@ -92,7 +90,6 @@
       background: var(--divider);
     }
 
-    /* SECTIONS */
     section {
       padding: 72px 0;
       border-bottom: 1px solid var(--divider);
@@ -123,7 +120,6 @@
       max-width: 640px;
     }
 
-    /* I SEE YOU */
     .see-you-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -178,7 +174,6 @@
       text-decoration: none;
     }
 
-    /* OBSERVATIONS */
     .observations-grid {
       display: grid;
       gap: 20px;
@@ -206,7 +201,7 @@
     .obs-label {
       font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--highlight);
       margin-bottom: 10px;
@@ -252,7 +247,6 @@
       line-height: 1.7;
     }
 
-    /* SERVICES */
     .services-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -274,7 +268,7 @@
     .service-tag {
       font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--highlight);
       margin-bottom: 10px;
@@ -309,22 +303,11 @@
       color: var(--hero);
     }
 
-    .service-price {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid var(--divider);
-      font-size: 13px;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    /* SAMPLE */
-    .sample-wrapper {
-      margin-top: 16px;
+    .samples-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: start;
+      gap: 20px;
+      margin-top: 16px;
     }
 
     .sample-phone {
@@ -366,6 +349,7 @@
       color: var(--muted);
       line-height: 1.8;
       font-style: italic;
+      margin-top: 20px;
     }
 
     .sample-note strong {
@@ -373,11 +357,10 @@
       color: var(--ink);
       font-weight: 500;
       display: block;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       font-size: 15px;
     }
 
-    /* WHY DIFFERENT */
     .diff-list {
       display: grid;
       gap: 24px;
@@ -413,7 +396,6 @@
       line-height: 1.7;
     }
 
-    /* CTA */
     .cta-section {
       text-align: center;
       padding: 88px 0 80px;
@@ -430,7 +412,7 @@
       font-size: 18px;
       color: var(--muted);
       line-height: 1.65;
-      max-width: 400px;
+      max-width: 420px;
       margin: 0 auto 40px;
       font-style: italic;
     }
@@ -451,7 +433,6 @@
 
     .cta-btn:hover { background: var(--ink); }
 
-    /* FOOTER */
     .footer {
       padding: 36px 0;
       border-top: 1px solid var(--divider);
@@ -471,7 +452,6 @@
     .footer-note {
       font-size: 12px;
       color: var(--muted);
-      letter-spacing: 0.03em;
     }
 
     @media (max-width: 600px) {
@@ -479,7 +459,7 @@
       .see-you-grid { grid-template-columns: 1fr; }
       .see-you-image { grid-row: auto; height: 240px; }
       .services-grid { grid-template-columns: 1fr; }
-      .sample-wrapper { grid-template-columns: 1fr; }
+      .samples-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -488,9 +468,9 @@
 <!-- HERO -->
 <div class="container">
   <div class="hero">
-    <p class="hero-label">Mot de xuat -- Viet rieng cho mot nguoi</p>
+    <p class="hero-label">Một đề xuất -- Viết riêng cho một người</p>
     <h1 class="hero-name">Dành cho <span>Ruby Pham</span></h1>
-    <p class="hero-tagline">Một brand được xây từ trải nghiệm thật, trí tuệ của nhiều thế hệ, và sự chọn lựa nhỏ bé mỗi ngày để sống đẹp hơn.</p>
+    <p class="hero-tagline">Một brand được xây từ trải nghiệm thật, từ những bí quyết truyền qua nhiều thế hệ, và từ sự chọn lựa nhỏ bé mỗi ngày để sống đẹp hơn.</p>
     <div class="hero-meta">
       <span class="hero-meta-item">Từ @tracey.contentworks</span>
       <div class="hero-meta-divider"></div>
@@ -508,13 +488,13 @@
     <h2 class="section-title">Em đã đọc content của chị.<br>Không phải lướt. Đọc thật sự.</h2>
 
     <p class="body-text">
-      Chị có đăng một câu mà em không quên được: "Wellness không phải là hoàn hảo - mà là mỗi ngày chọn sống tốt hơn một chút." Đọc xong, em hiểu ngay chị không phải kiểu người đang "diễn" wellness. Chị đang sống nó - từ ly nước chanh mật ong buổi sáng, đến cách chị viết về phụ nữ tuổi 40 như đang nói chuyện với một người bạn thân, không phải đang dạy ai cả.
+      Chị không chia sẻ wellness như một xu hướng đang hot. Chị chia sẻ vì chị đang sống nó - từ ly nước ấm mật ong chanh mỗi buổi sáng, đến cách chị nghĩ về phụ nữ tuổi 40 như đang nói chuyện với một người bạn thân, không phải đứng trên bục giảng bài. Đó là điều em nhận ra khi đọc hết trang của chị.
     </p>
     <p class="body-text" style="margin-top:20px;">
-      Em cũng đọc được rằng chị đã có giai đoạn "sinh tồn" những năm đầu sang Úc. Chị dùng từ đó - sinh tồn, không phải thành công. Và em nghĩ chính cái khoảng thời gian đó - học cách xếp hàng kiên nhẫn, học cách tôn trọng không gian người khác, học cách thích nghi mà không mất đi mình - đã làm nên triết lý sống mà chị đang chia sẻ trên Instagram.
+      Em cũng thấy chị hay viết về việc sống đủ đầy từ bên trong - không cần phải tỏa sáng cho ai, không cần phải hoàn hảo, chỉ cần mỗi ngày chọn sống tốt hơn một chút cho chính mình. Cái triết lý đó chạy xuyên suốt trong content của chị, từ những bài ngắn về buổi sáng đến những bài dài về tâm lý phụ nữ.
     </p>
     <p class="body-text" style="margin-top:20px;">
-      Hai câu này em lưu lại khi đọc content của chị:
+      Hai câu này em lưu lại khi đọc:
     </p>
 
     <div class="see-you-grid" style="margin-top:32px;">
@@ -522,7 +502,7 @@
         <img src="aesthetic/top2.jpg" alt="Ruby Pham" />
       </div>
       <div class="see-you-quote">
-        <blockquote>"Người hạnh phúc thật sự sẽ khích lệ bạn... Bởi vì họ có đủ. Đủ đầy bên trong nên không cần phải kéo ai xuống."</blockquote>
+        <blockquote>"Người hạnh phúc thật sự sẽ khích lệ bạn... Bởi vì họ có đủ. Đủ đầy bên trong nên không cần phải kéo ai xuống để cảm thấy mình cao hơn."</blockquote>
         <cite><a href="https://www.instagram.com/p/DWc6NxeiUEp/" target="_blank">@rubyphamvn, tháng 3/2026</a></cite>
       </div>
       <div class="see-you-quote">
@@ -532,7 +512,7 @@
     </div>
 
     <p class="body-text" style="margin-top:36px;">
-      Chị là phụ nữ Việt gần 50 tuổi, đang sống ở Úc, có câu chuyện di cư thật sự, có triết lý sống được tích lũy qua nhiều năm - và gần như toàn bộ điều đó chưa xuất hiện đúng nghĩa trong content. Đó là khoảng trống lớn nhất mà em nhìn thấy, và cũng là lợi thế cạnh tranh mà không ai có thể sao chép được của chị.
+      Chị có câu chuyện sống thật, có triết lý được tích lũy qua nhiều năm, có lối nhìn về phụ nữ và sức khỏe mà rất ít người đang nói tới theo cách của chị. Nhưng phần lớn điều đó vẫn còn nằm im trong đầu chị, chưa ra hết được trên trang. Đó là khoảng trống lớn nhất em nhìn thấy - và cũng là lợi thế chỉ mình chị mới có.
     </p>
   </section>
 </div>
@@ -547,29 +527,29 @@
 
       <div class="obs-card">
         <span class="obs-number">01</span>
-        <p class="obs-label">Bai hay nhat cua chi la mot cong thuc</p>
-        <h3>Bài viral nhất của chị có một angle rõ ràng - chị chưa biến nó thành series.</h3>
-        <p>Bài "An Asian wellness secret we've been using for generations" của chị đạt 795 lượt xem và 22 likes - cao gấp 12 lần trung bình. Format: bí quyết từ thế hệ trước, nghi thức đơn giản, không cần giải thích dài dòng. Chị dùng angle này một lần rồi bỏ. Trong khi đây là góc nhìn mà chị có lợi thế tuyệt đối so với bất kỳ creator wellness nào khác - vì chị thực sự sống nó.</p>
-        <span class="obs-evidence">795 views vs. trung bình 65 / 22 likes vs. trung bình 5.5</span>
-        <p class="obs-opportunity">Cơ hội: Một series mỗi tuần một Reel theo dạng "Bí quyết từ thế hệ trước" - mỗi bài một nguyên tắc wellness mà gia đình châu Á đã dùng nhiều thế kỷ, được kể bằng giọng của chính chị Ruby. Không ai trong niche của chị đang làm điều này từ góc độ người trong cuộc.</p>
+        <p class="obs-label">Bài hay nhất của chị là một công thức</p>
+        <h3>Chị đã dùng angle này một lần và nó viral - rồi chị không làm lại nữa.</h3>
+        <p>Bài "An Asian wellness secret we've been using for generations" của chị đạt 795 lượt xem và 22 likes - cao gấp 12 lần trung bình của cả trang. Format của bài đó rất đơn giản: một bí quyết từ thế hệ trước, một nghi thức cụ thể, không cần giải thích dài. Chị dùng nó một lần rồi bỏ qua - trong khi đây là angle mà chị có lợi thế tuyệt đối, vì chị đang thực sự sống nó.</p>
+        <span class="obs-evidence">795 lượt xem vs. trung bình 65 / 22 likes vs. trung bình 5.5</span>
+        <p class="obs-opportunity">Cơ hội: Một series mỗi tuần một Reel - mỗi bài một bí quyết wellness mà gia đình hay thế hệ trước đã dùng, kể bằng giọng của chính chị. Không ai trong niche của chị đang làm điều này từ góc độ người trong cuộc như chị.</p>
       </div>
 
       <div class="obs-card">
         <span class="obs-number">02</span>
-        <p class="obs-label">Profile cua chi khong co cua vao</p>
-        <h3>Người ta tìm thấy chị, cảm nhận được gì đó, rồi không biết đi đâu tiếp.</h3>
-        <p>Chị không có link trong bio. Không có trang thu thập thông tin. Không có nơi nào để người xem có thể tiếp tục kết nối ngoài việc bấm follow. Email Ruby@pbh.com.au trong bio là địa chỉ công ty - nó báo hiệu "tổ chức" hơn là "Ruby". Mỗi lượt xem ghé thăm profile của chị hoặc follow hoặc biến mất. Không có lựa chọn nào ở giữa.</p>
-        <span class="obs-evidence">0 link in bio / 0 trang thu email / 0 DM funnel</span>
-        <p class="obs-opportunity">Một trang wellness đơn giản - ví dụ "5 thói quen buổi sáng em giữ hơn 10 năm" - có thể biến người xem thành danh sách email của chị. Danh sách đó là của chị mãi mãi, dù Instagram thay đổi đến đâu.</p>
+        <p class="obs-label">Profile của chị không có cửa vào</p>
+        <h3>Người ta tìm thấy chị, thấy thích, rồi không biết làm gì tiếp.</h3>
+        <p>Chị không có link nào trong bio. Không có trang để người xem nhận thêm thứ gì từ chị. Không có cách nào để tiếp tục kết nối sau khi họ xem xong một bài. Mỗi người ghé thăm trang của chị chỉ có hai lựa chọn: bấm follow hoặc bỏ đi. Không có lựa chọn nào ở giữa.</p>
+        <span class="obs-evidence">Không có link bio / không có trang thu thập thông tin / không có DM funnel</span>
+        <p class="obs-opportunity">Một trang nhỏ đặt ở bio - ví dụ một tài liệu wellness ngắn chị tặng miễn phí - có thể biến người xem thành người chị giữ liên lạc được lâu dài, dù Instagram thay đổi ra sao.</p>
       </div>
 
       <div class="obs-card">
         <span class="obs-number">03</span>
-        <p class="obs-label">Khi chi viet tieng Viet, nguoi ta phan hoi that su</p>
-        <h3>Bài tiếng Việt ít view hơn - nhưng nhận được comment thật, không phải chỉ like.</h3>
-        <p>Các bài tiếng Anh của chị reach xa hơn. Nhưng bài tiếng Việt - đặc biệt những bài mindset dài, những câu chị viết về "đủ đầy bên trong", về phụ nữ tuổi 40 - nhận comment nhiều hơn hẳn. Người ta quote câu của chị lại. Đó là dấu hiệu của cộng đồng đang hình thành, không phải chỉ là khán giả xem qua. Việc dao động giữa hai ngôn ngữ hiện tại khiến cả hai nhóm đó không cảm thấy được nói chuyện trực tiếp.</p>
-        <span class="obs-evidence">Bài VN trung bình 1.4 comments vs. bài tiếng Anh 0.3 comments</span>
-        <p class="obs-opportunity">Phụ nữ Việt 40+ tại Úc là một niche gần như chưa có ai phục vụ tốt. Chị không cần tìm niche đó - chị đã là người đó rồi. Chị chỉ cần chọn đúng ngôn ngữ và nói nhất quán hơn.</p>
+        <p class="obs-label">Khi chị viết tiếng Việt, người ta phản hồi thật sự</p>
+        <h3>Bài tiếng Việt ít lượt xem hơn - nhưng có comment thật, không chỉ có like.</h3>
+        <p>Các bài tiếng Anh của chị có view cao hơn. Nhưng những bài tiếng Việt - nhất là các bài dài về tâm lý phụ nữ, về sống đủ đầy, về việc không cần phải rực rỡ - lại nhận được comment nhiều hơn hẳn. Người ta trích câu của chị lại, kể chuyện của họ. Đó là dấu hiệu của một cộng đồng đang hình thành. Việc đổi qua đổi lại giữa hai ngôn ngữ hiện tại khiến cả hai nhóm đó đều chưa cảm thấy được nói chuyện trực tiếp.</p>
+        <span class="obs-evidence">Bài tiếng Việt trung bình 1.4 comments vs. bài tiếng Anh 0.3 comments</span>
+        <p class="obs-opportunity">Phụ nữ Việt 40+ đang sống ở Úc là một nhóm hầu như chưa có ai phục vụ tốt trên Instagram. Chị không cần đi tìm niche đó - chị đã là người đó rồi. Chị chỉ cần chọn đúng ngôn ngữ và nói nhất quán hơn.</p>
       </div>
 
     </div>
@@ -582,55 +562,50 @@
     <p class="section-number">03 / 07</p>
     <h2 class="section-title">Bốn cách mình<br>có thể làm việc cùng nhau.</h2>
 
-    <!-- STUDENT: thay gia cu the vao [Dau tu: lien he] -->
     <div class="services-grid">
 
       <div class="service-card featured">
-        <p class="service-tag">Bat dau o day</p>
+        <p class="service-tag">Bắt đầu ở đây</p>
         <h3>Trang Landing Page Instagram</h3>
         <ul>
-          <li>Một trang đẹp được đặt ở link bio của chị</li>
-          <li>Thu tên và email qua một tài liệu wellness miễn phí (em viết cùng chị)</li>
-          <li>Thiết kế theo tông màu của chị - ấm, tinh tế, ra dáng Ruby</li>
-          <li>Biến người xem thành người chị có thể tiếp tục kết nối, dù Instagram thay đổi</li>
+          <li>Một trang nhỏ đặt ở bio, để người xem nhận tài liệu wellness từ chị và để lại email</li>
+          <li>Em viết nội dung tài liệu cùng chị - theo đúng giọng và chủ đề chị hay chia sẻ</li>
+          <li>Thiết kế theo tông màu ấm của chị, không dùng template có sẵn</li>
+          <li>Danh sách email thu được là của chị mãi mãi, dù Instagram thay đổi ra sao</li>
         </ul>
-        <p class="service-price">[Đầu tư: liên hệ]</p>
       </div>
 
       <div class="service-card">
-        <p class="service-tag">Nen tang</p>
+        <p class="service-tag">Nền tảng</p>
         <h3>Chiến lược nội dung</h3>
         <ul>
-          <li>Khung trụ nội dung xây trên 3 angle mạnh nhất của chị</li>
-          <li>Lịch đăng bài theo tháng với chủ đề, format và giờ đăng</li>
-          <li>Hướng dẫn giọng viết để mỗi bài luôn ra dáng Ruby, không phải template</li>
-          <li>Bộ hashtag chiến lược để tiếp cận đúng người</li>
+          <li>Khung các trụ nội dung xây trên 3 angle mạnh nhất của chị</li>
+          <li>Lịch đăng bài theo tháng với chủ đề, format và khung giờ phù hợp</li>
+          <li>Hướng dẫn giọng viết để mỗi bài luôn ra dáng Ruby, không ra dáng template</li>
+          <li>Bộ hashtag chiến lược để tiếp cận đúng người đang tìm nội dung như của chị</li>
         </ul>
-        <p class="service-price">[Đầu tư: liên hệ]</p>
       </div>
 
       <div class="service-card">
-        <p class="service-tag">Thuc hien</p>
+        <p class="service-tag">Thực hiện</p>
         <h3>Carousel + Bài viết</h3>
         <ul>
-          <li>Thiết kế carousel với caption viết bằng giọng của chính chị</li>
+          <li>Thiết kế carousel với caption viết theo giọng của chính chị</li>
           <li>Bài ảnh đơn với caption và hashtag đầy đủ</li>
-          <li>Mỗi bài được check lại theo giọng của chị trước khi gửi</li>
-          <li>4-8 bài mỗi tháng tùy theo gói dịch vụ</li>
+          <li>Mỗi bài được kiểm tra lại theo giọng chị trước khi gửi</li>
+          <li>4-8 bài mỗi tháng tùy gói</li>
         </ul>
-        <p class="service-price">[Đầu tư: liên hệ]</p>
       </div>
 
       <div class="service-card">
-        <p class="service-tag">Thuc hien</p>
+        <p class="service-tag">Thực hiện</p>
         <h3>Reels Script + Story</h3>
         <ul>
-          <li>Script Reel viết theo angle mạnh nhất của chị (bí quyết thế hệ, mindset, nghi thức)</li>
+          <li>Script Reel viết theo angle mạnh nhất của chị - bí quyết thế hệ, mindset, nghi thức buổi sáng</li>
           <li>Story frame template theo tông màu của chị</li>
           <li>Caption và hashtag cho từng Reel</li>
-          <li>Hướng dẫn cách đọc script để nghe như chính chị nói, không phải đọc bài</li>
+          <li>Hướng dẫn cách đọc script để nghe tự nhiên như chị đang nói, không phải đọc bài</li>
         </ul>
-        <p class="service-price">[Đầu tư: liên hệ]</p>
       </div>
 
     </div>
@@ -641,17 +616,18 @@
 <div class="container">
   <section>
     <p class="section-number">04 / 07</p>
-    <h2 class="section-title">Em đã viết thử một bài.<br>Chị đọc xem có ra chị không.</h2>
+    <h2 class="section-title">Em viết thử hai bài.<br>Chị đọc xem có ra chị không.</h2>
 
     <p class="body-text" style="margin-bottom:36px;">
-      Trước khi viết bài này, em đọc hơn 20 caption đầy đủ của chị - không phải để lấy chủ đề, mà để hiểu chị viết theo cách nào. Nhịp câu, cách mở bài, những từ chị hay dùng lại, cách chị kết thúc một suy nghĩ. Đây là caption Reel em viết theo giọng của chị - angle bí quyết thế hệ, tiếng Việt, theo nhịp câu chị hay dùng trong những bài mindset gần nhất.
+      Trước khi viết hai bài này, em đọc hơn 20 caption đầy đủ của chị - không phải để lấy chủ đề, mà để hiểu chị viết theo cách nào. Nhịp câu ngắn hay dài, chị hay mở bài thế nào, những từ chị dùng lại nhiều lần, cách chị kết thúc một suy nghĩ. Mỗi bài dưới đây được viết theo đúng giọng đó.
     </p>
 
-    <div class="sample-wrapper">
+    <div class="samples-grid">
+
       <div class="sample-phone">
-        <img src="aesthetic/top1.jpg" alt="Sample content" class="sample-phone-img" />
+        <img src="aesthetic/top1.jpg" alt="Sample 1" class="sample-phone-img" />
         <div class="sample-phone-caption">
-          <p class="sample-phone-handle">rubyphamvn</p>
+          <p class="sample-phone-handle">rubyphamvn &nbsp;·&nbsp; Reel caption</p>
           <p class="sample-phone-text">Ba đời nhà mình, chưa ai mua kem dưỡng da đắt tiền.
 
 Nhưng mà bà mình vẫn đẹp.
@@ -659,31 +635,58 @@ Da vẫn sáng.
 Tóc vẫn dày đến 70 tuổi.
 
 Hỏi bà bí quyết gì,
-bà chỉ cười: "Ăn ngon, ngủ đủ, không sợ hãn."
+bà chỉ cười: "Ăn ngon, ngủ đủ, không sợ hãi."
 
-Không sợ hãn.
-Bà không có từ đó - nhưng ý bà là: đừng để nỗi lo của ngày mai ăn mất ngày hôm nay.
+Không sợ hãi.
+Ý bà là: đừng để nỗi lo của ngày mai ăn mất ngày hôm nay.
 
-Mình nghĩ lại nhiều thứ mình đang làm để "chăm sóc bản thân."
+Mình ngồi nghĩ lại nhiều thứ mình đang làm để chăm sóc bản thân.
 Nhưng có lẽ những gì bà làm mới là wellness thật sự.
 
 Đơn giản đến mức mình quên mất nó có giá trị.
 
-Chị có ai trong nhà mình có bí quyết quen như vậy không?
+Chị có ai trong nhà có bí quyết quen như vậy không?
 Chia sẻ cho mình biết với nha.
 
-#glowfromwithin #suckhoephunutre #rubyphamvn #wellnessforwomen</p>
+#glowfromwithin #rubyphamvn #wellnessforwomen #phunuvietnam</p>
         </div>
       </div>
 
-      <div>
-        <div class="sample-note">
-          <strong>Em viết bài này như thế nào.</strong>
-          Chị hay mở bài bằng một câu tuyên bố nhỏ nhàng rồi dẫn vào chuyện lớn hơn - em giữ nguyên cấu trúc đó. Nhân từ chính của chị: "glow from within", sống đẹp, bí quyết đơn giản - em không thêm bất kỳ từ nào chị chưa từng dùng. Em dùng "mình/bạn" vì đây là cách chị viết trong các bài tiếng Việt thân mật. Bài kết bằng một câu hỏi mở để mời comment - vì đây là điều chị hay làm khi muốn tạo tương tác thật sự, không phải chỉ like lướt qua.
+      <div class="sample-phone">
+        <img src="aesthetic/top4.jpg" alt="Sample 2" class="sample-phone-img" />
+        <div class="sample-phone-caption">
+          <p class="sample-phone-handle">rubyphamvn &nbsp;·&nbsp; Carousel caption</p>
+          <p class="sample-phone-text">Có những buổi sáng mình không muốn làm gì cả.
 
-          Nếu mình làm việc cùng nhau, mỗi tuần chị sẽ có 4-8 bài như thế này, mỗi bài đều qua bộ check này trước khi em gửi chị.
+Không muốn mở điện thoại.
+Không muốn check tin nhắn.
+Chỉ muốn ngồi yên với ly nước ấm.
+
+Hồi trước mình hay tự trách: "Sao hôm nay lười thế."
+
+Giờ thì mình hiểu ra rồi.
+Đó không phải là lười.
+Đó là cơ thể đang xin được nghỉ.
+
+Phụ nữ mình hay quen với việc phải liên tục.
+Liên tục làm, liên tục cho, liên tục ổn.
+
+Nhưng "ổn" thật sự là biết khi nào cần dừng lại.
+
+Buổi sáng yên tĩnh không phải là buổi sáng lãng phí.
+Đó là buổi sáng mình chọn sống chậm lại một chút - cho mình.
+
+Bạn hay bắt đầu buổi sáng thế nào?
+
+#wellnessforwomen #songdep #rubyphamvn #phunuvietnam40plus</p>
         </div>
       </div>
+
+    </div>
+
+    <div class="sample-note">
+      <strong>Em viết hai bài này như thế nào.</strong>
+      Chị hay mở bài bằng một câu ngắn, rồi xuống dòng liên tục - em giữ nguyên nhịp đó. Chị dùng "mình/bạn" trong bài tiếng Việt thân mật - em dùng y chang. Từ "glow from within" và "wellness" chị dùng nhiều nhất - em giữ lại. Bài nào cũng kết bằng một câu hỏi mở, vì đó là cách chị hay kéo comment thật sự chứ không phải chỉ like lướt qua. Hai bài theo hai format khác nhau để chị thấy em có thể viết linh hoạt theo cả Reel lẫn carousel.
     </div>
   </section>
 </div>
@@ -699,28 +702,28 @@ Chia sẻ cho mình biết với nha.
         <span class="diff-num">01</span>
         <div class="diff-text">
           <h4>Em đọc trước khi pitch.</h4>
-          <p>Em audit 100 bài đăng của chị, tính engagement, đọc những caption dài nhất, và xác định giọng viết của chị trước khi viết bất kỳ dòng nào trong đề xuất này. Phần lớn agency gửi cùng một bài pitch cho mọi khách hàng, chỉ thay tên ở trên cùng.</p>
+          <p>Em audit 100 bài đăng của chị, tính số liệu engagement, đọc những caption dài nhất, và xác định giọng viết của chị trước khi viết bất kỳ dòng nào trong đề xuất này. Phần lớn người làm SMM gửi cùng một bài pitch cho mọi khách hàng, chỉ thay tên ở trên cùng.</p>
         </div>
       </div>
       <div class="diff-item">
         <span class="diff-num">02</span>
         <div class="diff-text">
           <h4>Em quản lý giọng viết, không chỉ quản lý format.</h4>
-          <p>Bất kỳ ai cũng có thể thiết kế carousel đẹp. Việc của em là đảm bảo rằng khi chị viết một caption và em viết một caption, người đọc không phân biệt được cái nào là của ai. Điều đó cần một kiểu chú ý hoàn toàn khác.</p>
+          <p>Ai cũng có thể thiết kế carousel đẹp. Việc của em là đảm bảo khi chị viết một bài và em viết một bài, người đọc không phân biệt được cái nào là của ai. Hai bài sample ở trên là cách em chứng minh điều đó.</p>
         </div>
       </div>
       <div class="diff-item">
         <span class="diff-num">03</span>
         <div class="diff-text">
           <h4>Em quan tâm đến điều xảy ra sau lượt like.</h4>
-          <p>Engagement chỉ là điểm bắt đầu. Landing page, DM funnel, danh sách email - đây là nền tảng biến Instagram following thành thứ gì đó thật sự hoạt động cho chị, dù thuật toán thay đổi thế nào.</p>
+          <p>Trang landing page, email list, DM funnel - đây là thứ biến follower thành người thực sự gắn bó với chị lâu dài. Engagement đẹp nhưng nếu không có nơi dẫn người ta đến, nó chỉ dừng lại ở đó.</p>
         </div>
       </div>
       <div class="diff-item">
         <span class="diff-num">04</span>
         <div class="diff-text">
-          <h4>Em hiểu niche chị thực sự đang ở.</h4>
-          <p>Phụ nữ Việt 40+ tại Úc là một nhóm chưa có ai phục vụ tốt trên Instagram. Chị không cần tìm niche đó - chị đã là người đó rồi. Em chỉ cần giúp chị xuất hiện đúng và nhất quán hơn.</p>
+          <h4>Em hiểu niche chị đang ở.</h4>
+          <p>Phụ nữ Việt 40+ tại Úc là một nhóm hầu như chưa có creator nào phục vụ thật tốt. Chị không cần đi tìm niche đó - chị đã là người đó rồi. Em chỉ cần giúp chị xuất hiện đúng cách và nhất quán hơn.</p>
         </div>
       </div>
     </div>
