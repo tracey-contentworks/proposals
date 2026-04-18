@@ -8,20 +8,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #f7f2ec;
-    --bg2:       #ede5d8;
-    --ink:       #2b2318;
-    --ink-soft:  #6b5c4a;
-    --hero:      #5a8a6c;
-    --hero-pale: #e5eeea;
-    --soft:      #e8ddd0;
-    --highlight: #9b6b48;
-    --highlight-pale: #f3e9e0;
-    --white:     #fdfaf6;
+    --bg:           #f7f2ec;
+    --bg2:          #ede5d8;
+    --ink:          #2b2318;
+    --ink-soft:     #6b5c4a;
+    --hero:         #5a8a6c;
+    --hero-pale:    #e5eeea;
+    --soft:         #e8ddd0;
+    --highlight:    #9b6b48;
+    --white:        #fdfaf6;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -39,7 +37,7 @@
     padding: 0 28px;
   }
 
-  /* ── HERO ─────────────────────────────────────── */
+  /* HERO */
   .hero {
     padding: 80px 0 60px;
     border-bottom: 1px solid var(--soft);
@@ -56,16 +54,14 @@
 
   .hero-handle {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 9vw, 72px);
+    font-size: clamp(42px, 9vw, 68px);
     font-weight: 600;
     line-height: 1.1;
     color: var(--ink);
     margin-bottom: 20px;
   }
 
-  .hero-handle span {
-    color: var(--hero);
-  }
+  .hero-handle span { color: var(--hero); }
 
   .hero-tagline {
     font-size: 19px;
@@ -101,7 +97,7 @@
     filter: saturate(0.85);
   }
 
-  /* ── SECTIONS ─────────────────────────────────── */
+  /* SECTIONS */
   .section {
     padding: 72px 0;
     border-bottom: 1px solid var(--soft);
@@ -135,7 +131,7 @@
 
   .section-body p:last-child { margin-bottom: 0; }
 
-  /* ── BLOCKQUOTE ───────────────────────────────── */
+  /* BLOCKQUOTE */
   blockquote {
     margin: 32px 0;
     padding: 24px 28px;
@@ -161,7 +157,7 @@
     font-style: normal;
   }
 
-  /* ── OBSERVATION CARDS ────────────────────────── */
+  /* OBSERVATION CARDS */
   .obs-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -174,7 +170,6 @@
     border: 1px solid var(--soft);
     border-radius: 6px;
     padding: 28px 32px;
-    position: relative;
   }
 
   .obs-num {
@@ -217,7 +212,7 @@
     font-size: 11px;
   }
 
-  /* ── SERVICE CARDS ────────────────────────────── */
+  /* SERVICE CARDS */
   .service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -233,9 +228,7 @@
     transition: border-color 0.2s;
   }
 
-  .service-card:hover {
-    border-color: var(--hero);
-  }
+  .service-card:hover { border-color: var(--hero); }
 
   .service-card.featured {
     background: var(--hero-pale);
@@ -268,8 +261,7 @@
   .service-list li {
     font-size: 15px;
     color: var(--ink-soft);
-    padding: 6px 0;
-    padding-left: 16px;
+    padding: 6px 0 6px 16px;
     position: relative;
     border-bottom: 1px solid var(--soft);
     line-height: 1.55;
@@ -284,19 +276,14 @@
     color: var(--hero);
   }
 
-  .service-price {
-    font-size: 13px;
-    color: var(--ink-soft);
-    letter-spacing: 0.05em;
-  }
+  .service-price { font-size: 13px; color: var(--ink-soft); }
 
-  /* ── SAMPLE CONTENT ───────────────────────────── */
+  /* SAMPLE CONTENT */
   .sample-wrapper {
     background: var(--ink);
     border-radius: 8px;
     padding: 40px;
     margin-top: 12px;
-    position: relative;
   }
 
   .sample-phone-label {
@@ -312,7 +299,6 @@
     border-radius: 4px;
     padding: 28px;
     margin-bottom: 12px;
-    position: relative;
   }
 
   .sample-slide:last-of-type { margin-bottom: 0; }
@@ -332,10 +318,7 @@
     white-space: pre-line;
   }
 
-  .slide-text strong {
-    font-weight: 600;
-    color: var(--hero);
-  }
+  .slide-text strong { font-weight: 600; color: var(--hero); }
 
   .caption-box {
     background: rgba(255,255,255,0.06);
@@ -364,7 +347,7 @@
     font-style: italic;
   }
 
-  /* ── WHY DIFFERENT ────────────────────────────── */
+  /* WHY DIFFERENT */
   .why-list {
     list-style: none;
     display: grid;
@@ -373,23 +356,20 @@
   }
 
   .why-list li {
-    padding: 20px 24px;
+    padding: 20px 24px 20px 28px;
     background: var(--white);
     border: 1px solid var(--soft);
     border-radius: 6px;
     font-size: 16px;
     color: var(--ink);
     line-height: 1.6;
-    padding-left: 28px;
     position: relative;
   }
 
   .why-list li::before {
     content: "";
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    left: 0; top: 0; bottom: 0;
     width: 3px;
     background: var(--hero);
     border-radius: 3px 0 0 3px;
@@ -402,18 +382,10 @@
     margin-bottom: 4px;
   }
 
-  .why-list span {
-    font-size: 14.5px;
-    color: var(--ink-soft);
-  }
+  .why-list span { font-size: 14.5px; color: var(--ink-soft); }
 
-  /* ── CTA ──────────────────────────────────────── */
-  .cta-section {
-    text-align: center;
-    padding: 80px 0;
-  }
-
-  .cta-section .section-number { justify-content: center; display: block; }
+  /* CTA */
+  .cta-section { text-align: center; padding: 80px 0; }
 
   .cta-title {
     font-family: 'Playfair Display', serif;
@@ -445,12 +417,9 @@
     transition: background 0.2s, transform 0.15s;
   }
 
-  .cta-btn:hover {
-    background: var(--hero);
-    transform: translateY(-1px);
-  }
+  .cta-btn:hover { background: var(--hero); transform: translateY(-1px); }
 
-  /* ── FOOTER ───────────────────────────────────── */
+  /* FOOTER */
   footer {
     background: var(--ink);
     color: rgba(255,255,255,0.4);
@@ -460,23 +429,10 @@
     line-height: 2;
   }
 
-  footer a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-  }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer strong { color: rgba(255,255,255,0.8); }
 
-  footer strong {
-    color: rgba(255,255,255,0.8);
-  }
-
-  /* ── DIVIDER ──────────────────────────────────── */
-  .thin-rule {
-    border: none;
-    border-top: 1px solid var(--soft);
-    margin: 0;
-  }
-
-  /* ── IMAGE STRIP ──────────────────────────────── */
+  /* IMAGE STRIP */
   .img-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -494,7 +450,7 @@
     filter: saturate(0.8);
   }
 
-  /* ── RESPONSIVE ───────────────────────────────── */
+  /* RESPONSIVE */
   @media (max-width: 600px) {
     .container { padding: 0 20px; }
     .hero { padding: 56px 0 40px; }
@@ -509,25 +465,23 @@
 
 <body>
 
-<!-- ═══════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════════ -->
+<!-- HERO -->
 <div class="container">
   <section class="hero">
-    <p class="hero-label">Proposal danh rieng &mdash; 18 thang 4, 2026</p>
+    <p class="hero-label">Đề xuất dành riêng — 18 tháng 4, 2026</p>
 
     <h1 class="hero-handle">
-      Hongming <span>fan hong ming</span><br>Susan.
+      Hongming <span>范闳茗</span><br>Susan.
     </h1>
 
     <p class="hero-tagline">
-      Mot de xuat cho nguoi da biet rang khong gi la ngau nhien &mdash; va da den luc Instagram cung phan anh dieu do.
+      Một đề xuất cho người đã biết rằng không gì là ngẫu nhiên - và đã đến lúc Instagram cũng phản ánh điều đó.
     </p>
 
     <div class="hero-meta">
-      <span>Viet boi @tracey.contentworks</span>
-      <span>&mdash;</span>
-      <span>Sau khi doc 100 bai, 15+ caption day du</span>
+      <span>Viết bởi @tracey.contentworks</span>
+      <span>-</span>
+      <span>Sau khi đọc 100 bài, 15+ caption đầy đủ</span>
     </div>
 
     <div class="hero-image">
@@ -536,30 +490,24 @@
   </section>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     01 - I SEE YOU
-════════════════════════════════════════════════ -->
+<!-- 01 - I SEE YOU -->
 <div class="container">
   <section class="section">
     <p class="section-number">01 / 06</p>
-    <h2 class="section-title">Em da thay chi.</h2>
+    <h2 class="section-title">Em đã thấy chị.</h2>
 
     <div class="section-body">
       <p>
-        Khong phai phan overview thong thuong. Em doc caption cua chi - nhung bai dai nhat, nhung bai chi viet khi dang cam xuc that su - va em nhan ra: chi dang mang theo rat nhieu thu trong long, nhung Instagram cua chi chua ke het duoc.
+        Không phải phần overview thông thường. Em đọc caption của chị - những bài dài nhất, những bài chị viết khi đang cảm xúc thật sự - và em nhận ra: chị đang mang theo rất nhiều thứ trong lòng, nhưng Instagram của chị chưa kể hết được.
       </p>
 
       <blockquote>
-        <p>"Minh da tung khong de y den dieu nay. Nhung khi bat dau chua lanh va hoc cach ket noi voi chinh minh, minh nhan ra: moi con so deu co y nghia. Khong gi la ngau nhien."</p>
-        <cite>Chi susan.hongming &mdash; <a href="https://www.instagram.com/p/DLBbUwLzsLp/" style="color:inherit">instagram.com/p/DLBbUwLzsLp</a></cite>
+        <p>"Mình đã từng không để ý đến điều này. Nhưng khi bắt đầu chữa lành và học cách kết nối với chính mình, mình nhận ra: mọi con số đều có ý nghĩa. Không gì là ngẫu nhiên."</p>
+        <cite>Chị @susan.hongming - <a href="https://www.instagram.com/p/DLBbUwLzsLp/" style="color:inherit">instagram.com/p/DLBbUwLzsLp</a></cite>
       </blockquote>
 
       <p>
-        Day khong phai chi ang "wellness coach" hay "Iching practitioner" theo nghia thong thuong. Chi la nguoi da trai qua mot cuoc chuyen hoa that su - tu viec khong biet minh co tai nang gi, den ngay dau tien dung truoc mot lop Kinh Dich va cam thay "day la minh". Va tu do, chi khong chi hoc - chi bat dau huong dan nguoi khac tim ra mat ma cua chinh ho.
-      </p>
-
-      <p>
-        Em doc bai chi viet ve chuyen di Can Gio - chuyen di chi lam huong dan vien lan dau tien cho CLB Dinh Duong, moi ban nuoc ngoai cung tham gia - va thay mot cau rat quan trong: <em>"minh tung tin can nguoi co nghiep vu, chuyen mon, kinh nghiem du lich moi lam duoc. Nhung bang su dan dat, tinh yeu thuong va mong muon duoc cong hien - minh da lam duoc."</em> Do chinh la dieu chi dang chung minh moi ngay - va la thu ma Instagram cua chi can the hien ro hon.
+        Đây không phải chỉ là "wellness coach" hay "Iching practitioner" theo nghĩa thông thường. Chị là người đã trải qua một cuộc chuyển hóa thật sự - từ việc không biết mình có tài năng gì, đến ngày đầu tiên đứng trước một lớp Kinh Dịch và cảm thấy "đây là mình". Và từ đó, chị không chỉ học - chị bắt đầu hướng dẫn người khác tìm ra mật mã của chính họ.
       </p>
 
       <div class="img-strip">
@@ -569,221 +517,219 @@
       </div>
 
       <p>
-        Chi la nguoi Viet Nam dang dua tri tue co Trung Hoa ra the gioi - bang tieng Viet, bang tieng Anh, bang chinh cuoc doi minh. Khong co ai khac tren Instagram Viet dang lam dieu nay theo cach nay. Day la dieu em muon giup chi ke lai - ro rang hon, de nhieu nguoi tim thay chi hon.
+        Em đọc bài chị viết về chuyến đi Cần Giờ - lần đầu chị làm hướng dẫn viên cho CLB Dinh Dưỡng, mời bạn nước ngoài cùng tham gia - và thấy một câu rất quan trọng: <em>"mình từng tin cần người có nghiệp vụ, chuyên môn, kinh nghiệm du lịch mới làm được. Nhưng bằng sự dẫn dắt, tình yêu thương và mong muốn được cống hiến - mình đã làm được."</em> Đó chính là điều chị đang chứng minh mỗi ngày, và là thứ mà Instagram của chị cần thể hiện rõ hơn.
+      </p>
+
+      <p>
+        Chị là người Việt Nam đang đưa trí tuệ cổ Trung Hoa ra thế giới - bằng tiếng Việt, bằng tiếng Anh, bằng chính cuộc đời mình. Không có ai khác trên Instagram Việt đang làm điều này theo cách này. Đây là điều em muốn giúp chị kể lại - rõ ràng hơn, để nhiều người tìm thấy chị hơn.
       </p>
     </div>
   </section>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     02 - 3 OBSERVATIONS
-════════════════════════════════════════════════ -->
+<!-- 02 - 3 OBSERVATIONS -->
 <div class="container">
   <section class="section">
     <p class="section-number">02 / 06</p>
-    <h2 class="section-title">3 dieu em quan sat thay.</h2>
+    <h2 class="section-title">3 điều em quan sát thấy.</h2>
 
     <div class="obs-grid">
 
       <div class="obs-card">
-        <p class="obs-num">Quan sat 01</p>
-        <h3 class="obs-title">Carousel moi la format thuc su cua chi - nhung chi dang dau tu chieu nguoc lai.</h3>
+        <p class="obs-num">Quan sát 01</p>
+        <h3 class="obs-title">Carousel mới là format thực sự của chị - nhưng chị đang đầu tư ngược lại.</h3>
         <p class="obs-body">
-          Data khong noi doi: carousel trung binh 13,3 likes va 0,79 comments moi bai. Reels chi dat 6,1 likes va 0,25 comments. Nhung trong 100 bai em phan tich, chi dang dang Reels nhieu gap doi carousel (57 vs 29 bai). Chi dang bo nhieu cong suc nhat vao format kem hieu qua nhat voi account cua minh.
+          Data không nói dối: carousel trung bình 13,3 likes và 0,79 comments mỗi bài. Reels chỉ đạt 6,1 likes và 0,25 comments. Nhưng trong 100 bài em phân tích, chị đang đăng Reels nhiều gấp đôi carousel (57 vs 29 bài). Chị đang bỏ nhiều công sức nhất vào format kém hiệu quả nhất với account của mình.
         </p>
-        <p class="obs-opportunity">Neu chuyen sang carousel-first, engagement se tang gap doi ma khong can them mot follower nao.</p>
+        <p class="obs-opportunity">Nếu chuyển sang carousel-first, engagement sẽ tăng gấp đôi mà không cần thêm một follower nào.</p>
       </div>
 
       <div class="obs-card">
-        <p class="obs-num">Quan sat 02</p>
-        <h3 class="obs-title">Nhung Reels hay nhat cua chi dang bi lang phi vi khong co caption.</h3>
+        <p class="obs-num">Quan sát 02</p>
+        <h3 class="obs-title">Những Reels hay nhất của chị đang bị lãng phí vì không có caption.</h3>
         <p class="obs-body">
-          5 bai duoi cung trong 100 bai: tat ca la Reels, tat ca chi co hashtag, khong co caption. Trong khi bai Reels co nhieu comments nhat (19 likes, 5 comments &mdash; <a href="https://www.instagram.com/p/DVgRExBAcdT/" style="color:var(--highlight)">DVgRExBAcdT</a>) thi nguoi xem co ly do de o lai vi no co noi dung that su. Reels khong caption = Instagram hieu la chi khong muon truyen tai gi ca.
+          5 bài đáy trong 100 bài: tất cả là Reels, tất cả chỉ có hashtag, không có caption thực sự. Trong khi bài Reels có nhiều comments nhất (19 likes, 5 comments - <a href="https://www.instagram.com/p/DVgRExBAcdT/" style="color:var(--highlight)">DVgRExBAcdT</a>) thì người xem có lý do để ở lại vì nó có nội dung thật sự. Reels không caption = Instagram hiểu là chị không muốn truyền tải gì cả.
         </p>
-        <p class="obs-opportunity">Them 2-3 cau hook + gia tri + CTA vao moi Reels co the tang views len 50-80 thay vi 11-30.</p>
+        <p class="obs-opportunity">Thêm 2-3 câu hook + giá trị + CTA vào mỗi Reels có thể tăng views lên 50-80 thay vì 11-30.</p>
       </div>
 
       <div class="obs-card">
-        <p class="obs-num">Quan sat 03</p>
-        <h3 class="obs-title">Chi dang ban 3 thu cung luc - va audience khong biet chi la ai.</h3>
+        <p class="obs-num">Quan sát 03</p>
+        <h3 class="obs-title">Chị đang bán 3 thứ cùng lúc - và audience không biết chị là ai.</h3>
         <p class="obs-body">
-          Shuyi / Life Decoding, Herbalife, Flex45 - ba offer hoan toan khac nhau xuat hien xen ke nhau. Khong co van de gi voi viec co nhieu nguon thu nhap, nhung tren Instagram, khi mot nguoi moi tim den trang cua chi, ho khong the tra loi duoc cau hoi: "Chi Susan chuyen ve cai gi?" Trong khi do, offer doc dao nhat - mat ma ngay sinh / Kinh Dich - lai la offer chi noi it nhat theo format co chieu sau.
+          Shuyi / Life Decoding, Herbalife, Flex45 - ba offer hoàn toàn khác nhau xuất hiện xen kẽ nhau. Không có vấn đề gì với việc có nhiều nguồn thu nhập, nhưng trên Instagram, khi một người mới tìm đến trang của chị, họ không thể trả lời được câu hỏi: "Chị Susan chuyên về cái gì?" Trong khi đó, offer độc đáo nhất - mật mã ngày sinh / Kinh Dịch - lại là offer chị nói ít nhất theo format có chiều sâu.
         </p>
-        <p class="obs-opportunity">Dat Life Decoding la primary positioning. Herbalife + Flex45 la secondary - van co mat nhung khong chiem spotlight chua dang.</p>
+        <p class="obs-opportunity">Đặt Life Decoding là primary positioning. Herbalife + Flex45 vẫn có mặt nhưng không chiếm spotlight chưa đáng.</p>
       </div>
 
     </div>
   </section>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     03 - SERVICES
-════════════════════════════════════════════════ -->
+<!-- 03 - SERVICES -->
 <div class="container">
   <section class="section">
     <p class="section-number">03 / 06</p>
-    <h2 class="section-title">Day la nhung gi em co the lam cung chi.</h2>
+    <h2 class="section-title">Đây là những gì em có thể làm cùng chị.</h2>
 
-    <!-- STUDENT: thay gia cu the vao placeholder [Dau tu: lien he] -->
+    <!-- STUDENT: thay giá cụ thể vào placeholder [Đầu tư: liên hệ] -->
 
     <div class="service-grid">
 
       <div class="service-card featured">
-        <p class="service-label">Uu tien hang dau</p>
+        <p class="service-label">Ưu tiên hàng đầu</p>
         <h3 class="service-name">Instagram Landing Page</h3>
         <ul class="service-list">
-          <li>Trang bio link rieng the hien dung identity "mat ma ngay sinh + wellness + hanh trinh cua Susan"</li>
-          <li>3 cong vao ro rang: Life Decoding trial form, Wellness coaching, Shuyi workshop dang ky</li>
-          <li>Thiet ke theo palette va giong van cua chi - khong template chung</li>
-          <li>Mobile-first, load nhanh, co the tu sua noi dung</li>
+          <li>Trang bio link riêng thể hiện đúng identity "mật mã ngày sinh + wellness + hành trình của Susan"</li>
+          <li>3 cổng vào rõ ràng: Life Decoding trial form, Wellness coaching, Shuyi workshop đăng ký</li>
+          <li>Thiết kế theo palette và giọng văn của chị - không template chung</li>
+          <li>Mobile-first, load nhanh, chị có thể tự sửa nội dung</li>
         </ul>
-        <p class="service-price">Dau tu: <strong>[lien he]</strong></p>
+        <p class="service-price">Đầu tư: <strong>[liên hệ]</strong></p>
       </div>
 
       <div class="service-card">
-        <p class="service-label">Nen tang chien luoc</p>
+        <p class="service-label">Nền tảng chiến lược</p>
         <h3 class="service-name">Content Strategy</h3>
         <ul class="service-list">
-          <li>Dinh vi lai ro "chi la ai tren Instagram" - chon 1 primary offer de thuong hieu ro</li>
-          <li>Xay 3-4 tru noi dung ro rang + lich dang bai theo tuan</li>
-          <li>Hashtag strategy moi thay cho bo hashtag lap lai hien tai</li>
-          <li>Roadmap 30 ngay dau de bat dau thay ket qua</li>
+          <li>Định vị lại rõ "chị là ai trên Instagram" - chọn 1 primary offer để thương hiệu rõ</li>
+          <li>Xây 3-4 trụ nội dung rõ ràng + lịch đăng bài theo tuần</li>
+          <li>Hashtag strategy mới thay cho bộ hashtag lặp lại hiện tại</li>
+          <li>Roadmap 30 ngày đầu để bắt đầu thấy kết quả</li>
         </ul>
-        <p class="service-price">Dau tu: <strong>[lien he]</strong></p>
+        <p class="service-price">Đầu tư: <strong>[liên hệ]</strong></p>
       </div>
 
       <div class="service-card">
-        <p class="service-label">Thuc thi noi dung</p>
+        <p class="service-label">Thực thi nội dung</p>
         <h3 class="service-name">Carousel + Post</h3>
         <ul class="service-list">
-          <li>4-8 carousel moi thang viet theo giong van cua chi - khong doc ra la "AI viet"</li>
-          <li>Series "Mat ma con so [N]" - khai thac chuyen sau ve Kinh Dich bang noi dung song ngu</li>
-          <li>Caption co hook - gia tri - CTA ro rang cho moi bai</li>
-          <li>Comment trigger strategy de tang tuong tac va dan vao DM</li>
+          <li>4-8 carousel mỗi tháng viết theo giọng văn của chị - không đọc ra là "AI viết"</li>
+          <li>Series "Mật mã con số [N]" - khai thác chuyên sâu về Kinh Dịch bằng nội dung song ngữ</li>
+          <li>Caption có hook - giá trị - CTA rõ ràng cho mỗi bài</li>
+          <li>Comment trigger strategy để tăng tương tác và dẫn vào DM</li>
         </ul>
-        <p class="service-price">Dau tu: <strong>[lien he]</strong></p>
+        <p class="service-price">Đầu tư: <strong>[liên hệ]</strong></p>
       </div>
 
       <div class="service-card">
-        <p class="service-label">Thuc thi noi dung</p>
+        <p class="service-label">Thực thi nội dung</p>
         <h3 class="service-name">Story + Reels</h3>
         <ul class="service-list">
-          <li>Script Reels co hook 3 giay dau - khong con Reels "hashtag-only" nua</li>
-          <li>Story frame hang tuan: moi nguoi theo doi biet chi dang lam gi va vi sao</li>
-          <li>Chuyen tiep tu Reel/Story vao DM tu nhien, khong sales-y</li>
-          <li>Lich chuan: Thu Tu + Thu Nam 21h (giờ cao diem cua chi)</li>
+          <li>Script Reels có hook 3 giây đầu - không còn Reels "hashtag-only" nữa</li>
+          <li>Story frame hàng tuần: mỗi người theo dõi biết chị đang làm gì và vì sao</li>
+          <li>Chuyển tiếp từ Reel/Story vào DM tự nhiên, không sales-y</li>
+          <li>Lịch chuẩn: Thứ Tư + Thứ Năm 21h giờ Việt Nam</li>
         </ul>
-        <p class="service-price">Dau tu: <strong>[lien he]</strong></p>
+        <p class="service-price">Đầu tư: <strong>[liên hệ]</strong></p>
       </div>
 
     </div>
   </section>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     04 - SAMPLE CONTENT
-════════════════════════════════════════════════ -->
+<!-- 04 - SAMPLE CONTENT -->
 <div class="container">
   <section class="section">
     <p class="section-number">04 / 06</p>
-    <h2 class="section-title">Em da viet thu mot bai cho chi.</h2>
+    <h2 class="section-title">Em đã viết thử một bài cho chị.</h2>
 
     <p style="color:var(--ink-soft); margin-bottom:32px;">
-      Day la carousel script cho series "Mat ma con so" - mot angle chi da cham den nhung chua khai thac het. Em viet theo nhip cau, cach mo bai, va tu quen cua chi.
+      Đây là carousel script cho series "Mật mã con số" - một angle chị đã chạm đến nhưng chưa khai thác hết. Em viết theo nhịp câu, cách mở bài, và từ quen của chị.
     </p>
 
     <div class="sample-wrapper">
-      <p class="sample-phone-label">Carousel script &mdash; 6 slides &mdash; song ngu Viet / Anh</p>
+      <p class="sample-phone-label">Carousel script - 6 slides - song ngữ Việt / Anh</p>
 
       <div class="sample-slide">
-        <p class="slide-num">Slide 01 &mdash; Hook</p>
+        <p class="slide-num">Slide 01 - Hook</p>
         <p class="slide-text">
-<strong>Ban co bao gio de y rang...</strong>
+<strong>Bạn có bao giờ để ý rằng...</strong>
 
-Co nhung nguoi sinh ra da gioi quan ly tien bac.
-Co nguoi lai rat kho giu tien du kiem duoc nhieu.
+Có những người sinh ra đã giỏi quản lý tiền bạc.
+Có người lại rất khó giữ tiền dù kiếm được nhiều.
 
-Khong phai do may man.
-Khong phai do nguoi nay hon nguoi kia.
+Không phải do may mắn.
+Không phải do người này hơn người kia.
 
-Do con so bi thieu trong ngay sinh cua ho.
+Do con số bị thiếu trong ngày sinh của họ.
         </p>
       </div>
 
       <div class="sample-slide">
-        <p class="slide-num">Slide 02 &mdash; Context</p>
+        <p class="slide-num">Slide 02 - Context</p>
         <p class="slide-text">
-Trong Kinh Dich, moi nguoi sinh ra deu mang theo mot bo so tu ngay thang nam sinh.
+Trong Kinh Dịch, mỗi người sinh ra đều mang theo một bộ số từ ngày tháng năm sinh.
 
-Nhung khong phai so nao cung co mat.
+Nhưng không phải số nào cũng có mặt.
 
-Con so bi thieu - theo Kinh Dich - la nang luong ban chua du manh trong cuoc doi nay.
-Khong phai diem yeu. La hanh trinh ban duoc sinh ra de hoc.
+Con số bị thiếu - theo Kinh Dịch - là năng lượng bạn chưa đủ mạnh trong cuộc đời này.
+Không phải điểm yếu. Là hành trình bạn được sinh ra để học.
 
 <em>Nothing is random.</em>
         </p>
       </div>
 
       <div class="sample-slide">
-        <p class="slide-num">Slide 03 &mdash; Example: So 1</p>
+        <p class="slide-num">Slide 03 - Ví dụ: Số 1</p>
         <p class="slide-text">
-<strong>Thieu so 1</strong>
+<strong>Thiếu số 1</strong>
 
-Nang luong can dam &amp; tu chu.
+Năng lượng can đảm và tự chủ.
 
-Ban co the rat gioi ho tro nguoi khac, nhung thuong kho dua ra quyet dinh cho ban than.
-Hay de nguoi khac dan dau roi theo sau.
+Bạn có thể rất giỏi hỗ trợ người khác, nhưng thường khó đưa ra quyết định cho bản thân.
+Hay để người khác dẫn đầu rồi theo sau.
 
-Hanh trinh cua ban: hoc tin vao truc giac cua chinh minh.
+Hành trình của bạn: học tin vào trực giác của chính mình.
         </p>
       </div>
 
       <div class="sample-slide">
-        <p class="slide-num">Slide 04 &mdash; Example: So 4</p>
+        <p class="slide-num">Slide 04 - Ví dụ: Số 4</p>
         <p class="slide-text">
-<strong>Thieu so 4</strong>
+<strong>Thiếu số 4</strong>
 
-Nang luong thuc te &amp; xay dung.
+Năng lượng thực tế và xây dựng.
 
-Ban co nhieu y tuong, nhung hay quen chuyen thanh hanh dong cu the.
-Hay thay doi chiec nha trong au tuong nhung chua biet bat dau tu dau.
+Bạn có nhiều ý tưởng, nhưng hay quên chuyển thành hành động cụ thể.
+Hay thay đổi chiếc nhà trong ảo tưởng nhưng chưa biết bắt đầu từ đâu.
 
-Hanh trinh cua ban: hoc xay tung buoc nho - kien nhan khong co nghia la thu dong.
+Hành trình của bạn: học xây từng bước nhỏ - kiên nhẫn không có nghĩa là thụ động.
         </p>
       </div>
 
       <div class="sample-slide">
-        <p class="slide-num">Slide 05 &mdash; CTA</p>
+        <p class="slide-num">Slide 05 - CTA</p>
         <p class="slide-text">
-Ban muon biet con so nao bi thieu trong ngay sinh cua minh?
+Bạn muốn biết con số nào bị thiếu trong ngày sinh của mình?
 
-De lai ngay / thang sinh o phan binh luan.
-Minh se gui cho ban mot goi y nho de bat dau giai ma.
+Để lại ngày / tháng sinh ở phần bình luận.
+Mình sẽ gửi cho bạn một gợi ý nhỏ để bắt đầu giải mã.
 
 Because your birthday is not random.
         </p>
       </div>
 
       <div class="sample-slide">
-        <p class="slide-num">Slide 06 &mdash; Closing slide (chu, toi gian)</p>
+        <p class="slide-num">Slide 06 - Closing (chữ, tối giản)</p>
         <p class="slide-text">
-<strong>Moi nguoi sinh ra deu mang theo mot mat ma.</strong>
+<strong>Mỗi người sinh ra đều mang theo một mật mã.</strong>
 
-Hieu minh som mot chut,
-la bot di rat nhieu au lo.
+Hiểu mình sớm một chút,
+là bớt đi rất nhiều âu lo.
 
-&mdash; susan.hongming
+- susan.hongming
         </p>
       </div>
 
       <div class="caption-box">
-        <p>Ban co bao gio nghi rang tai sao co nguoi rat gioi giu tien, co nguoi lai khong?
+        <p>Bạn có bao giờ nghĩ rằng tại sao có người rất giỏi giữ tiền, có người lại không?
 
-Trong Kinh Dich, dieu nay lien quan den con so bi thieu trong ngay sinh cua ban.
+Trong Kinh Dịch, điều này liên quan đến con số bị thiếu trong ngày sinh của bạn.
 
-Khong phai diem yeu. La hanh trinh ban duoc sinh ra de hoc.
+Không phải điểm yếu. Là hành trình bạn được sinh ra để học.
 
-De lai ngay / thang sinh o phan binh luan &mdash; minh se gui ban mot goi y nho de bat dau giai ma.
+Để lại ngày / tháng sinh ở phần bình luận - mình sẽ gửi bạn một gợi ý nhỏ để bắt đầu giải mã.
 
 Because your birthday is not random.
 
@@ -791,65 +737,59 @@ Because your birthday is not random.
       </div>
 
       <p class="sample-note">
-        Em viet sample nay sau khi doc 15+ bai day du cua chi. Em co y mirror cach chi viet - nhip cau ngan, chuyen ngon ngu tu nhien, mo bai bang cau hoi quan sat, ket bang comment trigger. Neu minh lam viec cung nhau, moi tuan chi se co 4-8 sample nhu nay, moi bai deu di qua bo check nay truoc khi gui chi.
+        Em viết sample này sau khi đọc 15+ bài đầy đủ của chị. Em cố ý mirror cách chị viết - nhịp câu ngắn, chuyển ngôn ngữ tự nhiên, mở bài bằng câu hỏi quan sát, kết bằng comment trigger. Nếu mình làm việc cùng nhau, mỗi tuần chị sẽ có 4-8 sample như này, mỗi bài đều đi qua bộ check này trước khi gửi chị.
       </p>
     </div>
   </section>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     05 - WHY DIFFERENT
-════════════════════════════════════════════════ -->
+<!-- 05 - WHY DIFFERENT -->
 <div class="container">
   <section class="section">
     <p class="section-number">05 / 06</p>
-    <h2 class="section-title">Vi sao em khac.</h2>
+    <h2 class="section-title">Vì sao em khác.</h2>
 
     <ul class="why-list">
       <li>
-        <strong>Em doc truoc khi pitch.</strong>
-        <span>Khong co agency nao doc 100 bai cua chi truoc khi gui proposal. Em doc ca nhung bai it likes nhat de hieu pattern. Day khong phai template.</span>
+        <strong>Em đọc trước khi pitch.</strong>
+        <span>Không có agency nào đọc 100 bài của chị trước khi gửi proposal. Em đọc cả những bài ít likes nhất để hiểu pattern. Đây không phải template.</span>
       </li>
       <li>
-        <strong>Em hieu giong van, khong chi format.</strong>
-        <span>Sample content o tren khong phai em viet theo style cua em. Em viet theo nhip cau, tu quen, cach mo va dong bai cua chinh chi. Neu thay khac, em viet lai.</span>
+        <strong>Em hiểu giọng văn, không chỉ format.</strong>
+        <span>Sample content ở trên không phải em viết theo style của em. Em viết theo nhịp câu, từ quen, cách mở và đóng bài của chính chị. Nếu thấy khác, em viết lại.</span>
       </li>
       <li>
-        <strong>Em noi ve con so that, khong chi "chien luoc" chung chung.</strong>
-        <span>Carousel cua chi dat 13,3 likes, Reels chi dat 6,1. Day la con so that tu 100 bai. Moi de xuat em dua ra deu co data cu the dang sau.</span>
+        <strong>Em nói về con số thật, không chỉ "chiến lược" chung chung.</strong>
+        <span>Carousel của chị đạt 13,3 likes, Reels chỉ đạt 6,1. Đây là con số thật từ 100 bài. Mỗi đề xuất em đưa ra đều có data cụ thể đằng sau.</span>
       </li>
       <li>
-        <strong>Em khong viet "grow your audience" hay "elevate your brand".</strong>
-        <span>Nhung cau nhu vay khong co nghia gi. Em chi noi nhung dieu co the lam duoc - va chi minh rong rang mong doi gi truoc khi bat dau.</span>
+        <strong>Em không viết "grow your audience" hay "elevate your brand".</strong>
+        <span>Những câu như vậy không có nghĩa gì. Em chỉ nói những điều có thể làm được - và cho chị thấy rõ mong đợi gì trước khi bắt đầu.</span>
       </li>
     </ul>
   </section>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     06 - CTA
-════════════════════════════════════════════════ -->
+<!-- 06 - CTA -->
 <section class="cta-section">
   <div class="container">
-    <p class="section-number">06 / 06</p>
-    <h2 class="cta-title">Buoc tiep theo<br>rat don gian.</h2>
+    <p class="section-number" style="text-align:center;">06 / 06</p>
+    <h2 class="cta-title">Bước tiếp theo<br>rất đơn giản.</h2>
     <p class="cta-sub">
-      Neu chi thay de xuat nay hop ly, chi nhan tin cho em tren Instagram. Khong call, khong form, khong ap luc.
+      Nếu chị thấy đề xuất này hợp lý, chị nhắn tin cho em trên Instagram. Không call, không form, không áp lực.
     </p>
     <a href="https://www.instagram.com/tracey.contentworks/" class="cta-btn" target="_blank">
-      Nhan tin cho em tren Instagram
+      Nhắn tin cho em trên Instagram
     </a>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <p><strong>@tracey.contentworks</strong></p>
-    <p>De xuat nay duoc viet rieng cho <a href="https://www.instagram.com/susan.hongming/">@susan.hongming</a>. Khong template.</p>
-    <p style="margin-top:8px;">Thang 4, 2026</p>
+    <p>Đề xuất này được viết riêng cho <a href="https://www.instagram.com/susan.hongming/">@susan.hongming</a>. Không template.</p>
+    <p style="margin-top:8px;">Tháng 4, 2026</p>
   </div>
 </footer>
 
