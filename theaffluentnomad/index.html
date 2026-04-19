@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Proposal for @theaffluentnomad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e1012;
+    --soft: #161a1d;
+    --card: #1a1e22;
+    --border: #272b2f;
+    --ink: #e2ddd0;
+    --muted: #7a756a;
+    --hero: #b89452;
+    --highlight: #c9a660;
+    --danger: #8a6f42;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 100px 0 80px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--hero);
+    margin-bottom: 48px;
+    font-weight: 400;
+  }
+
+  .hero-handle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 80px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-handle em {
+    font-style: italic;
+    color: var(--hero);
+  }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.5;
+    margin-bottom: 48px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .hero-meta span { color: var(--hero); }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-number {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--hero);
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 46px);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 40px;
+    color: var(--ink);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--hero);
+  }
+
+  /* ── I-SEE-YOU ── */
+  .see-you p {
+    margin-bottom: 24px;
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--ink);
+    max-width: 640px;
+  }
+
+  .see-you blockquote {
+    border-left: 2px solid var(--hero);
+    padding: 16px 0 16px 28px;
+    margin: 36px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .see-you blockquote cite {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+    margin-top: 12px;
+  }
+
+  .see-you blockquote cite a {
+    color: var(--hero);
+    text-decoration: none;
+  }
+
+  /* ── AESTHETIC IMAGE ── */
+  .aesthetic-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 40px 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .aesthetic-strip img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.85);
+  }
+
+  /* ── OBSERVATIONS ── */
+  .obs-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .obs-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 24px;
+  }
+
+  .obs-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--border);
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .obs-content {}
+
+  .obs-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hero);
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .obs-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .obs-body {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+
+  .obs-opp {
+    font-size: 14px;
+    color: var(--highlight);
+    font-weight: 400;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: 14px;
+  }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .obs-card { grid-template-columns: 1fr; }
+    .obs-number { font-size: 32px; }
+  }
+
+  .service-card {
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 28px 24px;
+  }
+
+  .service-card.featured {
+    border-color: var(--hero);
+    background: #15180c;
+  }
+
+  .service-tag {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--hero);
+    font-weight: 500;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .service-card.featured .service-tag {
+    color: var(--highlight);
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+
+  .service-bullets {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .service-bullets li {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+
+  .service-bullets li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--hero);
+  }
+
+  .service-price {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--border);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  .service-card.featured .service-price {
+    color: var(--hero);
+    border-color: var(--danger);
+  }
+
+  /* ── SAMPLE CONTENT ── */
+  .sample-wrapper {
+    background: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .sample-header {
+    padding: 20px 28px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .sample-handle {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .sample-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  .sample-body {
+    padding: 32px 36px;
+  }
+
+  .carousel-slides {}
+
+  .slide {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .slide:last-child { border-bottom: none; }
+
+  .slide-number {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--hero);
+    font-weight: 500;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .slide-copy {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--ink);
+    white-space: pre-line;
+  }
+
+  .sample-note {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    padding: 24px 36px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── POSITIONING ── */
+  .positioning-list {
+    list-style: none;
+    display: grid;
+    gap: 16px;
+    max-width: 620px;
+  }
+
+  .positioning-list li {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink);
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .positioning-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 1px;
+    background: var(--hero);
+  }
+
+  .positioning-list li strong {
+    color: var(--highlight);
+    font-weight: 500;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+
+  .cta-lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.4;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--hero);
+    color: #0e1012;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 18px 44px;
+    border-radius: 2px;
+    transition: background 0.2s ease;
+  }
+
+  .cta-button:hover {
+    background: var(--highlight);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-sig {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--hero);
+  }
+
+  .footer-meta {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .footer-disclaimer {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--border);
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
+  /* ── DIVIDER ── */
+  .thin-rule {
+    height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ── UTILS ── */
+  .mt-8  { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+  .mt-40 { margin-top: 40px; }
+
+  .text-muted { color: var(--muted); }
+  .text-hero  { color: var(--hero); }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     01 / HERO
+══════════════════════════════════════════ -->
+<div class="container">
+
+  <header class="hero">
+    <p class="hero-label">A proposal written for</p>
+    <h1 class="hero-handle">@theaffluentnomad<br><em>Cleo</em></h1>
+    <p class="hero-tagline">A proposal for the brand that has already done the hard part - the identity shift. Now it's time for the content to catch up.</p>
+    <div class="hero-meta">
+      <div>From <span>@tracey.contentworks</span></div>
+      <div>Date <span>19 April 2026</span></div>
+    </div>
+  </header>
+
+
+<!-- ══════════════════════════════════════════
+     02 / I SEE YOU
+══════════════════════════════════════════ -->
+  <section class="section see-you">
+    <p class="section-number">01 / 06</p>
+    <h2 class="section-title">I've been reading<br><em>your content.</em></h2>
+
+    <div class="aesthetic-strip">
+      <img src="aesthetic/top1.jpg" alt="@theaffluentnomad content">
+      <img src="aesthetic/top2.jpg" alt="@theaffluentnomad content">
+    </div>
+
+    <p>I know the Sunday night feeling. The one you named exactly right in December - "every Sunday night felt like a countdown." That specific dread. Not burnout, not boredom. Something quieter and more corrosive - the slow realisation that no matter how hard you worked, the ceiling was someone else's floor.</p>
+
+    <p>You didn't just leave a job in July 2024. You packed two suitcases and walked away from a decade of doing things the way you were supposed to. And what struck me reading your content isn't the freedom you have now - it's that you moved before you were ready. That's the part most people miss when they look at your account. They see the Bali mornings and the passive income. You're showing them the decision. The identity shift that had to happen first.</p>
+
+    <blockquote>
+      "I stopped following the path I'd been given and started building something of my own."
+      <cite>- <a href="https://www.instagram.com/p/DWZVytTEoSk/" target="_blank">@theaffluentnomad</a></cite>
+    </blockquote>
+
+    <p>You're also building something most freedom coaches aren't: a real offline community. @travel.create.connect, the monthly brunch in Canggu - that's not a content strategy. That's a moat. You're not just living the nomad dream. You're constructing an ecosystem around it. I wanted to acknowledge that you're further along than your current content makes visible - and that gap is exactly where I can help.</p>
+  </section>
+
+
+<!-- ══════════════════════════════════════════
+     03 / 3 OBSERVATIONS
+══════════════════════════════════════════ -->
+  <section class="section">
+    <p class="section-number">02 / 06</p>
+    <h2 class="section-title">3 things I observed<br><em>in the audit.</em></h2>
+
+    <div class="obs-grid">
+
+      <div class="obs-card">
+        <div class="obs-number">01</div>
+        <div class="obs-content">
+          <p class="obs-label">Format gap</p>
+          <p class="obs-headline">Your carousels are performing at 5.8x your Reels - and yet Reels are 60% of your content.</p>
+          <p class="obs-body">Across 100 posts, your carousels average 386 engagement per post. Your Reels average 67. That's not a content quality problem - your Reels have strong writing. It's a format allocation problem. You're investing the majority of your effort into the format that delivers the minority of your results.</p>
+          <p class="obs-opp">Opportunity: Shifting to 40-50% carousels would likely push your ER from 1.5% to 2.5%+ within 60 days - without changing your message at all.</p>
+        </div>
+      </div>
+
+      <div class="obs-card">
+        <div class="obs-number">02</div>
+        <div class="obs-content">
+          <p class="obs-label">Trust layer</p>
+          <p class="obs-headline">In 100 posts, there is not a single story about someone else whose life changed because of your model.</p>
+          <p class="obs-body">Every post is Cleo's story. That's powerful - and it's also a missing piece. Your audience is asking themselves: does this work for other people too, or just for her? The answer is almost certainly yes. But right now the content doesn't show it. For cold followers who find you through the TRAVEL CTA, there's no third-party proof to bridge the gap between inspiration and trust.</p>
+          <p class="obs-opp">Opportunity: 1-2 client transformation posts per month - a before/after in someone else's words - would significantly accelerate DM conversions from your CTAs.</p>
+        </div>
+      </div>
+
+      <div class="obs-card">
+        <div class="obs-number">03</div>
+        <div class="obs-content">
+          <p class="obs-label">CTA fatigue</p>
+          <p class="obs-headline">The TRAVEL comment trigger has appeared in 14 of 100 posts. Your audience can now predict it.</p>
+          <p class="obs-body">Pattern recognition is the enemy of action. When a follower has seen "comment TRAVEL" seven times, they know what comes next - and they stop clicking. Meanwhile, The Accelerator Program launched in April 2026 without a dedicated trigger. You have a new offer sitting inside an old funnel structure.</p>
+          <p class="obs-opp">Opportunity: New triggers tied specifically to the Accelerator (comment ACCELERATE or LEVEL UP) open fresh conversations with followers who didn't respond to TRAVEL - people who were interested in the mindset side but not ready for the NM pitch.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+<!-- ══════════════════════════════════════════
+     04 / SERVICES
+══════════════════════════════════════════ -->
+  <section class="section">
+    <p class="section-number">03 / 06</p>
+    <h2 class="section-title">What I can<br><em>do with you.</em></h2>
+
+    <div class="services-grid">
+
+      <!-- STUDENT: thay giá cụ thể vào placeholder [Dau tu: lien he] -->
+      <div class="service-card featured">
+        <span class="service-tag">Recommended first step</span>
+        <h3 class="service-name">Instagram Landing Page</h3>
+        <ul class="service-bullets">
+          <li>A bio link mini-site that matches your feed aesthetic - dark, editorial, yours</li>
+          <li>Separate entry points for each offer: travel business, The Accelerator, 1-on-1 coaching</li>
+          <li>Captures leads so interested followers don't disappear into the DM void</li>
+          <li>Mobile-first design built around your identity-first brand voice</li>
+        </ul>
+        <p class="service-price">[Investment: contact for pricing]</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-tag">Content foundation</span>
+        <h3 class="service-name">Content Strategy</h3>
+        <ul class="service-bullets">
+          <li>Pillar restructure - cutting what dilutes, doubling what performs</li>
+          <li>Monthly content calendar built around your offer funnel</li>
+          <li>CTA diversification plan: new triggers for each offer</li>
+          <li>Carousel-first framework that mirrors your top-performing posts</li>
+        </ul>
+        <p class="service-price">[Investment: contact for pricing]</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-tag">Content execution</span>
+        <h3 class="service-name">Carousel + Post</h3>
+        <ul class="service-bullets">
+          <li>Weekly carousels written in your voice - NM reframes, identity content, personal story</li>
+          <li>Single image posts with caption copy that hooks in line one</li>
+          <li>Client proof posts: testimonial formatting that feels like real conversation</li>
+          <li>All copy in British English, matched to your signature style</li>
+        </ul>
+        <p class="service-price">[Investment: contact for pricing]</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-tag">Content execution</span>
+        <h3 class="service-name">Story + Reels</h3>
+        <ul class="service-bullets">
+          <li>Aesthetic story frames - dark, editorial, no generic templates</li>
+          <li>Reels scripts with hook in the first 2 seconds</li>
+          <li>Caption copy for every Reel - at least 150 words, CTA included</li>
+          <li>Stories sequenced to move followers from viewer to DM conversation</li>
+        </ul>
+        <p class="service-price">[Investment: contact for pricing]</p>
+      </div>
+
+    </div>
+  </section>
+
+
+<!-- ══════════════════════════════════════════
+     05 / SAMPLE CONTENT
+══════════════════════════════════════════ -->
+  <section class="section">
+    <p class="section-number">04 / 06</p>
+    <h2 class="section-title">A sample I wrote<br><em>for you.</em></h2>
+
+    <p class="text-muted" style="max-width:600px; margin-bottom: 32px; font-size:15px; line-height:1.8;">I read through 20+ of your captions before writing this. The goal was to write something that sounds like it came from you - not from me. Read it and see if it holds.</p>
+
+    <div class="sample-wrapper">
+      <div class="sample-header">
+        <div class="sample-dot"></div>
+        <span class="sample-handle">@theaffluentnomad</span>
+        <span style="margin-left:auto; font-size:11px; letter-spacing:0.1em; text-transform:uppercase;">Carousel - 8 slides</span>
+      </div>
+
+      <div class="sample-body">
+        <div class="carousel-slides">
+
+          <div class="slide">
+            <span class="slide-number">Slide 01 - Hook</span>
+            <p class="slide-copy">There's a version of you that keeps choosing comfort.
+
+Not because she's lazy.
+Not because she doesn't dream.
+
+Because she's been taught that playing safe is the same as being smart.</p>
+          </div>
+
+          <div class="slide">
+            <span class="slide-number">Slide 02</span>
+            <p class="slide-copy">She stays in the job that stopped feeling right two years ago.
+
+She scrolls past opportunities that make her nervous.
+She says "not yet" to the things that would actually change her life.
+
+And she calls it being responsible.</p>
+          </div>
+
+          <div class="slide">
+            <span class="slide-number">Slide 03</span>
+            <p class="slide-copy">But here's what I've come to understand.
+
+The version of you who plays safe isn't protecting you.
+
+She's protecting the old identity.
+The one built around what other people expected.
+Around what felt certain.
+Around what didn't require you to become someone new.</p>
+          </div>
+
+          <div class="slide">
+            <span class="slide-number">Slide 04</span>
+            <p class="slide-copy">Growth doesn't feel safe.
+
+It feels exposed.
+It feels uncertain.
+It requires you to move before you're ready...
+and trust yourself enough to figure it out as you go.
+
+That discomfort isn't a warning sign.
+
+It's a signal.</p>
+          </div>
+
+          <div class="slide">
+            <span class="slide-number">Slide 05</span>
+            <p class="slide-copy">The life you actually want doesn't live inside your comfort zone.
+
+It lives in the decisions that feel like too much.
+The ones your nervous system resists.
+The ones that ask you to step into someone you haven't fully become yet.</p>
+          </div>
+
+          <div class="slide">
+            <span class="slide-number">Slide 06</span>
+            <p class="slide-copy">I know this because I was her.
+
+The woman who stayed just a little longer than she should have.
+Who needed a little more certainty than life was willing to give.
+
+Until one day, the cost of staying was higher than the risk of going.
+
+And I moved.
+
+Not because I was ready.
+Because I decided.</p>
+          </div>
+
+          <div class="slide">
+            <span class="slide-number">Slide 07</span>
+            <p class="slide-copy">The version of you who has everything you want?
+
+She doesn't wait until she's ready.
+She builds readiness by moving.
+
+She doesn't ask for permission.
+She understands that performance-based decisions require performance-based courage.</p>
+          </div>
+
+          <div class="slide">
+            <span class="slide-number">Slide 08 - CTA</span>
+            <p class="slide-copy">If something in this landed...
+
+You're not behind.
+You're at the edge.
+
+And the next move is simpler than it feels.
+
+Comment READY if you're done waiting 💚</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="sample-note">
+        I wrote this sample after reading 20+ of your captions. I deliberately mirrored your sentence rhythm, your ellipsis pacing, your "not because... but because" construction, your habit of ending on conviction rather than pressure. If we work together, every piece goes through this same process before it reaches you - nothing ships until it sounds like yours.
+      </div>
+    </div>
+  </section>
+
+
+<!-- ══════════════════════════════════════════
+     06 / POSITIONING
+══════════════════════════════════════════ -->
+  <section class="section">
+    <p class="section-number">05 / 06</p>
+    <h2 class="section-title">Why this is<br><em>different.</em></h2>
+
+    <ul class="positioning-list">
+      <li><strong>I read the account before pitching.</strong> Most SMM pitches are templates with your handle pasted in. This isn't that. I spent time in your content before writing a single line of this proposal.</li>
+      <li><strong>I work from your voice, not mine.</strong> The sample above wasn't written about you. It was written as you. The goal is always that your audience can't tell the difference between what I write and what you'd write yourself.</li>
+      <li><strong>I understand the offer, not just the content.</strong> Your funnel is DM-based. Your audience is warming from cold to curious to ready-to-talk. Content has to do that work. I build content with that conversion arc in mind, not just for likes.</li>
+      <li><strong>No templates. No generic frameworks.</strong> Your identity-first brand doesn't fit into a standard SMM playbook. I don't try to fit it in.</li>
+    </ul>
+  </section>
+
+
+<!-- ══════════════════════════════════════════
+     07 / CTA
+══════════════════════════════════════════ -->
+  <div class="cta-section">
+    <p class="section-number" style="text-align:center;">06 / 06</p>
+    <p class="cta-lead">If something in this proposal felt true - send me a message.</p>
+    <a class="cta-button" href="https://www.instagram.com/tracey.contentworks/" target="_blank">DM me on Instagram</a>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<div style="border-top: 1px solid var(--border);">
+  <div class="container">
+    <footer class="footer">
+      <p class="footer-sig">@tracey.contentworks</p>
+      <p class="footer-meta">Generated 19 April 2026</p>
+      <p class="footer-disclaimer">This proposal was written specifically for @theaffluentnomad. Not a template.</p>
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>
