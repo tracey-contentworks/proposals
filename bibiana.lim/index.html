@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Proposal for @bibiana.lim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f0ea;
+      --ink: #2c2420;
+      --hero: #8c6450;
+      --soft: #ede8e0;
+      --highlight: #c47a5a;
+      --muted: #9a8880;
+      --border: #d8cec6;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 100px 0 80px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      right: -80px;
+      width: 380px;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.12;
+      filter: grayscale(40%);
+    }
+
+    .hero-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hero);
+      margin-bottom: 24px;
+    }
+
+    .hero-handle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 8vw, 80px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .hero-handle em {
+      font-style: italic;
+      color: var(--hero);
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-meta-item {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .hero-meta-item strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* ─── SECTION COMMON ─── */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-number {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--hero);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 42px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 40px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--hero);
+    }
+
+    /* ─── I SEE YOU ─── */
+    .see-you-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      max-width: 680px;
+    }
+
+    .see-you-text p {
+      margin-bottom: 24px;
+    }
+
+    .see-you-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    blockquote {
+      border-left: 2px solid var(--hero);
+      padding: 16px 0 16px 28px;
+      margin: 32px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--hero);
+      line-height: 1.6;
+    }
+
+    blockquote cite {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* ─── OBSERVATIONS ─── */
+    .obs-grid {
+      display: grid;
+      gap: 28px;
+    }
+
+    .obs-card {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      padding: 36px 36px 32px;
+    }
+
+    .obs-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .obs-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .obs-body {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    .obs-body p {
+      margin-bottom: 12px;
+    }
+
+    .obs-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .obs-evidence {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--hero);
+      margin-bottom: 8px;
+    }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 580px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      padding: 32px 28px;
+      background: white;
+      position: relative;
+    }
+
+    .service-card.featured {
+      background: var(--hero);
+      border-color: var(--hero);
+    }
+
+    .service-card.featured .service-name,
+    .service-card.featured .service-desc,
+    .service-card.featured .service-bullet,
+    .service-card.featured .service-investment {
+      color: #f5f0ea;
+    }
+
+    .service-tag {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .service-card.featured .service-tag {
+      color: rgba(245,240,234,0.6);
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .service-bullets {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .service-bullet {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink);
+      padding: 6px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .service-card.featured .service-bullet {
+      border-top-color: rgba(245,240,234,0.2);
+    }
+
+    .service-investment {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── SAMPLE CONTENT ─── */
+    .sample-intro {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      max-width: 680px;
+      margin-bottom: 40px;
+    }
+
+    .carousel-wrap {
+      background: var(--ink);
+      padding: 48px 40px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 520px) {
+      .carousel-wrap {
+        padding: 36px 24px;
+      }
+    }
+
+    .carousel-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hero);
+      margin-bottom: 32px;
+    }
+
+    .carousel-slides {
+      display: grid;
+      gap: 32px;
+    }
+
+    .slide {
+      border-top: 1px solid rgba(245,240,234,0.15);
+      padding-top: 28px;
+    }
+
+    .slide:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .slide-num {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,240,234,0.35);
+      margin-bottom: 14px;
+    }
+
+    .slide-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: #f5f0ea;
+      white-space: pre-line;
+    }
+
+    .slide-text.hook {
+      font-size: 26px;
+      font-weight: 400;
+    }
+
+    .slide-text strong {
+      font-weight: 500;
+      color: #e8c9a8;
+    }
+
+    .caption-box {
+      background: var(--soft);
+      border: 1px solid var(--border);
+      padding: 28px 32px;
+      margin-bottom: 28px;
+    }
+
+    .caption-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hero);
+      margin-bottom: 16px;
+    }
+
+    .caption-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink);
+      white-space: pre-line;
+    }
+
+    .sample-note {
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--muted);
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── WHY DIFFERENT ─── */
+    .diff-list {
+      list-style: none;
+      display: grid;
+      gap: 0;
+    }
+
+    .diff-item {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .diff-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .diff-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--hero);
+      padding-top: 2px;
+    }
+
+    .diff-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .diff-text strong {
+      font-weight: 500;
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--hero);
+      margin-bottom: 20px;
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 20px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-title em {
+      font-style: italic;
+      color: var(--hero);
+    }
+
+    .cta-body {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 460px;
+      margin: 0 auto 40px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--hero);
+      color: #f5f0ea;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: var(--highlight);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-sig {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .footer-sig span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .footer-note {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    /* ─── IMAGE BREAK ─── */
+    .img-break {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: grayscale(20%);
+      opacity: 0.85;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 20px;
+      }
+      .hero {
+        padding: 72px 0 60px;
+      }
+      .hero-bg-img {
+        display: none;
+      }
+      .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .obs-card {
+        padding: 28px 24px;
+      }
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-note {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="container" style="position:relative; z-index:1;">
+      <p class="hero-label">A proposal prepared for</p>
+      <h1 class="hero-handle">@bibiana<em>.lim</em></h1>
+      <p class="hero-tagline">A proposal for someone who has already lived several lives - and is finally building the one that is actually hers.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <strong>Prepared by</strong>
+          @tracey.contentworks
+        </div>
+        <div class="hero-meta-item">
+          <strong>Date</strong>
+          April 20, 2026
+        </div>
+        <div class="hero-meta-item">
+          <strong>For</strong>
+          Bibiana
+        </div>
+      </div>
+    </div>
+    <img src="aesthetic/top1.jpg" class="hero-bg-img" alt="" aria-hidden="true">
+  </section>
+
+  <!-- ─── I SEE YOU ─── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-number">01 / 07 - The I-See-You Section</p>
+      <h2 class="section-title">I have been reading<br><em>your content.</em></h2>
+
+      <div class="see-you-text">
+        <p>
+          You are not a manifestation coach. You have been careful to say this - carefully distancing yourself from the vision boards, the 333 affirmation methods, the girlies manifesting their way through life without ever asking what is actually blocking them. Your entire account is a quiet, persistent argument against that culture.
+        </p>
+
+        <blockquote>
+          "I was just running away from facing my fears and hoping that someone will come and magically save me."
+          <cite>-- @bibiana.lim, April 2026</cite>
+        </blockquote>
+
+        <p>
+          That line is the spine of everything you teach. It is rawer than most coaches will ever allow themselves to be in public. And it is exactly why people stay.
+        </p>
+
+        <p>
+          You started with a science background. You went on sabbatical. You lost 90% of your friends - not because of anything dramatic, but because they knew a version of you that no longer existed and could not follow you into the new one. You slept in a tent in the Peruvian jungle and came home with a sentence that became the foundation of a whole body of work: <em>"What you don't end, you bring with you."</em> You visited Uluru with humility, not content hunger. You reconnected with bazi and qigong and found that your ancestry had already mapped the terrain.
+        </p>
+
+        <p>
+          You have lived several lives inside one body. And now, in 2026 - a double fire year, bing wu, the kind of intensity that only arrives once every 60 years - you are in a pivot. The Closing Chapters era is softening into Align and Manifest. Bio updated. Offer launched. But the narrative thread between the two is not fully visible yet to someone who found you last week.
+        </p>
+
+        <blockquote>
+          "Alignment is no longer a 'nice to have' in 2026. It. Is. The. Only. Path. Out."
+          <cite>-- @bibiana.lim, March 2026</cite>
+        </blockquote>
+
+        <p>
+          That is what I am here for. Not to put words in your mouth. But to help the right person find their way to you - and understand, quickly, why you are different from every other energy coach on their explore page.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── IMAGE BREAK ─── -->
+  <img src="aesthetic/top3.jpg" class="img-break" alt="" aria-hidden="true">
+
+  <!-- ─── 3 OBSERVATIONS ─── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-number">02 / 07 - What I Observed</p>
+      <h2 class="section-title">3 things I noticed<br><em>in the audit.</em></h2>
+
+      <div class="obs-grid">
+
+        <div class="obs-card">
+          <div class="obs-num">01</div>
+          <div class="obs-title">Your strongest content is a series waiting to be born - and you've only written slide one.</div>
+          <div class="obs-body">
+            <p class="obs-evidence">Evidence: DVYouUYEQvQ - 545 likes, 5,998 views (22% of your total followers on a single post)</p>
+            <p>
+              The patriarchy + intuition Reel is not just your highest-performing post. It is proof of concept for an entire series that does not exist yet. You wrote one piece on how women were trained to call their intuition "overthinking" - and it nearly went viral. But there is no follow-up. No slide two. The audience that found you from that post has nowhere to go deeper.
+            </p>
+            <p>
+              The opportunity: a 6-part series - one angle per post - each exploring a different arena where patriarchy stole your read on a situation (the workplace, relationships, your own body, food, clothing, spirituality). Each piece standing alone, all of them pointing toward the same core: your intuition was never wrong. It was just inconvenient for the system.
+            </p>
+          </div>
+        </div>
+
+        <div class="obs-card">
+          <div class="obs-num">02</div>
+          <div class="obs-title">You have two distinct eras of content living in the same account with no bridge between them.</div>
+          <div class="obs-body">
+            <p class="obs-evidence">Evidence: Bio now reads "JOIN ALIGN and MANIFEST" but 40%+ of your archive is Closing Chapters content. Gap: Apr-Aug 2025, almost no posts.</p>
+            <p>
+              Someone who discovers you today sees "align and manifest" in the bio, then scrolls into months of "closing chapters." Without a transition post, they cannot tell if you changed directions, if the two things are related, or if you are still selling the same thing. That confusion costs you followers on the edge.
+            </p>
+            <p>
+              The opportunity: one Reel, 60-90 seconds, honest and personal. The story of how closing chapters was not the end of something - it was the prerequisite for alignment. Connect the two eras. Let your existing followers understand the pivot. Let new followers see the full arc of your thinking, not just a snapshot.
+            </p>
+          </div>
+        </div>
+
+        <div class="obs-card">
+          <div class="obs-num">03</div>
+          <div class="obs-title">Bazi is your most differentiating content - and it appears in fewer than 5% of your posts.</div>
+          <div class="obs-body">
+            <p class="obs-evidence">Evidence: DV6EEVzkWO3 - 115 likes, 2,456 views. Your bazi + fire year post significantly outperformed your Reel average of 750 views.</p>
+            <p>
+              There are hundreds of alignment coaches and manifestation guides on Instagram. Almost none of them are explaining Chinese philosophy, bazi, and ancient energetic frameworks to an English-speaking audience in a way that is both grounded in tradition and actually accessible. That is a blue ocean. And right now, you are barely standing at the edge of it.
+            </p>
+            <p>
+              The opportunity: a monthly or bi-monthly bazi series - one post per month translating what the current energy means for the women in your audience. Something they cannot get anywhere else. Something that turns casual followers into people who genuinely need your specific lens.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-number">03 / 07 - What I Can Do</p>
+      <h2 class="section-title">Here is what<br><em>I can do with you.</em></h2>
+
+      <!-- STUDENT: thay giá cụ thể vào placeholder [Invest: contact] -->
+      <div class="services-grid">
+
+        <div class="service-card featured">
+          <p class="service-tag">Card 01</p>
+          <h3 class="service-name">Instagram Landing Page</h3>
+          <ul class="service-bullets">
+            <li class="service-bullet">A single link-in-bio page that mirrors your exact aesthetic - not a generic Linktree, but a visual entry point that feels like an extension of your feed</li>
+            <li class="service-bullet">Sections for each offer (Align and Manifest, Closing Chapters, book) so a new visitor knows where to go without guessing</li>
+            <li class="service-bullet">Copy written in your voice - so the first impression matches everything they just read on your profile</li>
+          </ul>
+          <p class="service-investment">[Invest: contact]</p>
+        </div>
+
+        <div class="service-card">
+          <p class="service-tag">Card 02</p>
+          <h3 class="service-name">Content Strategy</h3>
+          <ul class="service-bullets">
+            <li class="service-bullet">Full pillar audit and rebuild - what to keep, what to cut, what to amplify</li>
+            <li class="service-bullet">Monthly content calendar with themes, angles, and post formats mapped to your current offers</li>
+            <li class="service-bullet">Strategy that connects bazi, intuition, alignment, and closing chapters into one coherent story arc - not four separate things</li>
+          </ul>
+          <p class="service-investment">[Invest: contact]</p>
+        </div>
+
+        <div class="service-card">
+          <p class="service-tag">Card 03</p>
+          <h3 class="service-name">Content Execution - Carousel + Post</h3>
+          <ul class="service-bullets">
+            <li class="service-bullet">4-8 carousels per month written and designed in your voice - slide-by-slide copy that sounds like you, not like me</li>
+            <li class="service-bullet">Each post goes through a voice-check before it reaches you</li>
+            <li class="service-bullet">Includes the patriarchy-intuition series, the bazi series, and any long-form storytelling posts</li>
+          </ul>
+          <p class="service-investment">[Invest: contact]</p>
+        </div>
+
+        <div class="service-card">
+          <p class="service-tag">Card 04</p>
+          <h3 class="service-name">Content Execution - Story + Reels</h3>
+          <ul class="service-bullets">
+            <li class="service-bullet">Reels scripts written to your rhythm - the short staccato lines, the CAPS emphasis, the soft vulnerability-to-conviction arc that makes your top posts work</li>
+            <li class="service-bullet">Story frames that keep your audience warm between posts without sounding performative</li>
+            <li class="service-bullet">Hooks written specifically for cold audiences - so the Reels that reach new people have a real shot at converting them to followers</li>
+          </ul>
+          <p class="service-investment">[Invest: contact]</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SAMPLE CONTENT ─── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-number">04 / 07 - Voice Proof</p>
+      <h2 class="section-title">A sample I wrote<br><em>in your voice.</em></h2>
+
+      <p class="sample-intro">
+        I read through your captions before writing a single word of this. Not just the top posts - all of them. I was looking for your fingerprints: how you open, where you break lines, which words you reach for when you are trying to say something true. The sample below is a new piece - an angle you have not covered directly yet, built from the beliefs you have already shown me you hold.
+      </p>
+
+      <!-- CAROUSEL SCRIPT -->
+      <div class="carousel-wrap">
+        <p class="carousel-label">Carousel script - 6 slides</p>
+
+        <div class="carousel-slides">
+
+          <div class="slide">
+            <p class="slide-num">Slide 01 / Hook</p>
+            <p class="slide-text hook">You're not attracting the wrong people.
+
+You're attracting the <strong>unfinished</strong> ones.</p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">Slide 02</p>
+            <p class="slide-text">For years, I kept ending up in the same dynamic.
+
+Different face. Different name.
+
+Same feeling.
+
+The hot and cold. The almost-but-not-quite. The person who made me feel like I was asking for too much.
+
+I kept thinking: why does this keep happening to me?</p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">Slide 03</p>
+            <p class="slide-text">Then I learned something that changed how I saw everything.
+
+We don't attract what we want.
+
+We attract what feels <strong>FAMILIAR</strong>.
+
+And familiarity isn't about love. It's about unhealed chapters.
+
+The person who can't commit? Familiar. The one who pulls you in and then disappears? Familiar.
+
+Your nervous system learned what "connection" feels like from the very first relationships it was ever in.
+
+And it keeps recreating that pattern...
+
+Until you close it.</p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">Slide 04</p>
+            <p class="slide-text">This is why "moving on" doesn't work.
+
+You can change cities. Delete their number. Do the visualisations.
+
+But if the chapter isn't actually closed?
+
+You bring the whole thing with you into the next relationship.
+
+Not because you're broken.
+
+Because <strong>what you don't end, you bring with you.</strong></p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">Slide 05</p>
+            <p class="slide-text">Closing the chapter looks like...
+
+Grieving what you actually lost - not just what happened.
+
+Holding the version of you who was in it with love, not judgment.
+
+Acknowledging what it was trying to teach you without rushing past the pain.
+
+Not performing closure.
+
+<strong>Actually arriving at it.</strong></p>
+          </div>
+
+          <div class="slide">
+            <p class="slide-num">Slide 06 / CTA</p>
+            <p class="slide-text">When the chapter finally closes...
+
+Your nervous system stops scanning for the familiar ones.
+
+And the right person stops feeling threatening.
+
+I know because I lived it.
+
+*****
+
+If you're ready to stop the pattern, my Align and Manifest challenge goes deep into exactly this.
+
+DM me "alignment" and I'll tell you more.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CAPTION -->
+      <div class="caption-box">
+        <p class="caption-label">Suggested caption (goes with the carousel)</p>
+        <p class="caption-text">You're not attracting the wrong people.
+
+You're attracting the unfinished ones.
+
+For years, I kept ending up in the same dynamic. Different face, different name, same feeling.
+
+Turns out, it wasn't about them.
+
+It was about the chapters I hadn't closed yet.
+
+What you don't end, you bring with you.
+
+*****
+
+If this landed, my Align and Manifest challenge goes deep into exactly this.
+
+DM me "alignment" - I respond personally, not through a bot.</p>
+      </div>
+
+      <p class="sample-note">
+        I wrote this sample after reading through your posts carefully - paying attention to how you open, where you place the line breaks, the words you reach for when you are being honest. I deliberately mirrored your rhythm: the "For years, I..." opening, the short one-line pivots, the "Turns out..." transition, the asterisk separator before the CTA. If we work together, every piece goes through this same process before it reaches you.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ─── IMAGE BREAK ─── -->
+  <img src="aesthetic/top2.jpg" class="img-break" style="height:260px; filter:grayscale(60%); opacity:0.7;" alt="" aria-hidden="true">
+
+  <!-- ─── WHY DIFFERENT ─── -->
+  <section class="section">
+    <div class="container">
+      <p class="section-number">05 / 07 - Why Me</p>
+      <h2 class="section-title">Why I am<br><em>not the same.</em></h2>
+
+      <ul class="diff-list">
+        <li class="diff-item">
+          <span class="diff-mark">01</span>
+          <div class="diff-text">
+            <strong>I read first. Then I write.</strong> Most content writers start with a template and adjust for the client. I do the opposite. I spend more time in your archive than in any content brief. The sample above was not written by asking "what should a spiritual coach post?" It was written by asking "what would Bibiana write next?"
+          </div>
+        </li>
+        <li class="diff-item">
+          <span class="diff-mark">02</span>
+          <div class="diff-text">
+            <strong>I distinguish voice from format.</strong> It is not enough to match the visual aesthetic or post at the right time. Voice is the sentence rhythm, the words you never say, the emotional register you hold in public. I track all of it. If a piece of copy does not sound like you, it does not leave my desk.
+          </div>
+        </li>
+        <li class="diff-item">
+          <span class="diff-mark">03</span>
+          <div class="diff-text">
+            <strong>I understand the difference between content and conversion.</strong> Pretty posts that get no one any closer to "DM me alignment" are not a win. Every piece I write has a clear purpose in your funnel - whether that is building trust with a cold audience, re-engaging existing followers, or nudging a warm lead to take action.
+          </div>
+        </li>
+        <li class="diff-item">
+          <span class="diff-mark">04</span>
+          <div class="diff-text">
+            <strong>I do not use templates.</strong> This proposal was written for you, not adapted from a previous client's. The sample above is a new piece, not a rewrite. Every recommendation in this document comes from something I actually observed in your account - not from a general best practices list.
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ─── NEXT STEP CTA ─── -->
+  <section class="cta-section">
+    <div class="container">
+      <p class="cta-eyebrow">06 / 07 - Next Step</p>
+      <h2 class="cta-title">If something here<br><em>resonated</em></h2>
+      <p class="cta-body">
+        Send me a message on Instagram. No pressure, no pitch deck, no agenda. Just a conversation to see if it makes sense to work together.
+      </p>
+      <a href="https://www.instagram.com/tracey.contentworks/" class="cta-btn" target="_blank" rel="noopener">
+        Message me on Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-sig">
+          @tracey.contentworks
+          <span>Social Media Manager - Content Strategist</span>
+        </div>
+        <div class="footer-note">
+          This proposal was written specifically for @bibiana.lim.<br>
+          Not a template. April 20, 2026.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
