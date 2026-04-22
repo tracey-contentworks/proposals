@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposal — @backnforthhh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #faf3e8;
+      --ink:       #2a1f0e;
+      --hero:      #c86400;
+      --soft:      #f0e2c4;
+      --highlight: #a04e00;
+      --muted:     #7a6040;
+      --rule:      rgba(42,31,14,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+
+    section { padding: 96px 0; }
+    section + section { border-top: 1px solid var(--rule); }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    p { font-size: 16px; line-height: 1.75; margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+
+    .label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .sec-num {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hero);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(18px, 2.5vw, 22px);
+      line-height: 1.55;
+      border-left: 2px solid var(--hero);
+      padding-left: 24px;
+      margin: 32px 0;
+      color: var(--ink);
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    a { color: var(--hero); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { font-weight: 500; }
+
+    /* HERO */
+    .hero { padding: 80px 0 72px; border-bottom: 1px solid var(--rule); }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 64px;
+    }
+
+    .hero-meta .label { display: block; }
+    .hero-meta .label + .label { margin-top: 6px; }
+
+    .hero-visual {
+      width: 200px;
+      height: 200px;
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .hero-visual img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 9vw, 88px);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .hero-name em { font-style: italic; color: var(--hero); }
+
+    .hero-tagline {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.65;
+    }
+
+    /* CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .card { background: var(--soft); padding: 32px 28px; }
+
+    .card .card-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hero);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .card h3 { margin-bottom: 12px; font-size: 20px; }
+    .card p { font-size: 14px; line-height: 1.65; color: var(--muted); }
+
+    .card-evidence {
+      font-size: 12px;
+      background: rgba(200,100,0,0.08);
+      border-left: 2px solid var(--hero);
+      padding: 10px 14px;
+      margin-top: 16px;
+      color: var(--ink);
+    }
+
+    .card-opportunity {
+      font-size: 13px;
+      margin-top: 14px;
+      color: var(--ink);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* SERVICES */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background: var(--soft);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card .svc-num {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 { font-size: 21px; margin-bottom: 16px; }
+
+    .service-card ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .service-card ul li {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .service-card ul li:last-child { border-bottom: none; }
+
+    .service-price {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hero);
+      margin-top: auto;
+    }
+
+    /* SLIDES */
+    .slides-wrapper { margin-top: 48px; }
+
+    .slide-row {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 24px;
+      margin-bottom: 2px;
+      align-items: stretch;
+    }
+
+    .slide-num-col {
+      display: flex;
+      align-items: flex-start;
+      padding-top: 24px;
+    }
+
+    .slide-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--hero);
+      opacity: 0.5;
+      line-height: 1;
+    }
+
+    .slide-content { background: var(--soft); padding: 28px 32px; }
+
+    .slide-tag {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .slide-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(17px, 2.5vw, 21px);
+      line-height: 1.65;
+      color: var(--ink);
+      white-space: pre-line;
+    }
+
+    /* CAPTION BOX */
+    .caption-box {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 36px 40px;
+      margin-top: 2px;
+    }
+
+    .caption-box .caption-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(250,243,232,0.4);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .caption-box p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(250,243,232,0.85);
+      margin-bottom: 14px;
+    }
+
+    .caption-box p:last-child { margin-bottom: 0; }
+    .caption-box em { font-style: italic; color: var(--bg); }
+
+    /* SAMPLE NOTE */
+    .sample-note {
+      margin-top: 40px;
+      padding: 28px 32px;
+      border: 1px solid var(--rule);
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .sample-note strong { color: var(--ink); font-weight: 500; }
+
+    /* WHY */
+    .why-list { list-style: none; padding: 0; margin-top: 40px; }
+
+    .why-list li {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+    .why-list li:last-child { border-bottom: none; }
+
+    .why-list .why-dash {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: var(--hero);
+      line-height: 1;
+    }
+
+    .why-list .why-body { font-size: 15px; line-height: 1.7; }
+
+    .why-list .why-body strong {
+      display: block;
+      font-size: 17px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    /* CTA */
+    .cta-block {
+      text-align: center;
+      padding: 80px 0 96px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .cta-block h2 { font-size: clamp(30px, 5vw, 48px); margin-bottom: 20px; }
+
+    .cta-block p {
+      max-width: 420px;
+      margin: 0 auto 36px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--hero);
+      color: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover { background: var(--highlight); text-decoration: none; }
+
+    /* FOOTER */
+    footer { padding: 40px 0; border-top: 1px solid var(--rule); }
+
+    footer .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer .footer-sig {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    footer .footer-note {
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.7;
+      text-align: right;
+    }
+
+    /* INTRO SPLIT */
+    .intro-split {
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      section { padding: 64px 0; }
+      .hero-top { flex-direction: column-reverse; gap: 32px; }
+      .hero-visual { width: 140px; height: 140px; }
+      .intro-split { grid-template-columns: 1fr; }
+      .slide-row { grid-template-columns: 1fr; }
+      .slide-num-col { display: none; }
+      footer .footer-inner { flex-direction: column; text-align: center; }
+      footer .footer-note { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ======== HERO ======== -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-top">
+      <div class="hero-meta">
+        <span class="label">Proposal viết riêng cho</span>
+        <span class="label">@backnforthhh</span>
+        <span class="label" style="margin-top:16px;">Từ @tracey.contentworks</span>
+        <span class="label">Tháng 4 năm 2026</span>
+      </div>
+      <div class="hero-visual">
+        <img src="aesthetic/top2.jpg" alt="@backnforthhh work">
+      </div>
+    </div>
+
+    <div class="hero-name">
+      back<br>
+      <em>and</em><br>
+      forth
+    </div>
+
+    <p class="hero-tagline">
+      Một đề xuất dành cho công việc đọc và viết cùng nhau -- từ việc ghi lại câu chuyện đằng sau từng dự án, đến mở ra một cái cửa cho những người muốn tìm đến chị.
+    </p>
+
+    <div style="margin-top:48px;display:flex;gap:8px;align-items:center;">
+      <span style="width:32px;height:1px;background:var(--hero);display:inline-block;"></span>
+      <span class="label">6 phần</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ======== 02: I SEE YOU ======== -->
+<section>
+  <div class="container">
+    <span class="sec-num">02 / 06 &nbsp;&nbsp; Mình đã đọc chị</span>
+
+    <div class="intro-split">
+      <div>
+        <h2>Chị không viết caption.<br><em>Chị viết essay.</em></h2>
+
+        <p style="margin-top:32px;">
+          Mình biết điều đó ngay từ bài đầu tiên. Không phải vì nội dung hay vì dự án đẹp -- mà vì cách chị kể. Khi chị viết về letterpress, chị không viết "mình vừa làm xong thiết kế thiệp" -- chị kể về tâm trạng chờ đợi màu mực chưa pha bao giờ trước khi đặt bản in đầu tiên xuống. Đó là hai thứ khác nhau hoàn toàn.
+        </p>
+
+        <blockquote>
+          "Letterpress là một công việc rất thú vị vì bạn sẽ luôn có một màu mực chưa pha bao giờ, một loại giấy mới để thử và một tâm trạng tò mò chờ đợi thành phẩm."
+          <cite><a href="https://www.instagram.com/p/DQopabmktdk/" target="_blank">@backnforthhh, 11/2025</a></cite>
+        </blockquote>
+
+        <p>
+          Rồi đến bộ Ngũ Phúc. Chị viết: "Ngũ Phúc không phải là những khái niệm lớn lao mà là những điều rất nhỏ." Và chị giải thích từng chữ Hán không phải bằng định nghĩa từ điển -- mà bằng những tình huống cụ thể, đầy đời thường. Đó không phải là content marketing. Đó là văn.
+        </p>
+
+        <blockquote>
+          "Khang không nằm ở địa vị, mà ở sự yêu thương, trân trọng và giá trị con người. Ninh là sự bình yên -- cảm giác được là thong dong tự tại trong cuộc sống hàng ngày."
+          <cite><a href="https://www.instagram.com/p/DU5mINuE0VJ/" target="_blank">@backnforthhh, 02/2026</a></cite>
+        </blockquote>
+
+        <p>
+          Account này tên là back and forth -- không phải vì chị thích cái tên nghe cool. Mà vì đối với chị, quá trình đi tới lui giữa designer và client không phải là thứ cần giảm thiểu. Nó là nơi mà thiết kế thực sự xảy ra. Mình đã đọc toàn bộ 10 bài -- và mình thấy chị chưa kể hết câu chuyện đó. Đó là lý do mình viết đề xuất này.
+        </p>
+      </div>
+
+      <div>
+        <img src="aesthetic/top3.jpg" alt="work sample" style="width:100%;border-radius:2px;">
+        <p style="margin-top:12px;font-size:11px;color:var(--muted);line-height:1.5;">
+          Ancient Hue x backnforthhh<br>Illustration, Jan 2026
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======== 03: OBSERVATIONS ======== -->
+<section>
+  <div class="container">
+    <span class="sec-num">03 / 06 &nbsp;&nbsp; 3 điều mình quan sát thấy</span>
+    <h2>Không phải đánh giá.<br><em>Là những thứ mình thấy khi đọc.</em></h2>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <span class="card-label">Quan sát 01</span>
+        <h3>Packaging + văn hóa = top performer. Nhưng không ai tìm thấy được nó.</h3>
+        <p>3 bài về dự án Ngũ Phúc Hội Tổ (Eggyolk) đạt trung bình 160 likes -- gấp rưỡi avg chung của account. Đây là content chị viết tốt nhất và audience phản hồi mạnh nhất. Nhưng 0 hashtag kết nối những người làm thiết kế, thương hiệu, quà tặng với những bài đó.</p>
+        <div class="card-evidence">3 bài Ngũ Phúc: avg 160L / 2.3C -- Account avg: 98L / 0.9C</div>
+        <p class="card-opportunity">Cơ hội: Mở cửa phát hiện không làm loãng giọng -- chỉ cần dùng hashtag của cái chị đã làm.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-label">Quan sát 02</span>
+        <h3>Chị có portfolio chất lượng. Chị chưa có cái cửa.</h3>
+        <p>10 bài đăng, 0 CTA, 0 thông tin liên hệ. Bio không có link, không có email, không có "work inquiries". Ai xem dự án của chị và muốn liên hệ -- họ không biết làm thế nào. Work của chị xứng đáng được nhiều client tốt hơn, nhưng hiện tại chị đang để họ tự tìm.</p>
+        <div class="card-evidence">0/10 posts có CTA -- Bio: không có link, không có contact</div>
+        <p class="card-opportunity">Cơ hội: Một landing page đơn giản và một dòng trong bio có thể đổi cách tiếp cận client hoàn toàn.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-label">Quan sát 03</span>
+        <h3>Format có reach cao nhất account -- đang bị bỏ qua.</h3>
+        <p>1 Reel duy nhất đạt 908 views. 9 carousel còn lại không có view count Reels. Một Reel -- chính xác là thứ chị chưa làm nhiều -- đang cho thấy potential reach lớn nhất trên account này. Quá trình letterpress, sơn mài, hay revision với client chính là material cho những Reels đó.</p>
+        <div class="card-evidence">Reel (DU20Nprk2MB): 908 views, 185 likes -- cao nhất account</div>
+        <p class="card-opportunity">Cơ hội: 1 Reel process mỗi 2 tuần có thể nhân 5-10x reach so với carousel hiện tại.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ======== 04: SAMPLE CONTENT ======== -->
+<section>
+  <div class="container">
+    <span class="sec-num">04 / 06 &nbsp;&nbsp; Ví dụ mẫu mình đã viết thử</span>
+    <h2>Mình viết thử một bài trước<br><em>để chị thấy giọng văn.</em></h2>
+
+    <p style="margin-top:28px;max-width:560px;">
+      Đây là một bài carousel 9 slides, được viết sau khi mình đọc toàn bộ 10 bài của chị. Mình cố ý mirror cách chị viết -- nhịp câu, cách mở bài, cách chị không dạy bảo mà chỉ kể. Nếu bài này nghe giống chị -- đó là chủ đích.
+    </p>
+
+    <div style="margin-top:12px;margin-bottom:48px;">
+      <span class="label">Chủ đề: "Back and forth không phải là khoảng giữa design thật sự -- nó là nơi design thật sự xảy ra."</span>
+    </div>
+
+    <div class="slides-wrapper">
+
+      <div class="slide-row">
+        <div class="slide-num-col"><span class="slide-num">1</span></div>
+        <div class="slide-content">
+          <span class="slide-tag">Hook -- Confession No One Admits</span>
+          <div class="slide-text">Có giai đoạn mình nghĩ
+client comments nhiều
+= project đang có vấn đề.</div>
+        </div>
+      </div>
+
+      <div class="slide-row">
+        <div class="slide-num-col"><span class="slide-num">2</span></div>
+        <div class="slide-content">
+          <span class="slide-tag">Validate old belief</span>
+          <div class="slide-text">Ngành dạy mình như thế.
+
+Một brief rõ, một direction mạnh --
+và designer sẽ tự deliver.
+
+Back and forth là dấu hiệu
+ai đó chưa làm việc đủ tốt.</div>
+        </div>
+      </div>
+
+      <div class="slide-row">
+        <div class="slide-num-col"><span class="slide-num">3</span></div>
+        <div class="slide-content">
+          <span class="slide-tag">Name the villain</span>
+          <div class="slide-text">Không phải mình tự nghĩ ra điều đó.
+
+Portfolio culture dạy mình ngưỡng mộ
+những project "seamless" --
+nơi client và designer dường như đồng thuận ngay từ đầu.
+
+Nhìn case study nào cũng thấy:
+brief. concept. final.
+
+Không ai kể lại những lần quay đầu.</div>
+        </div>
+      </div>
+
+      <div class="slide-row">
+        <div class="slide-num-col"><span class="slide-num">4</span></div>
+        <div class="slide-content">
+          <span class="slide-tag">Contradiction device</span>
+          <div class="slide-text">Nhưng account này tên là back and forth
+vì một lý do.
+
+Không phải vì mình thích revision.
+
+Mà vì mình nhận ra:
+back and forth không phải là khoảng giữa
+design thật sự --
+
+back and forth là nơi
+design thật sự xảy ra.</div>
+        </div>
+      </div>
+
+      <div class="slide-row">
+        <div class="slide-num-col"><span class="slide-num">5</span></div>
+        <div class="slide-content">
+          <span class="slide-tag">Personal story</span>
+          <div class="slide-text">Letterpress project năm ngoái.
+Thiệp đặt bàn, nhũ vàng pha custom, giấy pearl white.
+
+Mực chưa pha bao giờ.
+Giấy chưa thử bao giờ.
+
+Mình và team quay lui mấy lần
+giữa màu và chất giấy
+trước khi đặt bản in đầu tiên xuống.
+
+Không có gì sai.
+
+Mỗi lần quay lại là một lần hiểu rõ hơn
+thứ mình đang cố nắm bắt.</div>
+        </div>
+      </div>
+
+      <div class="slide-row">
+        <div class="slide-num-col"><span class="slide-num">6</span></div>
+        <div class="slide-content">
+          <span class="slide-tag">Mechanism</span>
+          <div class="slide-text">Designer đến với brief bằng một bộ lọc.
+Client đến bằng một bộ lọc khác.
+
+Hai bộ lọc đó không giống nhau.
+
+Back and forth là lúc hai bộ lọc đó
+được đặt cạnh nhau --
+và từ sự cọ xát đó,
+thứ gì đó thứ ba xuất hiện.
+
+Thứ mà nếu mình làm một mình,
+sẽ không bao giờ có.</div>
+        </div>
+      </div>
+
+      <div class="slide-row">
+        <div class="slide-num-col"><span class="slide-num">7</span></div>
+        <div class="slide-content">
+          <span class="slide-tag">New belief</span>
+          <div class="slide-text">Design không phải là quá trình từ A đến B.
+
+Nó là quá trình từ A
+đến một điểm mà cả mình lẫn client
+chưa hình dung ra khi bắt đầu.
+
+Sự chậm lại không phải là vấn đề.
+
+Nó là dấu hiệu rằng
+một điều gì đó thật sự đang được tìm ra.</div>
+        </div>
+      </div>
+
+      <div class="slide-row">
+        <div class="slide-num-col"><span class="slide-num">8</span></div>
+        <div class="slide-content">
+          <span class="slide-tag">Proof -- lived example</span>
+          <div class="slide-text">Ancient Hue -- khách sạn di sản ở Huế.
+
+Brief không rõ ngay từ đầu.
+
+Là nhiều lần qua lại để hiểu:
+họ không muốn "hình đẹp về Huế" --
+họ muốn khách nước ngoài
+cảm nhận được cái hồn của một nơi đang còn thở.
+
+Distinction đó không có trong brief đầu tiên.
+
+Nó xuất hiện giữa những lần back and forth.</div>
+        </div>
+      </div>
+
+      <div class="slide-row">
+        <div class="slide-num-col"><span class="slide-num">9</span></div>
+        <div class="slide-content">
+          <span class="slide-tag">Close + follow trigger</span>
+          <div class="slide-text">Account này tên là back and forth
+vì mình tin đó là nơi work thật sự sống.
+
+Không phải trong file final.
+Không phải trong concept đầu tiên.
+Mà ở giữa.
+
+Mình lưu lại những project như vậy ở đây --
+cùng câu chuyện đằng sau chúng.
+
+Nếu bạn làm việc với clients
+và đang tìm cách nhìn lại quá trình của mình,
+follow để không bỏ lỡ bài tiếp theo.</div>
+        </div>
+      </div>
+
+      <div class="caption-box">
+        <span class="caption-label">Caption đề xuất kèm carousel</span>
+        <p>Có giai đoạn mình nghĩ client comments nhiều = project đang có vấn đề.</p>
+        <p>Portfolio culture dạy mình như thế -- brief rõ, direction mạnh, designer tự deliver. Back and forth là dấu hiệu ai đó chưa làm đủ tốt.</p>
+        <p>Nhưng account này tên là back and forth vì một lý do.</p>
+        <p>Không phải vì mình thích revision. Mà vì back and forth không phải là khoảng giữa design thật sự -- nó là nơi design thật sự xảy ra.</p>
+        <p><em>Swipe để đọc hết.</em></p>
+        <p style="margin-top:20px;font-size:12px;opacity:0.55;">Lưu bài này cho lần tiếp theo bạn đang ở giữa một round comments dài và muốn tắt máy tính.</p>
+      </div>
+
+    </div>
+
+    <div class="sample-note">
+      <strong>Về việc mình viết bài này:</strong> Mình đọc toàn bộ 10 bài của chị trước khi viết một từ. Mình cố ý chọn chủ đề trung tâm của account -- cái tên back and forth -- và viết một bài mà nếu chị xem không biết nguồn, chị có thể nghĩ là chị vừa viết. Nếu mình và chị làm việc cùng nhau, mỗi tuần chị sẽ có 4-8 sample như vậy, mỗi bài đều đi qua bộ check giọng văn trước khi gửi chị.
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ======== 05: SERVICES ======== -->
+<section>
+  <div class="container">
+    <span class="sec-num">05 / 06 &nbsp;&nbsp; Đây là điều mình có thể làm cùng chị</span>
+    <h2>4 dịch vụ --<br><em>chọn theo thứ tự ưu tiên.</em></h2>
+
+    <!-- STUDENT: thay giá cụ thể vào placeholder [Đầu tư: liên hệ] -->
+    <div class="service-grid">
+
+      <div class="service-card">
+        <span class="svc-num">Dịch vụ 01</span>
+        <h3>Instagram Landing Page</h3>
+        <ul>
+          <li>Trang bio link đơn giản, có brand aesthetic của chị</li>
+          <li>Mục tiêu: người xem work của chị biết làm thế nào để liên hệ</li>
+          <li>Hiển thị dự án portfolio, services, và contact</li>
+          <li>Mobile-first, không cần website phức tạp</li>
+        </ul>
+        <span class="service-price">Đầu tư: liên hệ</span>
+      </div>
+
+      <div class="service-card">
+        <span class="svc-num">Dịch vụ 02</span>
+        <h3>Content Strategy</h3>
+        <ul>
+          <li>Xác định 4-5 trụ nội dung phù hợp với cách chị làm việc</li>
+          <li>Lịch đăng có nhắm mục tiêu thả hashtag discovery</li>
+          <li>Chiến lược Reels process -- format chưa được khai thác</li>
+          <li>Positioning: làm rõ chị đang nói chuyện với ai</li>
+        </ul>
+        <span class="service-price">Đầu tư: liên hệ</span>
+      </div>
+
+      <div class="service-card">
+        <span class="svc-num">Dịch vụ 03</span>
+        <h3>Content Execution -- Carousel + Post</h3>
+        <ul>
+          <li>Viết caption theo giọng của chị, không phải giọng của mình</li>
+          <li>4-8 bài/tuần, mỗi bài qua bộ check giọng văn trước khi gửi</li>
+          <li>Hashtag strategy trên mỗi bài (discovery + community)</li>
+          <li>Credit format nhất quán với culture của chị</li>
+        </ul>
+        <span class="service-price">Đầu tư: liên hệ</span>
+      </div>
+
+      <div class="service-card">
+        <span class="svc-num">Dịch vụ 04</span>
+        <h3>Content Execution -- Story + Reels</h3>
+        <ul>
+          <li>Script Reels process (letterpress, sơn mài, revision rounds)</li>
+          <li>Story frames aesthetic phù hợp với editorial vibe của chị</li>
+          <li>Biên tập cơ bản theo aesthetic của chị</li>
+          <li>Mục tiêu: 908 views (Reel hiện tại) là baseline, không phải ceiling</li>
+        </ul>
+        <span class="service-price">Đầu tư: liên hệ</span>
+      </div>
+
+    </div>
+
+    <div style="margin-top:40px;">
+      <img src="aesthetic/top1.jpg" alt="backnforthhh packaging work" style="width:100%;max-height:300px;object-fit:cover;object-position:center 30%;">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ======== 06: WHY + CTA ======== -->
+<section>
+  <div class="container">
+    <span class="sec-num">06 / 06 &nbsp;&nbsp; Vì sao mình khác</span>
+    <h2>Mình không viết content.<br><em>Mình học giọng rồi mới viết.</em></h2>
+
+    <ul class="why-list">
+      <li>
+        <span class="why-dash">*</span>
+        <div class="why-body">
+          <strong>Mình đọc trước khi pitch</strong>
+          Trước khi viết đề xuất này, mình đọc toàn bộ 10 bài của chị, xem 3 ảnh portfolio, và phân tích engagement trên từng post. Đề xuất này không có một chữ nào được copy từ template.
+        </div>
+      </li>
+      <li>
+        <span class="why-dash">*</span>
+        <div class="why-body">
+          <strong>Mình hiểu giọng văn, không chỉ format</strong>
+          Nhiều SMM agency viết "theo brief". Mình viết theo cách chị nghĩ. Sau khi đọc 10 bài, mình nhận ra chị không viết tips, không viết educational content -- chị viết về quá trình. Mỗi bài mình viết sẽ giữ đúng điều đó.
+        </div>
+      </li>
+      <li>
+        <span class="why-dash">*</span>
+        <div class="why-body">
+          <strong>Mình không dùng template</strong>
+          Slide sample ở trên không phải là template được fill vào. Nó là một bài viết riêng cho @backnforthhh, về chủ đề trung tâm của chính account này, theo giọng văn cụ thể của chị. Mỗi client mình làm việc cùng nhận được điều tương tự.
+        </div>
+      </li>
+      <li>
+        <span class="why-dash">*</span>
+        <div class="why-body">
+          <strong>Mình biết work của chị xứng đáng được thấy nhiều hơn</strong>
+          Không phải vì số lượng follower. Mà vì những người đúng nên làm việc với chị -- brand có câu chuyện, client trân trọng di sản văn hóa -- hiện tại không có cách để tìm thấy chị. Mình muốn giúp thay đổi điều đó.
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ======== CTA ======== -->
+<div class="cta-block">
+  <div class="container">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;">Nếu chị muốn nói chuyện thêm</h2>
+    <p>
+      Không cần cam kết ngay. Chị cứ nhắn tin cho mình trên Instagram -- mình sẽ trả lời trong ngày.
+    </p>
+    <a href="https://www.instagram.com/tracey.contentworks/" target="_blank" class="cta-btn">
+      Nhắn tin cho mình
+    </a>
+  </div>
+</div>
+
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-sig">@tracey.contentworks</div>
+      <div class="footer-note">
+        Đề xuất này được viết riêng cho @backnforthhh. Không template.<br>
+        Tháng 4 năm 2026
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
