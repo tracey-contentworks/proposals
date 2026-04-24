@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đề xuất cho @bennycreativespace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F0EAE2;
+      --ink: #1A1410;
+      --hero: #B03A2C;
+      --soft: #E4D5C8;
+      --highlight: #7D2318;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hero);
+      font-weight: 500;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--soft);
+      margin: 80px 0;
+    }
+
+    /* HERO */
+    .hero { padding: 100px 0 80px; }
+
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--hero);
+      font-weight: 400;
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 10vw, 84px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--hero);
+    }
+
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      opacity: 0.75;
+      max-width: 560px;
+      line-height: 1.55;
+      margin-bottom: 48px;
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: var(--ink);
+      opacity: 0.5;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.88);
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 0; }
+
+    .section-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--hero);
+      font-weight: 400;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      display: block;
+      opacity: 0.8;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 46px);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 40px;
+      letter-spacing: -0.01em;
+    }
+
+    h2 em { font-style: italic; color: var(--hero); }
+
+    p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--ink);
+      opacity: 0.85;
+      margin-bottom: 24px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    blockquote {
+      border-left: 2px solid var(--hero);
+      padding: 6px 0 6px 24px;
+      margin: 32px 0;
+    }
+
+    blockquote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-style: italic;
+      line-height: 1.6;
+      opacity: 1;
+      margin-bottom: 8px;
+    }
+
+    blockquote cite {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+
+    /* OBSERVATIONS */
+    .observations-grid {
+      display: grid;
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    .observation-card {
+      background: var(--soft);
+      padding: 40px 36px;
+    }
+
+    .obs-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--hero);
+      opacity: 0.35;
+      line-height: 1;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .obs-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .obs-body {
+      font-size: 15px;
+      line-height: 1.7;
+      opacity: 0.75;
+      margin-bottom: 16px;
+    }
+
+    .obs-evidence {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--hero);
+      opacity: 0.7;
+    }
+
+    /* PILLARS */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 600px) { .pillars-grid { grid-template-columns: 1fr; } }
+
+    .pillar-card {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 32px 28px;
+    }
+
+    .pillar-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.4;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .pillar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 12px;
+      line-height: 1.25;
+      color: var(--bg);
+    }
+
+    .pillar-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      opacity: 0.6;
+      color: var(--bg);
+      margin-bottom: 0;
+    }
+
+    /* PACKAGES */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 600px) { .packages-grid { grid-template-columns: 1fr; } }
+
+    .package-card {
+      background: var(--soft);
+      padding: 40px 36px;
+    }
+
+    .package-card.featured {
+      background: var(--hero);
+      color: var(--bg);
+    }
+
+    .package-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 16px;
+      display: block;
+      opacity: 0.6;
+    }
+
+    .package-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .package-card.featured .package-name { color: var(--bg); }
+
+    .package-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 32px;
+      color: var(--hero);
+    }
+
+    .package-card.featured .package-price { color: var(--bg); opacity: 0.9; }
+
+    .package-list { list-style: none; padding: 0; }
+
+    .package-list li {
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      opacity: 0.8;
+    }
+
+    .package-card.featured .package-list li {
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      color: var(--bg);
+      opacity: 0.85;
+    }
+
+    .package-list li:last-child { border-bottom: none; }
+    .package-list li::before { content: "- "; opacity: 0.4; }
+
+    .package-payment {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      font-size: 13px;
+      line-height: 1.65;
+      opacity: 0.65;
+    }
+
+    .package-card.featured .package-payment {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      color: var(--bg);
+    }
+
+    /* TIMELINE */
+    .timeline { margin-top: 48px; }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--soft);
+      align-items: start;
+    }
+
+    .timeline-row:last-child { border-bottom: none; }
+
+    .timeline-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--hero);
+      padding-top: 2px;
+    }
+
+    .timeline-desc {
+      font-size: 15px;
+      line-height: 1.65;
+      opacity: 0.8;
+      margin-bottom: 0;
+    }
+
+    /* SAMPLE */
+    .sample-wrapper {
+      background: var(--ink);
+      padding: 64px 56px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 600px) { .sample-wrapper { padding: 40px 28px; } }
+
+    .sample-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bg);
+      opacity: 0.35;
+      margin-bottom: 40px;
+      display: block;
+    }
+
+    .sample-slides { display: grid; gap: 1px; }
+
+    .sample-slide {
+      background: #231E1A;
+      padding: 32px 36px;
+    }
+
+    .slide-num {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--hero);
+      opacity: 0.7;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .slide-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--bg);
+      opacity: 0.88;
+      white-space: pre-line;
+      margin-bottom: 0;
+    }
+
+    .sample-note {
+      margin-top: 32px;
+      padding: 24px 32px;
+      background: rgba(255,255,255,0.04);
+      border-left: 2px solid var(--hero);
+    }
+
+    .sample-note p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--bg);
+      opacity: 0.55;
+      margin-bottom: 0;
+      font-style: italic;
+    }
+
+    /* WHY DIFFERENT */
+    .diff-list { list-style: none; padding: 0; margin-top: 40px; }
+
+    .diff-list li {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--soft);
+      font-size: 16px;
+      line-height: 1.7;
+      opacity: 0.8;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .diff-list li:last-child { border-bottom: none; }
+
+    .diff-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--hero);
+      font-weight: 400;
+      padding-top: 2px;
+    }
+
+    /* CTA */
+    .cta-section { padding: 100px 0; text-align: center; }
+    .cta-section h2 { margin-bottom: 24px; }
+    .cta-section p { max-width: 480px; margin: 0 auto 48px; text-align: center; }
+
+    .cta-button {
+      display: inline-block;
+      background: var(--highlight);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 18px 44px;
+      transition: background 0.2s ease;
+    }
+
+    .cta-button:hover { background: var(--hero); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--soft);
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-student {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--ink);
+      opacity: 0.7;
+    }
+
+    .footer-note {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.35;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="container">
+    <div class="hero">
+      <span class="hero-eyebrow">Đề xuất dành riêng cho</span>
+      <h1 class="hero-title">@benny<em>creative</em>space</h1>
+      <p class="hero-tagline">
+        Anh đã có những gì để nói. Chỉ thiếu một người biến nó thành những điểm chạm mà đúng người tự tìm đến.
+      </p>
+      <p class="hero-meta">Tracey Contentworks &nbsp;/&nbsp; 24 tháng 04 năm 2026</p>
+    </div>
+  </div>
+
+  <img src="aesthetic/top3.jpg" alt="Orchard Heights branding by Line Collective" class="hero-image">
+
+  <hr class="divider">
+
+  <!-- 01 - I SEE YOU -->
+  <section>
+    <div class="container">
+      <span class="section-number">01 / 07 &nbsp;&nbsp; Mình đã thấy anh</span>
+      <h2>Anh không xây account để trở thành <em>influencer.</em></h2>
+
+      <p>
+        Anh đăng khi có điều gì đó cần được đặt xuống. Khi một project xong, khi một suy nghĩ cần được ghi lại, khi Line Collective có điều gì đó cần được nhớ. Không có editorial calendar. Không có strategy. Chỉ có những gì thực sự cần nói.
+      </p>
+
+      <p>
+        Đó là lý do 478 followers nhưng engagement rate đạt 7.57% - vượt benchmark ngành hơn gấp đôi. Những người follow anh thực sự đọc.
+      </p>
+
+      <blockquote>
+        <p>"Thương hiệu sống trong chiếc khay, ly thủy tinh, sticker trên nắp ly, menu trên quầy bar, và cả playlist phát buổi chiều. Đó là những điểm chạm thực - nơi thương hiệu được cảm nhận mỗi ngày."</p>
+        <cite>@bennycreativespace, tháng 9/2025</cite>
+      </blockquote>
+
+      <p>
+        Mình đọc bài này, rồi đọc bài Inside Our Mind về Orchard Heights, rồi bài về bùn lắng, rồi bài viết cho Nyny. Góc nhìn về branding của anh không thuộc về một agency. Nó thuộc về một người đã sống đủ để hiểu brand là cái gì thật sự.
+      </p>
+
+      <p>
+        Vấn đề không phải anh không có gì để nói. Vấn đề là anh nói quá ít so với những gì anh đang nghĩ. Người đúng sẽ không tự tìm đến nếu họ không biết anh đang nghĩ gì.
+      </p>
+
+      <blockquote>
+        <p>"Just follow the dream and what we love first. If not can't be a brand consulting, i love to stay as my espresso bar with my guys brew the americano."</p>
+        <cite>@bennycreativespace, tháng 01/2026</cite>
+      </blockquote>
+
+      <p>
+        Mình ở đây để giúp điều đó xảy ra - không thay đổi cách anh nghĩ, chỉ giúp nhiều người hơn được nghe nó.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 02 - OBSERVATIONS -->
+  <section>
+    <div class="container">
+      <span class="section-number">02 / 07 &nbsp;&nbsp; 3 điều mình quan sát thấy</span>
+      <h2>Không phải ý kiến chung chung. <em>Những gì mình thấy sau khi đọc 45 bài.</em></h2>
+
+      <div class="observations-grid">
+        <div class="observation-card">
+          <span class="obs-number">01</span>
+          <p class="obs-title">478 followers cho một CD đã làm CapitaLand Vietnam + Dentsu là con số quá thấp.</p>
+          <p class="obs-body">
+            Không phải vì anh chưa hay. Vì anh chưa có hệ thống. Từ 2022 đến 2024, có năm chỉ 1-5 bài cả năm. Engagement rate 7.57% chứng minh audience hiện tại rất gắn bó - nhưng reach gần như bằng không. Những người nên biết đến anh vẫn chưa tìm thấy được anh.
+          </p>
+          <span class="obs-evidence">Dữ liệu: 478 followers, ER 7.57%, avg 1.75 bài/tháng</span>
+        </div>
+
+        <div class="observation-card">
+          <span class="obs-number">02</span>
+          <p class="obs-title">Series "Inside Our Mind" là concept tốt nhất trên account - nhưng đang bị bỏ qua.</p>
+          <p class="obs-body">
+            Anh đã bắt đầu series này - Blanc de Blancs, Orchard Heights, EAZY D. Đây là loại content không ai khác trong ngành creative Việt Nam đang làm ở cấp độ này. Nó không chỉ show output, nó giải thích quá trình tư duy. Nhưng nó xuất hiện quá sporadic để build được expectation trong audience.
+          </p>
+          <span class="obs-evidence">Tham khảo: bài DOas8_8koUg, DOf-Vw5knrl, DR87uExEj-f</span>
+        </div>
+
+        <div class="observation-card">
+          <span class="obs-number">03</span>
+          <p class="obs-title">Không có CTA nào - người muốn hợp tác với Line Collective không biết bước tiếp theo là gì.</p>
+          <p class="obs-body">
+            Toàn bộ account hiện tại: showcase work quality, build reputation, chờ inbound inquiry từ từ. Không có link bio, không có "DM mình tại đây", không có đường dẫn. Người xem project CapitaLand, thích, muốn biết thêm - và bị bỏ lại không có bước tiếp theo nào để thực hiện.
+          </p>
+          <span class="obs-evidence">0 CTA trong toàn bộ 45 bài phân tích</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 03 - CONTENT PILLARS -->
+  <section>
+    <div class="container">
+      <span class="section-number">03 / 07 &nbsp;&nbsp; Hệ thống nội dung</span>
+      <h2>3 content pillars xây dựng xung quanh <em>những gì anh đã sống.</em></h2>
+
+      <p>
+        Không phải mình nghĩ ra những chủ đề này. Mình đọc captions của anh và nhận ra: anh đã nói về những thứ này từ trước. Chỉ cần một người biến nó thành hệ thống.
+      </p>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <span class="pillar-number">Pillar 01</span>
+          <p class="pillar-title">Inside Our Mind</p>
+          <p class="pillar-desc">
+            Tư duy đằng sau mỗi dự án. Mỗi project anh làm = 1 bài giải thích quyết định sáng tạo. Anh cung cấp brief + ảnh, mình biến nó thành nội dung. Đây là thứ không ai khác làm được vì nó ở trong đầu anh.
+          </p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-number">Pillar 02</span>
+          <p class="pillar-title">Brand Philosophy</p>
+          <p class="pillar-desc">
+            Góc nhìn về branding mà ngành không dạy. Atmosphere vs. logo. Static vs. dynamic. Điểm chạm. Những gì anh tin là thật về cách một brand được sống - biến nó thành nội dung để đúng người tự tìm đến.
+          </p>
+        </div>
+        <div class="pillar-card">
+          <span class="pillar-number">Pillar 03</span>
+          <p class="pillar-title">Life as Metaphor</p>
+          <p class="pillar-desc">
+            Jiu-Jitsu, Aquascape, Đạo gia kết nối với brand thinking. Bài Jiu-Jitsu của anh đạt 6 comments - nhiều nhất trong toàn bộ sample. Đây là loại nội dung không ai copy được vì nó là cuộc sống thật của anh.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; padding: 28px 32px; background: var(--soft); border-left: 3px solid var(--hero);">
+        <p style="font-size: 15px; margin-bottom: 0; opacity: 0.75;">
+          <strong style="opacity:1;">Tần suất đề xuất:</strong> 30 bài/tháng - xoay vòng 3 pillars. Anh không cần đăng hết 30 bài trong tháng - đây là content library anh rút ra dùng dần. Nhiều bài có thể dùng được sau 6 tháng khi context vẫn còn phù hợp.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 04 - PACKAGES -->
+  <section>
+    <div class="container">
+      <span class="section-number">04 / 07 &nbsp;&nbsp; Dịch vụ</span>
+      <h2>Hai gói, một mục tiêu: <em>anh chỉ cần nói, mình lo phần còn lại.</em></h2>
+
+      <p>
+        Anh cung cấp: voice note hoặc ghi chú ngắn về ý tưởng, brief dự án, ảnh có sẵn. Mình cung cấp: 30 bài content hoàn chỉnh theo đúng giọng của anh, theo đúng 3 pillars, sẵn sàng để đăng - hoặc để dùng lại sau.
+      </p>
+
+      <div class="packages-grid">
+        <!-- GOI 1 -->
+        <div class="package-card">
+          <span class="package-tag">Gói 01</span>
+          <p class="package-name">Content Engine</p>
+          <!-- STUDENT: gia 6 trieu -->
+          <p class="package-price">6 triệu</p>
+          <ul class="package-list">
+            <li>30 bài content hoàn chỉnh (caption + cấu trúc từng slide)</li>
+            <li>Phân bổ theo 3 content pillars</li>
+            <li>Anh tự design visual và tự đăng</li>
+            <li>Content dùng được với bất kỳ hình ảnh nào</li>
+            <li>Reuse được dù ngừng hợp tác</li>
+            <li>Giao trong 7 ngày sau khi nhận brief</li>
+          </ul>
+          <div class="package-payment">
+            Thanh toán: chuyển khoản full trước khi bắt đầu.<br>
+            Mình cần brief + material từ anh ngày 25-26/04 để bắt đầu sản xuất.
+          </div>
+        </div>
+
+        <!-- GOI 2 -->
+        <div class="package-card featured">
+          <span class="package-tag">Gói 02 &nbsp;/&nbsp; Đầy đủ nhất</span>
+          <p class="package-name">Content + Visual</p>
+          <!-- STUDENT: gia 9 trieu -->
+          <p class="package-price">9 triệu</p>
+          <ul class="package-list">
+            <li>30 bài content hoàn chỉnh</li>
+            <li>Visual layout dựa trên ảnh có sẵn của anh (edit + layout, không thiết kế từ đầu)</li>
+            <li>Lên lịch bài qua Meta Business Suite</li>
+            <li>Anh chỉ cần approve và bấm đăng</li>
+            <li>Content reuse được với hình ảnh khác</li>
+            <li>Material sẵn sàng dùng dù anh không đăng hết trong tháng đó</li>
+          </ul>
+          <div class="package-payment">
+            Thanh toán 2 đợt: 4.5 triệu trước khi bắt đầu - giao 15 bài đầu (tuần 1-2) - anh review - 4.5 triệu trước khi nhận 15 bài tiếp theo.<br><br>
+            Deposit trước, nhận content sau.
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMELINE GOI 1 -->
+      <div style="margin-top: 56px;">
+        <span class="section-label">Timeline - Gói 01</span>
+        <div class="timeline">
+          <div class="timeline-row">
+            <span class="timeline-date">24/04/2026</span>
+            <p class="timeline-desc">Anh confirm + chuyển khoản 6 triệu. Mình bắt đầu chuẩn bị.</p>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-date">25 - 26/04</span>
+            <p class="timeline-desc">Mình nhận brief từ anh: voice note, ghi chú, tài liệu cũ, hình ảnh dự án. Càng nhiều càng tốt - mình lấy từ đây để sản xuất.</p>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-date">27/04 - 01/05</span>
+            <p class="timeline-desc">Sản xuất toàn bộ 30 bài, phân bổ vào 3 content pillars, check giọng văn theo cách anh viết.</p>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-date">01/05/2026</span>
+            <p class="timeline-desc">Giao toàn bộ 30 bài. Anh có content library để dùng trong 2-3 tháng tới - hoặc lâu hơn.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMELINE GOI 2 -->
+      <div style="margin-top: 56px;">
+        <span class="section-label">Timeline - Gói 02</span>
+        <div class="timeline">
+          <div class="timeline-row">
+            <span class="timeline-date">24/04/2026</span>
+            <p class="timeline-desc">Anh confirm + chuyển 4.5 triệu đợt 1. Mình bắt đầu chuẩn bị.</p>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-date">25 - 26/04</span>
+            <p class="timeline-desc">Mình nhận brief + material từ anh.</p>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-date">27/04 - 07/05</span>
+            <p class="timeline-desc">Sản xuất 15 bài đầu (content + visual layout) + bắt đầu lên lịch đăng tuần 1 qua Meta Business Suite. Anh approve và bấm đăng.</p>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-date">08/05/2026</span>
+            <p class="timeline-desc">Anh review 15 bài đầu. Thấy ổn - chuyển 4.5 triệu đợt 2. Mình giao 15 bài còn lại.</p>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-date">08 - 17/05</span>
+            <p class="timeline-desc">Giao 15 bài tiếp theo + tiếp tục lên lịch đăng phần còn lại của tháng.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 05 - SAMPLE CONTENT -->
+  <section>
+    <div class="container">
+      <span class="section-number">05 / 07 &nbsp;&nbsp; Sample mình đã viết thử cho anh</span>
+      <h2>Một bài Brand Philosophy mình viết sau khi <em>đọc 45 caption của anh.</em></h2>
+
+      <p>
+        Đây là bài anh chưa viết, nhưng rõ ràng anh đã sở hữu tất cả nguyên liệu để viết nó. Mình lấy từ ngôn ngữ anh đã dùng trong caption về Pomalo, về Orchard Heights, về "atmosphere" - và xây thành một carousel hoàn chỉnh. Nếu mình slip bài này vào feed của anh, không ai biết đó không phải anh viết.
+      </p>
+
+      <div class="sample-wrapper">
+        <span class="sample-tag">Sample carousel - Brand Philosophy / 10 slides</span>
+
+        <div class="sample-slides">
+          <div class="sample-slide">
+            <span class="slide-num">Slide 01 - Hook</span>
+            <p class="slide-text">Chiếc khay.
+Ly thủy tinh.
+Sticker nhỏ trên nắp.
+Playlist buổi chiều.
+
+Không có cái nào là trong brief.
+
+Nhưng đây lại là cách brand được nhớ đến.</p>
+          </div>
+
+          <div class="sample-slide">
+            <span class="slide-num">Slide 02 - Old Belief</span>
+            <p class="slide-text">Mình từng bắt đầu từ logo. Như hầu hết mọi người trong ngành creative được dạy.
+
+Color palette đúng. Typography chuẩn. Guidelines đầy đủ.
+
+Giao xong. Project đóng. Bàn giao hoàn chỉnh.</p>
+          </div>
+
+          <div class="sample-slide">
+            <span class="slide-num">Slide 03 - The Villain</span>
+            <p class="slide-text">Cả một ngành dạy branding bằng deliverables.
+
+Logo. Mockup. Brand book.
+
+Không phải vì đó là branding thật. Mà vì đó là thứ có thể đóng gói. Có thể invoice. Có thể ký tên nghiệm thu.
+
+"Atmosphere" không ai ghi trong brief công việc. "Feeling" cũng vậy.
+
+Nhưng đó là thứ duy nhất khiến brand của khách hàng được sống.</p>
+          </div>
+
+          <div class="sample-slide">
+            <span class="slide-num">Slide 04 - Contradiction</span>
+            <p class="slide-text">Mình từng nghĩ brand là thứ mình thiết kế ra.
+
+Không phải.
+
+Brand là thứ người ta cảm nhận khi không ai nói gì về nó.</p>
+          </div>
+
+          <div class="sample-slide">
+            <span class="slide-num">Slide 05 - Personal Story</span>
+            <p class="slide-text">Có một project.
+
+Brand book xong. Logo clean. Màu đúng. Font chuẩn.
+
+Rồi mình bước vào không gian thật lần đầu.
+
+Ánh sáng chiều đổ lên mặt bàn. Mùi espresso từ bên trong. Tiếng nhạc nhỏ từ góc khuất.
+
+Không cái nào được ghi trong file thiết kế.
+
+Nhưng đó lại là brand. Đó là lý do khiến người ta quay lại.</p>
+          </div>
+
+          <div class="sample-slide">
+            <span class="slide-num">Slide 06 - Mechanism</span>
+            <p class="slide-text">Có hai loại nhất quán.
+
+Brand static: nhất quán trên file thiết kế. Nhìn thấy bằng mắt.
+
+Brand dynamic: nhất quán trong từng điểm chạm. Cảm nhận bằng cơ thể.
+
+Một loại được giao đi. Một loại khiến brand thực sự sống.</p>
+          </div>
+
+          <div class="sample-slide">
+            <span class="slide-num">Slide 07 - New Belief</span>
+            <p class="slide-text">Brand không sống trong brand guide.
+
+Brand sống trong:
+Chiếc khay.
+Ly thủy tinh.
+Sticker nhỏ trên nắp.
+Playlist buổi chiều.
+
+Cách ánh sáng đổ lên mặt bàn lúc không ai chú ý. Cách nhân viên nhìn người lạ bước vào lần đầu.
+
+Những điểm chạm không ai brief. Nhưng không ai quên.</p>
+          </div>
+
+          <div class="sample-slide">
+            <span class="slide-num">Slide 08 - Proof</span>
+            <p class="slide-text">Khi mình bắt đầu thiết kế từ cảm giác không gian. Không phải từ logo.
+
+Client không còn nói "logo đẹp quá."
+
+Họ nói "anh thấy đúng vibe rồi."
+
+Hai câu khác nhau hoàn toàn.</p>
+          </div>
+
+          <div class="sample-slide">
+            <span class="slide-num">Slide 09 - Solution Hint</span>
+            <p class="slide-text">Mình đã ngừng giao brand guide.
+
+Bắt đầu nghĩ về những gì xảy ra sau khi file thiết kế đã được giao đi.
+
+Và đó là lúc work bắt đầu sống.</p>
+          </div>
+
+          <div class="sample-slide">
+            <span class="slide-num">Slide 10 - Close</span>
+            <p class="slide-text">Mình viết về những thứ này ở đây.
+
+Về cách brand thật sự sống. Về những điểm chạm không ai brief. Về cách tư duy đằng sau mỗi dự án.
+
+Nếu đây cũng là cách bạn nhìn về brand, follow. Feed chỉ dẫn bạn đến đây một lần.</p>
+          </div>
+        </div>
+
+        <div class="sample-note">
+          <p>
+            Mình viết sample này sau khi đọc 45 bài của anh. Cố ý mirror cách anh viết - nhịp câu, từ quen, cách mở bài, cách kết - để anh thấy mình không áp style của mình lên brand anh. Nếu mình làm việc cùng nhau, mỗi bài trong 30 bài đều đi qua bộ check này trước khi giao anh.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 06 - WHY DIFFERENT -->
+  <section>
+    <div class="container">
+      <span class="section-number">06 / 07 &nbsp;&nbsp; Vì sao mình khác</span>
+      <h2>Mình không đọc report rồi viết template. <em>Mình đọc anh trước khi viết bất cứ điều gì.</em></h2>
+
+      <ul class="diff-list">
+        <li>
+          <span class="diff-num">01</span>
+          <span>Mình biết anh đang đọc "bùn lắng" và Đạo gia trước khi có buổi hợp đầu tiên. Biết Jiu-Jitsu là thứ anh mới bắt đầu. Biết Nyny là con gái anh. Những detail đó thay đổi cách mình viết cho anh.</span>
+        </li>
+        <li>
+          <span class="diff-num">02</span>
+          <span>Mình không viết caption. Mình viết theo giọng của anh - nhịp câu, từ quen, cách mở bài, cách kết. Sample ở trên là minh chứng: nếu slip nó vào feed của anh, không ai biết đó không phải anh viết.</span>
+        </li>
+        <li>
+          <span class="diff-num">03</span>
+          <span>Anh là Creative Director. Mình không chạm vào phần design nếu anh không muốn. Mình biết vị trí của mình: content strategy và writing. Phần còn lại là của anh.</span>
+        </li>
+        <li>
+          <span class="diff-num">04</span>
+          <span>30 bài anh nhận được không biến mất khi chúng ta ngừng hợp tác. Đó là content library - asset lâu dài. Anh trả tiền một lần, dùng được lâu dài.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- 07 - CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="section-number">07 / 07 &nbsp;&nbsp; Bước tiếp theo</span>
+      <h2>Nếu đây cũng là cách anh nhìn về <em>brand - mình ở đây.</em></h2>
+      <p>
+        Không cần gọi điện, không cần meeting. Nếu anh thấy resonant với những gì mình viết ở trên, nhắn tin cho mình trên Instagram là đủ.
+      </p>
+      <a href="https://www.instagram.com/tracey.contentworks/" class="cta-button" target="_blank">
+        Nhắn tin cho mình
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="container">
+    <footer>
+      <span class="footer-student">@tracey.contentworks</span>
+      <div class="footer-note">
+        <div>24 tháng 04 năm 2026</div>
+        <div style="margin-top:4px;">Đề xuất này được viết riêng cho @bennycreativespace. Không template.</div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
