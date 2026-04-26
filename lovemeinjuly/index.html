@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love me in July — Content Proposal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #faf8f4;
+      --warm-white: #f5f2ec;
+      --text: #1a1714;
+      --muted: #7a7269;
+      --accent: #c4a882;
+      --border: #e8e2d9;
+      --section-gap: 80px;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* COVER */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--text);
+      color: var(--cream);
+      position: relative;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(196,168,130,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cover-label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 32px;
+    }
+
+    .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .cover-sub {
+      font-size: 14px;
+      color: rgba(250,248,244,0.5);
+      letter-spacing: 0.1em;
+      margin-bottom: 56px;
+    }
+
+    .cover-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 48px;
+    }
+
+    .cover-meta {
+      font-size: 12px;
+      color: rgba(250,248,244,0.4);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* BODY */
+    .body-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 100px 40px 120px;
+    }
+
+    /* SECTION */
+    .section {
+      margin-bottom: var(--section-gap);
+      padding-bottom: var(--section-gap);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .section-number {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 36px;
+      color: var(--text);
+    }
+
+    .section-body p {
+      margin-bottom: 20px;
+      color: #2e2b27;
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-body strong {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .pull-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--accent);
+      border-left: 2px solid var(--accent);
+      padding-left: 24px;
+      margin: 40px 0;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--text);
+      color: rgba(250,248,244,0.4);
+      text-align: center;
+      padding: 48px 40px;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .footer strong {
+      display: block;
+      color: var(--accent);
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      text-transform: none;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .body-wrap { padding: 60px 24px 80px; }
+      .cover { padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER -->
+  <section class="cover">
+    <p class="cover-label">Content Proposal</p>
+    <h1 class="cover-title">Love me in July</h1>
+    <p class="cover-sub">Brand Story Series — Posts 14 · 16 · 19</p>
+    <div class="cover-divider"></div>
+    <p class="cover-meta">April 2026</p>
+  </section>
+
+  <!-- BODY -->
+  <main class="body-wrap">
+
+    <!-- POST 14 -->
+    <article class="section">
+      <p class="section-number">Post 14</p>
+      <h2 class="section-title">Từ người không biết gì về rập đến người nghiên cứu rập kĩ hơn bất kỳ ai</h2>
+      <div class="section-body">
+        <p>Lúc mới bắt đầu, mình không biết rập là gì.</p>
+        <p>Đúng nghĩa là không biết. Biết tên thôi. Biết nó liên quan đến may mặc thôi. Còn nó hoạt động như thế nào, tại sao nó quan trọng, mình hoàn toàn không có khái niệm.</p>
+        <p>Mình bắt đầu học.</p>
+        <p>Và mình nhận ra tại sao rập là thứ mình cần hiểu hơn bất cứ thứ gì khác.</p>
+
+        <div class="pull-quote">
+          Vải đẹp thì nhìn đẹp. Màu sắc đúng thì hợp người. Nhưng rập sai thì không có gì cứu được.
+        </div>
+
+        <p>Cùng một thiết kế, rập lệch một centimeter là đầm bị kéo lên một bên. Cùng một chất vải, rập không đúng thì mặc vào người cứng đờ dù nhìn ngoài rất mềm. Rập là thứ quyết định chiếc đầm mặc lên người thật trông như thế nào, không phải bản vẽ.</p>
+        <p>Đó là lúc mình hiểu tại sao mình phải đầu tư vào đây nhiều hơn bất cứ thứ gì khác.</p>
+        <p>Thứ người mặc cảm nhận được không phải vải, không phải màu, không phải nơ. Thứ họ cảm nhận được là chiếc đầm có đang khiến cho cơ thể họ thoải mái không.</p>
+        <p>Và câu trả lời cho câu hỏi đó, nằm hoàn toàn trong Rập.</p>
+      </div>
+    </article>
+
+    <!-- POST 16 -->
+    <article class="section">
+      <p class="section-number">Post 16</p>
+      <h2 class="section-title">Đầm Charlotte, đầm Blair, đầm Isla. Tại sao mình đặt tên đầm như đặt tên người</h2>
+      <div class="section-body">
+        <p>Mình đặt tên đầm như đặt tên ai đó.</p>
+        <p>Charlotte. Blair. Isla.</p>
+        <p>Không phải tên bộ sưu tập. Không phải mã sản phẩm. Tên riêng. Như một người cụ thể nào đó.</p>
+
+        <div class="pull-quote">
+          Mình làm vậy vì mình nghĩ về từng chiếc đầm như một nhân vật.
+        </div>
+
+        <p>Charlotte trông như thế nào khi bước vào phòng. Blair mang lại cảm giác gì khi mặc vào người. Isla khiến bạn muốn đi đâu.</p>
+        <p>Khi bạn đặt tên cho thứ mình làm ra, bạn buộc phải nghĩ rõ hơn về nó. Nó là ai. Nó phù hợp với ai. Nó không phù hợp với ai.</p>
+        <p>Và khi khách hàng gọi tên chiếc đầm, họ không nói mã sản phẩm. Họ nói tên một người.</p>
+        <p>Cái cảm giác đó khác hoàn toàn. Mình muốn đầm của mình được nhớ đến theo cách đó.</p>
+      </div>
+    </article>
+
+    <!-- POST 19 -->
+    <article class="section">
+      <p class="section-number">Post 19</p>
+      <h2 class="section-title">Thứ mình muốn khách nhớ: chiếc đầm này sẽ mặc đi mặc lại rất nhiều</h2>
+      <div class="section-body">
+        <p>Mình không muốn khách nhớ đến chiếc đầm.</p>
+        <p>Nghe có vẻ lạ với người làm thời trang. Nhưng mình nghĩ vậy thật.</p>
+        <p>Nếu bạn mặc một chiếc đầm của Love me in July ra ngoài và người khác nhớ đến chiếc đầm nhiều hơn nhớ đến bạn, với mình đó là thất bại.</p>
+
+        <div class="pull-quote">
+          Thứ mình muốn là bạn mặc thử, rồi trong đầu có một suy nghĩ xuất hiện tự nhiên: chiếc này mình sẽ mặc được nhiều lắm.
+        </div>
+
+        <p>Không phải chiếc này đẹp quá. Không phải chiếc này chụp hình ngon.</p>
+        <p>Mà chiếc này sẽ đi theo mình được lâu.</p>
+        <p>Đó là câu mình muốn nghe nhất từ người mặc đầm của mình. Vì nó có nghĩa là chiếc đầm đó đã làm đúng việc của nó.</p>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <strong>Love me in July</strong>
+    Brand Story Series · 2026
+  </footer>
+
+</body>
+</html>
