@@ -276,6 +276,52 @@
     margin-top: 8px;
   }
 
+  /* REGISTRATION FORM */
+  .reg-form { display: flex; flex-direction: column; gap: 22px; max-width: 480px; margin: 0 auto; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field > label { font-size: 13px; color: rgba(248,247,245,0.5); font-weight: 500; letter-spacing: 0.04em; }
+  .field input[type="text"],
+  .field input[type="tel"],
+  .field input[type="url"] {
+    background: rgba(248,247,245,0.04);
+    border: 1px solid rgba(248,247,245,0.1);
+    color: var(--light);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .field input:focus { border-color: rgba(198,230,92,0.5); }
+  .field input::placeholder { color: rgba(248,247,245,0.18); }
+  .time-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .time-opt {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 13px;
+    background: rgba(248,247,245,0.04);
+    border: 1px solid rgba(248,247,245,0.08);
+    cursor: pointer;
+    font-size: 13px;
+    color: rgba(248,247,245,0.6);
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .time-opt:hover { border-color: rgba(198,230,92,0.25); color: rgba(248,247,245,0.85); }
+  .time-opt input[type="checkbox"] { accent-color: var(--accent); width: 14px; height: 14px; flex-shrink: 0; cursor: pointer; }
+  .time-opt.checked { background: rgba(198,230,92,0.07); border-color: rgba(198,230,92,0.3); color: var(--light); }
+  .form-success {
+    display: none; text-align: center; padding: 40px 24px;
+    background: rgba(198,230,92,0.06); border: 1px solid rgba(198,230,92,0.2);
+    max-width: 480px; margin: 0 auto;
+  }
+  .form-success p { color: var(--accent); font-size: 16px; font-weight: 600; margin: 0 0 8px; }
+  .form-success span { font-size: 14px; color: rgba(248,247,245,0.5); }
+  .step-label {
+    text-align: center; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(248,247,245,0.22); margin-bottom: 20px;
+  }
+
   .faq { border-bottom: 1px solid rgba(248, 247, 245, 0.07); padding: 22px 0; }
   .faq:first-of-type { padding-top: 0; }
   .faq-q { font-size: 15px; font-weight: 600; color: var(--light); margin-bottom: 10px; }
@@ -594,12 +640,50 @@
   </div>
 </div>
 
-<!-- PAYMENT SECTION -->
+<!-- REGISTRATION + PAYMENT SECTION -->
 <div class="wrap">
   <div class="section" id="thanh-toan">
     <div class="divider center"></div>
     <h2 style="text-align: center;">Đăng ký.</h2>
-    <div class="payment-section">
+    <p style="text-align: center; color: rgba(248,247,245,0.4); margin-bottom: 48px; font-size: 15px;">Điền thông tin &rarr; chuyển khoản &rarr; mình confirm và lên lịch.</p>
+
+    <!-- STEP 1: FORM -->
+    <p class="step-label">Bước 1 &mdash; Thông tin của bạn</p>
+    <form id="reg-form" action="https://formspree.io/f/xykogopg" method="POST" class="reg-form">
+      <div class="field">
+        <label>Tên</label>
+        <input type="text" name="ten" placeholder="Tên của bạn" required>
+      </div>
+      <div class="field">
+        <label>Số điện thoại</label>
+        <input type="tel" name="sdt" placeholder="09xx xxx xxx" required>
+      </div>
+      <div class="field">
+        <label>Link Instagram</label>
+        <input type="url" name="link_ig" placeholder="https://instagram.com/tenban" required>
+      </div>
+      <div class="field">
+        <label>Khung thời gian rảnh để join meeting</label>
+        <div class="time-grid">
+          <label class="time-opt"><input type="checkbox" name="time" value="T2-T6 sáng 8-12h"> T2–T6 &nbsp;Sáng 8–12h</label>
+          <label class="time-opt"><input type="checkbox" name="time" value="T2-T6 chiều 13-17h"> T2–T6 &nbsp;Chiều 13–17h</label>
+          <label class="time-opt"><input type="checkbox" name="time" value="T2-T6 tối 18-21h"> T2–T6 &nbsp;Tối 18–21h</label>
+          <label class="time-opt"><input type="checkbox" name="time" value="Cuối tuần sáng 8-12h"> Cuối tuần &nbsp;Sáng 8–12h</label>
+          <label class="time-opt"><input type="checkbox" name="time" value="Cuối tuần chiều 13-17h"> Cuối tuần &nbsp;Chiều 13–17h</label>
+          <label class="time-opt"><input type="checkbox" name="time" value="Cuối tuần tối 18-21h"> Cuối tuần &nbsp;Tối 18–21h</label>
+        </div>
+      </div>
+      <button type="submit" class="btn-accent" style="width: 100%; cursor: pointer; border: none; font-family: 'Be Vietnam Pro', sans-serif; font-size: 15px; font-weight: 600;">Gửi thông tin &rarr;</button>
+    </form>
+
+    <div id="form-success" class="form-success">
+      <p>Đã nhận thông tin của bạn.</p>
+      <span>Tiếp tục chuyển khoản bên dưới để giữ slot &mdash; mình sẽ liên hệ sau khi xác nhận.</span>
+    </div>
+
+    <!-- STEP 2: PAYMENT -->
+    <div class="payment-section" style="margin-top: 64px;">
+      <p class="step-label">Bước 2 &mdash; Chuyển khoản để giữ slot</p>
       <img src="tracey viral/IMG_7256.JPG" alt="QR thanh toán" class="payment-qr">
       <div class="payment-info">
         <div class="payment-row">
@@ -611,7 +695,7 @@
           <span class="payment-val">Số điện thoại + kênh IG của bạn</span>
         </div>
       </div>
-      <p class="payment-note">· Số điện thoại để mình liên hệ qua Zalo.<br>· Kênh IG của bạn để mình theo dõi và support trong suốt thời gian coaching.</p>
+      <p class="payment-note">Sau khi chuyển khoản, mình sẽ liên hệ qua Zalo để xác nhận và lên lịch.</p>
     </div>
   </div>
 </div>
@@ -619,6 +703,42 @@
 <footer>
   <p>No Crying IG · @tracey.contentworks · 2026</p>
 </footer>
+
+<script>
+  document.querySelectorAll('.time-opt').forEach(function(label) {
+    label.addEventListener('change', function() {
+      label.classList.toggle('checked', label.querySelector('input').checked);
+    });
+  });
+
+  var form = document.getElementById('reg-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Đang gửi...';
+      btn.disabled = true;
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+          document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          btn.textContent = 'Gửi thông tin →';
+          btn.disabled = false;
+        }
+      } catch(err) {
+        btn.textContent = 'Gửi thông tin →';
+        btn.disabled = false;
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
