@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The IG Atelier — @tracey.contentworks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --dark: #000000;
+    --light: #f8f7f5;
+    --accent: #BEAEDB;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: var(--dark);
+    color: var(--light);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .header-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--accent);
+    color: var(--dark);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .header-bar p { font-size: 14px; font-weight: 600; color: var(--dark); }
+
+  .btn-dark {
+    background: var(--dark);
+    color: var(--light);
+    padding: 10px 22px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .btn-dark:hover { opacity: 0.82; }
+
+  .btn-main {
+    background: var(--light);
+    color: var(--dark);
+    padding: 15px 36px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+  .btn-main:hover { opacity: 0.85; }
+
+  .btn-accent {
+    background: var(--accent);
+    color: var(--dark);
+    padding: 15px 36px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+  .btn-accent:hover { opacity: 0.85; }
+
+  .wrap { max-width: 700px; margin: 0 auto; padding: 0 28px; }
+  .section { padding: 80px 0; }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(40px, 7vw, 74px);
+    line-height: 1.08;
+    margin-bottom: 20px;
+    color: var(--light);
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    color: var(--light);
+  }
+  h2 em { font-style: italic; color: var(--accent); }
+
+  p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: rgba(248, 247, 245, 0.78);
+    margin-bottom: 16px;
+  }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--light); font-weight: 600; }
+
+  .label {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .divider { width: 44px; height: 2px; background: var(--accent); margin-bottom: 36px; }
+  .divider.center { margin: 0 auto 40px; }
+
+  .hero { padding: 100px 0 72px; text-align: center; }
+  .hero .sub {
+    font-size: 18px;
+    color: rgba(248, 247, 245, 0.55);
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pain-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+  .pain-list li {
+    padding: 18px 22px;
+    background: rgba(248, 247, 245, 0.04);
+    border-left: 3px solid var(--accent);
+    font-size: 16px;
+    color: rgba(248, 247, 245, 0.8);
+    line-height: 1.65;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin: 40px 0;
+  }
+  .stat-card { background: rgba(248, 247, 245, 0.04); overflow: hidden; }
+  .stat-img { width: 100%; height: auto; display: block; }
+  .stat-body { padding: 16px 18px 20px; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .stat-desc { font-size: 12px; color: rgba(248, 247, 245, 0.45); line-height: 1.5; }
+
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin: 36px 0; }
+  .compare-col { padding: 30px 22px; }
+  .compare-col.old { background: rgba(248, 247, 245, 0.03); }
+  .compare-col.new { background: rgba(190, 174, 219, 0.07); border: 1px solid rgba(190, 174, 219, 0.2); }
+  .col-label {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 18px; display: block;
+  }
+  .compare-col.old .col-label { color: rgba(248, 247, 245, 0.3); }
+  .compare-col.new .col-label { color: var(--accent); }
+  .compare-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .compare-col ul li {
+    font-size: 14px; color: rgba(248, 247, 245, 0.65);
+    padding-left: 18px; position: relative; line-height: 1.55;
+  }
+  .compare-col.old ul li::before {
+    content: 'x'; position: absolute; left: 0;
+    color: rgba(248, 247, 245, 0.2); font-size: 11px; top: 2px;
+  }
+  .compare-col.new ul li { color: rgba(248, 247, 245, 0.9); }
+  .compare-col.new ul li::before {
+    content: '->'; position: absolute; left: 0; color: var(--accent); font-size: 11px; top: 2px;
+  }
+
+  .module { border: 1px solid rgba(248, 247, 245, 0.08); margin-bottom: 14px; }
+  .module-head {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 26px 24px; background: rgba(248, 247, 245, 0.03);
+  }
+  .module-n {
+    font-family: 'DM Serif Display', serif;
+    font-size: 40px; color: var(--accent); opacity: 0.45;
+    line-height: 1; flex-shrink: 0; min-width: 40px;
+  }
+  .module-title { font-size: 17px; font-weight: 600; color: var(--light); margin-bottom: 6px; }
+  .module-sub { font-size: 13px; color: rgba(248, 247, 245, 0.45); margin: 0; line-height: 1.5; }
+  .module-lessons {
+    list-style: none; padding: 16px 24px 6px 84px;
+    display: flex; flex-direction: column; gap: 9px;
+  }
+  .module-lessons li {
+    font-size: 14px; color: rgba(248, 247, 245, 0.65);
+    padding-left: 14px; position: relative; line-height: 1.55;
+  }
+  .module-lessons li::before { content: '·'; position: absolute; left: 0; color: var(--accent); }
+  .module-body-text {
+    padding: 16px 24px 6px 84px;
+  }
+  .module-body-text p { font-size: 15px; color: rgba(248, 247, 245, 0.68); margin-bottom: 10px; }
+  .module-teaser {
+    padding: 14px 24px 22px 84px;
+    font-size: 13px;
+    color: rgba(248, 247, 245, 0.35);
+    font-style: italic;
+  }
+
+  .bonus-list { list-style: none; margin-top: 8px; }
+  .bonus-list li {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 20px; padding: 15px 0; border-bottom: 1px solid rgba(248, 247, 245, 0.07);
+  }
+  .bonus-list li:last-child { border-bottom: none; }
+  .bonus-name { font-size: 15px; color: rgba(248, 247, 245, 0.82); }
+  .bonus-tag { font-size: 12px; color: rgba(248, 247, 245, 0.3); white-space: nowrap; flex-shrink: 0; }
+
+  .price-box {
+    border: 1px solid rgba(190, 174, 219, 0.25);
+    background: rgba(190, 174, 219, 0.04);
+    padding: 48px 40px; max-width: 460px; margin: 0 auto; text-align: center;
+  }
+  .price-lbl { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: block; }
+  .price-num { font-family: 'DM Serif Display', serif; font-size: 60px; color: var(--light); line-height: 1; margin-bottom: 8px; }
+  .price-note { font-size: 13px; color: rgba(248, 247, 245, 0.35); margin-bottom: 32px; }
+  .price-includes { list-style: none; text-align: left; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
+  .price-includes li { font-size: 14px; color: rgba(248, 247, 245, 0.75); padding-left: 20px; position: relative; }
+  .price-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-size: 12px; }
+
+  .payment-section {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .payment-qr {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    display: block;
+    margin: 0 auto 32px;
+    border-radius: 12px;
+  }
+  .payment-info {
+    background: rgba(248, 247, 245, 0.04);
+    border: 1px solid rgba(248, 247, 245, 0.08);
+    padding: 28px 32px;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+  .payment-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(248, 247, 245, 0.06);
+  }
+  .payment-row:last-child { border-bottom: none; }
+  .payment-key { font-size: 12px; color: rgba(248, 247, 245, 0.38); white-space: nowrap; }
+  .payment-val { font-size: 15px; color: var(--light); font-weight: 600; text-align: right; }
+  .payment-note {
+    font-size: 14px;
+    color: rgba(248, 247, 245, 0.6);
+    line-height: 1.75;
+    margin-top: 8px;
+  }
+
+  .reg-form { display: flex; flex-direction: column; gap: 22px; max-width: 480px; margin: 0 auto; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field > label { font-size: 13px; color: rgba(248,247,245,0.5); font-weight: 500; letter-spacing: 0.04em; }
+  .field input[type="text"],
+  .field input[type="tel"],
+  .field input[type="url"] {
+    background: rgba(248,247,245,0.04);
+    border: 1px solid rgba(248,247,245,0.1);
+    color: var(--light);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .field input:focus { border-color: rgba(190,174,219,0.5); }
+  .field input::placeholder { color: rgba(248,247,245,0.18); }
+  .time-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .time-opt {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 13px;
+    background: rgba(248,247,245,0.04);
+    border: 1px solid rgba(248,247,245,0.08);
+    cursor: pointer;
+    font-size: 13px;
+    color: rgba(248,247,245,0.6);
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .time-opt:hover { border-color: rgba(190,174,219,0.25); color: rgba(248,247,245,0.85); }
+  .time-opt input[type="checkbox"] { accent-color: var(--accent); width: 14px; height: 14px; flex-shrink: 0; cursor: pointer; }
+  .time-opt.checked { background: rgba(190,174,219,0.07); border-color: rgba(190,174,219,0.3); color: var(--light); }
+  .form-success {
+    display: none; text-align: center; padding: 40px 24px;
+    background: rgba(190,174,219,0.06); border: 1px solid rgba(190,174,219,0.2);
+    max-width: 480px; margin: 0 auto;
+  }
+  .form-success p { color: var(--accent); font-size: 16px; font-weight: 600; margin: 0 0 8px; }
+  .form-success span { font-size: 14px; color: rgba(248,247,245,0.5); }
+
+  .faq { border-bottom: 1px solid rgba(248, 247, 245, 0.07); padding: 22px 0; }
+  .faq:first-of-type { padding-top: 0; }
+  .faq-q { font-size: 15px; font-weight: 600; color: var(--light); margin-bottom: 10px; }
+  .faq-a { font-size: 14px; color: rgba(248, 247, 245, 0.62); line-height: 1.75; margin: 0; }
+
+  .closing {
+    background: rgba(248, 247, 245, 0.03);
+    border-top: 1px solid rgba(248, 247, 245, 0.07);
+    border-bottom: 1px solid rgba(248, 247, 245, 0.07);
+    padding: 80px 28px; text-align: center;
+  }
+  .closing .inner { max-width: 560px; margin: 0 auto; }
+
+  footer { padding: 36px 24px; text-align: center; font-size: 13px; color: rgba(248, 247, 245, 0.2); }
+
+  @media (max-width: 600px) {
+    .compare { grid-template-columns: 1fr; }
+    .header-bar { flex-direction: column; text-align: center; gap: 10px; }
+    .price-box { padding: 32px 22px; }
+    .price-num { font-size: 46px; }
+    .module-lessons { padding-left: 24px; }
+    .module-body-text { padding-left: 24px; }
+    .module-teaser { padding-left: 24px; }
+    .hero { padding: 72px 0 56px; }
+    .payment-info { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER BAR -->
+<div class="header-bar">
+  <p>The IG Atelier · @tracey.contentworks</p>
+  <a href="javascript:void(0)" onclick="document.getElementById('dang-ky').scrollIntoView({behavior:'smooth'})" class="btn-dark">Đăng ký ngay</a>
+</div>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <span class="label">@tracey.contentworks · The IG Atelier · mentorship 1-1</span>
+    <h1>TikTok dễ lên view.<br>Nhưng bạn đang<br><em>mắc kẹt trong đó.</em></h1>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px;">
+      <span style="padding: 7px 18px; border: 1px solid rgba(190,174,219,0.4); font-size: 13px; color: rgba(248,247,245,0.85);">KOC / KOL</span>
+      <span style="padding: 7px 18px; border: 1px solid rgba(190,174,219,0.4); font-size: 13px; color: rgba(248,247,245,0.85);">Aspiring influencer</span>
+      <span style="padding: 7px 18px; border: 1px solid rgba(190,174,219,0.4); font-size: 13px; color: rgba(248,247,245,0.85);">Creator muốn monetize thật sự</span>
+    </div>
+    <p class="sub">Muốn build IG nhanh nhưng không biết bắt đầu từ đâu. Xây branding chỉn chu nhưng mãi không ai biết đến. Đăng đều mà followers vẫn đứng im. Nhìn người khác viral mà không hiểu họ đang làm gì khác mình.</p>
+  </div>
+</div>
+
+<!-- WHY INSTAGRAM -->
+<div class="wrap">
+  <div class="section">
+    <div class="divider"></div>
+    <h2>Instagram khó hơn TikTok.<br><em>Đó chính xác là lý do còn chỗ cho bạn.</em></h2>
+    <p>TikTok cạnh tranh cực cao. Account mới vẫn có thể viral ngang account đã nổi. Thuật toán luôn đề xuất thêm hàng chục account khác ngay cạnh bạn. Người xem xong rồi cuộn tiếp, không có lý do nào để quay lại tìm bạn.</p>
+    <p>Quan trọng hơn: followers trên TikTok không liên quan đến views. Bạn có thể có rất nhiều followers nhưng content tiếp theo chỉ reach được vài trăm người trong số đó. Những người đã biết bạn qua một clip, qua một dịp nào đó, họ không có cơ hội được thấy bạn thêm lần nào nữa. Đó là lý do TikTok rất khó ra chuyển đổi và phải liên tục cạnh tranh để tồn tại.</p>
+    <p>Instagram thì khác. Người follow trên IG rất khó tính. Họ không follow bừa. Nhưng khi họ đã follow, họ chủ động muốn thấy bạn thêm. Và thuật toán IG ưu tiên đưa bạn đến đúng những người đó trước.</p>
+    <p>Khi ai đó đã follow bạn trên IG, thuật toán sẽ tiếp tục đẩy bạn xuất hiện trên feed của họ, lặp lại đủ nhiều lần. Không phải một lần rồi thôi. Chính sự xuất hiện lặp lại đó tạo ra sự quen thuộc, rồi trust, rồi mới ra được chuyển đổi. Followers trên IG và views trên IG không tỉ lệ nghịch nhau như TikTok. Đó là lý do người có ít followers trên IG vẫn bán được hàng, vẫn có deal, vẫn ra chuyển đổi thật.</p>
+    <p style="color: rgba(248,247,245,0.45);">Instagram khó nên ít người làm đúng. Và đó chính xác là lý do vẫn còn chỗ cho bạn.</p>
+  </div>
+</div>
+
+<!-- IF THIS IS YOU -->
+<div class="wrap">
+  <div class="section">
+    <div class="divider"></div>
+    <h2>Bạn đang ở đây không?</h2>
+    <ul class="pain-list">
+      <li>Có kênh TikTok 10k-50k, đã nhận booking, nhưng view không ổn định. Mỗi lần đăng là một lần may rủi.</li>
+      <li>Áp công thức TikTok vào Instagram, follower không tăng, reach không ra tệp mới. Không hiểu tại sao.</li>
+      <li>Muốn xây Instagram như portfolio xịn để nhận deal từ brand cao hơn, nhưng không biết bắt đầu từ đâu.</li>
+      <li>Muốn có mặt trên nhiều nền tảng nhưng không có thời gian chạy song song. Muốn làm một mà được hai.</li>
+      <li>Đang ở mức vài trăm đến 1-2k followers trên IG. Muốn làm influencer nhưng không biết hướng. Không bứt phá được.</li>
+      <li>Đã buff follow ảo, có số đẹp nhưng engagement gần bằng không. Story view thật chỉ vài chục. Brand nhìn vào là biết ngay.</li>
+      <li>Có followers nhưng không có trust thật. Link affiliate gần bằng 0 click. Brand deal không đến hoặc giá vẫn thấp.</li>
+      <li>Biết mình có chuyên môn, có góc nhìn, nhưng không ai biết đến mình ngoài tệp cũ.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="wrap">
+  <div class="section" style="padding-top: 0;">
+    <div class="divider"></div>
+    <h2>Mình bắt đầu IG như một thứ phụ.</h2>
+    <p>Chưa nghiêm túc. Chỉ đăng thử. Reels đầu tiên: <strong style="color: var(--accent);">1,9 triệu views trong 5 ngày.</strong></p>
+    <p>Mình không hiểu tại sao. Nhưng mình bắt đầu để ý, test, và dần hiểu ra cách Instagram hoạt động thực sự.</p>
+    <p>Kênh kẹt ở 8k followers gần 1 năm. Mình áp đúng nguyên lý. 2 tháng sau: +7k followers. Bây giờ 17k, 2,500 mắt xem story thật.</p>
+    <p>Không lộ mặt. Không chạy ads. Không chạy theo trend.</p>
+    <p>Brand bắt đầu tìm đến mình. Không cần gửi media kit lần nào.</p>
+    <p>Mình không làm gì đặc biệt. Mình chỉ hiểu Instagram vận hành theo một nguyên lý hoàn toàn khác. Và khi bạn hiểu nguyên lý đó, mọi thứ thay đổi.</p>
+    <p>Nguyên lý đó, mình muốn chia sẻ với bạn.</p>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="wrap">
+  <div class="section" style="padding-top: 0; padding-bottom: 40px;">
+    <div class="divider center"></div>
+    <h2 style="text-align: center;">Số liệu thật. Không chỉnh sửa.</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <img src="https://tracey-contentworks.github.io/no-crying-ig/tracey%20viral/IMG_9095.PNG" alt="1.9M views" class="stat-img">
+        <div class="stat-body">
+          <div class="stat-num">1.9M</div>
+          <div class="stat-desc">views trong 5 ngày<br>reels đầu tiên sau khi áp đúng nguyên lý</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <img src="https://tracey-contentworks.github.io/no-crying-ig/tracey%20viral/655936275_17872448310565380_5499222479150177928_n.jpg" alt="1.3M views" class="stat-img">
+        <div class="stat-body">
+          <div class="stat-num">1.3M</div>
+          <div class="stat-desc">views trong 1 ngày<br>không chạy ads, không trend</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <img src="https://tracey-contentworks.github.io/no-crying-ig/tracey%20viral/659082893_17875530051565380_4069729507930193405_n.jpg" alt="6M views" class="stat-img">
+        <div class="stat-body">
+          <div class="stat-num">6M+</div>
+          <div class="stat-desc">views trong 17 ngày<br>10 ngày không đăng thêm gì</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <img src="https://tracey-contentworks.github.io/no-crying-ig/tracey%20viral/657826911_17872449435565380_8840640456010193142_n.jpg" alt="5500 profile visits" class="stat-img">
+        <div class="stat-body">
+          <div class="stat-num">5.500+</div>
+          <div class="stat-desc">người lạ click vào trang cá nhân<br>để tìm hiểu thêm về mình</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <img src="https://tracey-contentworks.github.io/no-crying-ig/tracey%20viral/649167853_17870148717565380_1066863605159410747_n.jpg" alt="Dec followers +1584" class="stat-img">
+        <div class="stat-body">
+          <div class="stat-num">+1.584</div>
+          <div class="stat-desc">followers tháng 12<br>1,990 follows · +12.2%</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <img src="https://tracey-contentworks.github.io/no-crying-ig/tracey%20viral/643041276_17870148726565380_1858704735896417119_n.jpg" alt="Jan followers +4838" class="stat-img">
+        <div class="stat-body">
+          <div class="stat-num">+4.838</div>
+          <div class="stat-desc">followers tháng 1<br>5,555 follows · +49.7%</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 24px; padding: 22px 24px; background: rgba(190,174,219,0.06); border: 1px solid rgba(190,174,219,0.18); text-align: center;">
+      <div style="font-family: 'DM Serif Display', serif; font-size: 34px; color: var(--accent); line-height: 1; margin-bottom: 8px;">+7.000 followers</div>
+      <div style="font-size: 13px; color: rgba(248,247,245,0.55); line-height: 1.65;">trong 2 tháng · kênh trước đó kẹt ở ~8.000 followers gần 1 năm · không có ads, không có gimmick</div>
+    </div>
+    <p style="text-align: center; font-size: 13px; color: rgba(248,247,245,0.35); margin-top: 14px;">Bỏ acc 2 tháng, ngày đăng trở lại: 3 bài đều viral. Bèo nhất 42k, cao nhất gần 450k views.</p>
+    <img src="https://tracey-contentworks.github.io/no-crying-ig/tracey%20viral/9AC15D18-296E-4793-B8BC-40F0E3B6E6FB.jpg" alt="Bằng chứng thật" style="width: 100%; max-width: 480px; height: auto; display: block; margin: 20px auto 0;">
+  </div>
+</div>
+
+<!-- BEFORE / AFTER -->
+<div class="wrap">
+  <div class="section" style="padding-top: 0;">
+    <div class="divider"></div>
+    <h2>Cùng một kênh. <em>Khác một nguyên lý.</em></h2>
+    <div class="compare">
+      <div class="compare-col old">
+        <span class="col-label">Đang kẹt</span>
+        <ul>
+          <li>Content đẹp, chỉn chu, nhưng reach chỉ quanh tệp cũ, không ra người mới</li>
+          <li>Đăng rồi chờ, không biết có viral hay không, không có cơ sở nào để xác định</li>
+          <li>Làm hình ảnh kỹ nhưng không ai inbox, không ai hỏi han gì</li>
+          <li>Re-up TikTok qua IG, thấy không hiệu quả nhưng không biết làm cách nào khác</li>
+          <li>Loay hoay dù biết mình có thế mạnh riêng, chỉ là view và follower không chịu tăng</li>
+        </ul>
+      </div>
+      <div class="compare-col new">
+        <span class="col-label">Sau The IG Atelier</span>
+        <ul>
+          <li>Biết bài nào sẽ được đón nhận trước khi đăng</li>
+          <li>Reach ra tệp mới liên tục, followers tăng đều, không phụ thuộc vào may rủi</li>
+          <li>Engagement thật: người lạ inbox, follow vì chủ động muốn thấy thêm</li>
+          <li>Brand tìm đến, không cần gửi media kit</li>
+          <li>Muốn làm gì với kênh cũng ra kết quả vì nền tảng là trust thật</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CURRICULUM -->
+<div class="wrap">
+  <div class="section" style="padding-top: 0;">
+    <div class="divider"></div>
+    <h2>Bên trong The IG Atelier.</h2>
+    <p style="margin-bottom: 32px; color: rgba(248,247,245,0.55);">3 module. Mentorship 1-1 cùng Tracey.</p>
+
+    <div class="module">
+      <div class="module-head">
+        <div class="module-n">01</div>
+        <div>
+          <div class="module-title">Xây nền trước khi tăng</div>
+          <p class="module-sub">Không ai follow kênh không có lý do. Module này chuẩn bị để bất kỳ người lạ nào ghé trang cũng biết họ đang xem gì, và quyết định ngay có follow không.</p>
+        </div>
+      </div>
+      <ul class="module-lessons">
+        <li>Profile, highlight, feed: vào trang trong 3 giây là hiểu bạn là ai</li>
+        <li>Định vị kênh: bạn nói chuyện với ai, về điều gì</li>
+        <li>Tại sao công thức TikTok không áp sang IG được và bạn cần làm khác gì</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <div class="module-head">
+        <div class="module-n">02</div>
+        <div>
+          <div class="module-title">Hệ thống tăng trưởng thật <span style="font-size: 12px; color: var(--accent); font-family: 'Be Vietnam Pro', sans-serif; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-left: 8px;">quan trọng nhất</span></div>
+          <p class="module-sub">IG và TikTok vận hành theo hai nguyên lý hoàn toàn khác nhau. Module này hướng dẫn bạn cách tăng follower thật, story view thật, reach đúng tệp, không cần lộ mặt hay chạy theo trend.</p>
+        </div>
+      </div>
+      <ul class="module-lessons">
+        <li>Thuật toán IG hoạt động như thế nào thực sự</li>
+        <li>Kênh đang ở giai đoạn nào và cần làm gì ở giai đoạn đó</li>
+        <li>Content system để xuất hiện đều đặn mà không kiệt sức, không cần edit</li>
+        <li>Cách kéo follower thật: story view tăng, engagement tăng, reach đúng người cần bạn</li>
+        <li>Không lộ mặt, không ồn ào, không chiêu trò vẫn tăng được</li>
+      </ul>
+    </div>
+
+    <div class="module">
+      <div class="module-head">
+        <div class="module-n">03</div>
+        <div>
+          <div class="module-title">Từ follower thật đến tiền thật</div>
+          <p class="module-sub">Khi nền tảng là trust thật, muốn làm gì với traffic cũng ra chuyển đổi. Affiliate, brand deal cao cấp, coaching, sản phẩm số: đều được.</p>
+        </div>
+      </div>
+      <ul class="module-lessons">
+        <li>Nguyên lý chuyển đổi trên IG khác TikTok hoàn toàn</li>
+        <li>Brand nhìn vào gì để quyết định hợp tác và bạn cần chuẩn bị gì</li>
+        <li>Cách làm affiliate ra click thật, không phải để link vào bio cho xong</li>
+        <li>Storytelling: dùng câu chuyện cá nhân để bán mà không cần bán</li>
+      </ul>
+      <p class="module-teaser">Phần thực chiến mình chỉ chia sẻ trong buổi mentorship.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<div class="wrap">
+  <div class="section" style="padding-top: 0;">
+    <div class="divider"></div>
+    <h2>Bạn nhận được gì.</h2>
+    <p style="margin-bottom: 28px; color: rgba(248,247,245,0.55);">Mentorship 1-1, cá nhân hóa theo kênh của bạn, không phải template cho tất cả mọi người.</p>
+    <ul class="bonus-list">
+      <li>
+        <span class="bonus-name">Phân tích kênh cá nhân trước buổi học</span>
+        <span class="bonus-tag">Tracey review profile và nội dung hiện tại của bạn</span>
+      </li>
+      <li>
+        <span class="bonus-name">Mentorship 1-1 với Tracey</span>
+        <span class="bonus-tag">zoom, không qua middleman</span>
+      </li>
+      <li>
+        <span class="bonus-name">Lộ trình content cá nhân hóa cho kênh của bạn</span>
+        <span class="bonus-tag">không copy-paste từ ai khác</span>
+      </li>
+      <li>
+        <span class="bonus-name">Tài liệu ghi chú để xem lại sau</span>
+        <span class="bonus-tag">không lo quên</span>
+      </li>
+      <li>
+        <span class="bonus-name">Support 1 tháng qua chat, voice, meeting</span>
+        <span class="bonus-tag">hỏi bất cứ lúc nào</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="wrap">
+  <div class="section" style="padding-top: 0;">
+    <div class="divider center"></div>
+    <h2 style="text-align: center;">Chi phí.</h2>
+
+    <div class="price-box">
+      <span class="price-lbl">The IG Atelier · Mentorship 1-1</span>
+      <div class="price-num">2.500.000đ</div>
+      <p class="price-note">Một lần duy nhất · mentorship 1-1, mình làm việc trực tiếp với từng người nên số lượng mỗi tháng tự nhiên bị giới hạn.</p>
+      <ul class="price-includes">
+        <li>3 module mentorship 1-1 với Tracey</li>
+        <li>Phân tích kênh cá nhân trước buổi học</li>
+        <li>Lộ trình content cá nhân hóa, không template</li>
+        <li>1 tháng support qua chat, voice, meeting</li>
+        <li>Tài liệu ghi chú để xem lại</li>
+      </ul>
+      <a href="javascript:void(0)" onclick="document.getElementById('dang-ky').scrollIntoView({behavior:'smooth'})" class="btn-accent">Đăng ký ngay -></a>
+    </div>
+
+    <div style="max-width: 460px; margin: 32px auto 0; padding: 32px 28px; border-top: 1px solid rgba(248,247,245,0.07); text-align: left;">
+      <p style="font-size: 15px; color: rgba(248,247,245,0.75); margin-bottom: 14px;">Còn 6 tháng nữa là hết năm.</p>
+      <p style="font-size: 15px; color: rgba(248,247,245,0.75); margin-bottom: 14px;">Nếu bạn bắt đầu từ bây giờ, cuối năm bạn đã có kênh IG đang tăng thật.</p>
+      <p style="font-size: 15px; color: rgba(248,247,245,0.75); margin-bottom: 14px;">Cái dự định xây kênh của bạn đã nằm trong đầu từ bao lâu rồi? Năm ngoái bạn cũng nghĩ vậy không?</p>
+      <p style="font-size: 14px; color: rgba(248,247,245,0.38); margin: 0;">Nếu bạn thật sự muốn bắt đầu, mình ở đây. Nếu bạn chỉ đang xem thêm, trang này không có gì mới hơn cho bạn nữa đâu.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs -->
+<div class="wrap">
+  <div class="section" style="padding-top: 0;">
+    <div class="divider"></div>
+    <h2>Có thể bạn đang nghĩ...</h2>
+
+    <div class="faq">
+      <p class="faq-q">"Em đang làm TikTok tốt rồi, cần IG làm gì?"</p>
+      <p class="faq-a">TikTok cho bạn view khi thuật toán push. Instagram là tài sản tích lũy. Followers trên IG tiếp tục thấy bạn, quen thuộc dần, rồi chuyển đổi. Một kênh IG đủ mạnh cho bạn chủ động, không phụ thuộc vào từng video riêng lẻ. Nếu số followers và số views tỉ lệ nghịch với nhau, vậy thì ra chuyển đổi kiểu gì?</p>
+    </div>
+
+    <div class="faq">
+      <p class="faq-q">"Em đã buff follow rồi, giờ phải làm sao?"</p>
+      <p class="faq-a">Buff là vì không biết cách nào khác để đạt được con số mình muốn, không phải vì lười hay gian. Nhưng kết quả là views không tăng, tương tác không có, follow nhiều mà kênh vẫn đứng im. Mình sẽ show bạn cách thực sự ra được những con số đó, đúng từ dưới lên, không cần tiếp tục đổ tiền vào thứ không ra kết quả.</p>
+    </div>
+
+    <div class="faq">
+      <p class="faq-q">"Em mới, chưa có followers nào cả."</p>
+      <p class="faq-a">Bắt đầu đúng cách từ đầu luôn tốt hơn xây sai rồi phá đi làm lại. Mình sẽ hướng dẫn bạn xây từ nền, đúng hướng, không cần đi vòng như mình đã từng đi.</p>
+    </div>
+
+    <div class="faq">
+      <p class="faq-q">"Em không muốn lộ mặt."</p>
+      <p class="faq-a">Mình cũng không lộ mặt. Kênh mình chỉ đăng chữ, vẫn viral, vẫn tăng đều, brand vẫn tìm đến. Lộ mặt không phải điều kiện để IG hoạt động. Đó là một trong những thứ mình sẽ show bạn.</p>
+    </div>
+
+    <div class="faq">
+      <p class="faq-q">"Em học nhiều rồi, học thêm để làm gì?"</p>
+      <p class="faq-a">Tips thì ở đâu cũng có. Lưu cả đống how-to, checklist, công thức rồi vẫn không biết bắt đầu từ đâu. Cái mình chia sẻ không phải tips. Là nguyên lý. Hiểu cơ chế rồi thì không cần lưu thêm bất cứ cái gì nữa. Và mình review trực tiếp kênh của bạn, không phải theo kiểu one-size-fits-all.</p>
+    </div>
+
+    <div class="faq">
+      <p class="faq-q">"Em bận, không có thời gian làm content đều."</p>
+      <p class="faq-a">Một trong những thứ mình chia sẻ là content system để xuất hiện đều đặn mà không kiệt sức, không cần edit nhiều. Không cần đăng mỗi ngày. Đăng content viral có chủ đích. Ít mà đúng vẫn ra kết quả hơn nhiều mà sai.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="inner">
+    <span class="label" style="display: block; text-align: center;">thật lòng</span>
+    <h2>Mình muốn bạn có kênh phát triển nhanh trong lúc người khác đã bỏ cuộc.</h2>
+    <p>Mình muốn bạn không còn chật vật với Instagram nữa. Không còn ngồi đăng bài mà không hiểu tại sao kênh không tăng.</p>
+    <p>Mình muốn bạn hiểu được nguyên lý. Điều khiển được kênh. Và tăng nhanh nhất có thể, vì mọi thứ đang thay đổi rất nhanh.</p>
+    <p>Thoát khỏi chỗ đông đúc như TikTok và xây nhà trên Instagram đúng cách. Để luôn có người mới biết đến bạn. Để lời mời hợp tác bắt đầu tìm đến bạn, không phải bạn đi tìm nó.</p>
+    <div style="margin-top: 40px;">
+      <a href="javascript:void(0)" onclick="document.getElementById('dang-ky').scrollIntoView({behavior:'smooth'})" class="btn-main">Đăng ký ngay -></a>
+    </div>
+    <p style="margin-top: 20px; font-size: 13px; color: rgba(248,247,245,0.28);">@tracey.contentworks</p>
+  </div>
+</div>
+
+<!-- REGISTRATION + PAYMENT SECTION -->
+<div class="wrap">
+  <div class="section" id="dang-ky">
+    <div class="divider center"></div>
+    <h2 style="text-align: center;">Đăng ký.</h2>
+    <div class="payment-section">
+      <img src="https://tracey-contentworks.github.io/no-crying-ig/tracey%20viral/IMG_7256.JPG" alt="QR thanh toán" class="payment-qr">
+      <div class="payment-info">
+        <div class="payment-row">
+          <span class="payment-key">Số tiền</span>
+          <span class="payment-val" style="color: var(--accent);">2.500.000đ</span>
+        </div>
+        <div class="payment-row">
+          <span class="payment-key">Nội dung CK</span>
+          <span class="payment-val">IGATELIER + sdt</span>
+        </div>
+      </div>
+      <p class="payment-note">Bạn gửi bill qua Instagram @tracey.contentworks, mình sẽ xác nhận và hẹn lịch mentorship.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>The IG Atelier · @tracey.contentworks · 2026</p>
+</footer>
+
+</body>
+</html>
